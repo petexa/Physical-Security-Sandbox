@@ -6,7 +6,10 @@
     "location": "Associated with Door 1",
     "door_id": "DOOR-001",
     "controller_id": "CTRL-001",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 1 REX Button - Associated with Door 1",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-002",
@@ -15,7 +18,10 @@
     "location": "Associated with Door 2",
     "door_id": "DOOR-002",
     "controller_id": "CTRL-001",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 2 Tamper Switch - Associated with Door 2",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-003",
@@ -24,7 +30,10 @@
     "location": "Associated with Door 3",
     "door_id": "DOOR-003",
     "controller_id": "CTRL-001",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 3 Contact - Associated with Door 3",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-004",
@@ -33,7 +42,10 @@
     "location": "Associated with Door 4",
     "door_id": "DOOR-004",
     "controller_id": "CTRL-001",
-    "state": "alarm"
+    "state": "alarm",
+    "description": "Door 4 Contact - Associated with Door 4",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-005",
@@ -42,7 +54,10 @@
     "location": "Associated with Door 5",
     "door_id": "DOOR-005",
     "controller_id": "CTRL-001",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 5 Tamper Switch - Associated with Door 5",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-006",
@@ -51,7 +66,10 @@
     "location": "Associated with Door 6",
     "door_id": "DOOR-006",
     "controller_id": "CTRL-001",
-    "state": "fault"
+    "state": "fault",
+    "description": "Door 6 Contact - Associated with Door 6",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-007",
@@ -60,7 +78,10 @@
     "location": "Associated with Door 7",
     "door_id": "DOOR-007",
     "controller_id": "CTRL-001",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 7 REX Button - Associated with Door 7",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-008",
@@ -69,7 +90,10 @@
     "location": "Associated with Door 8",
     "door_id": "DOOR-008",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 8 Tamper Switch - Associated with Door 8",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-009",
@@ -78,7 +102,10 @@
     "location": "Associated with Door 9",
     "door_id": "DOOR-009",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 9 Contact - Associated with Door 9",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-010",
@@ -87,7 +114,10 @@
     "location": "Associated with Door 10",
     "door_id": "DOOR-010",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 10 REX Button - Associated with Door 10",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-011",
@@ -96,7 +126,10 @@
     "location": "Associated with Door 11",
     "door_id": "DOOR-011",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 11 Motion Sensor - Associated with Door 11",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-012",
@@ -105,7 +138,10 @@
     "location": "Associated with Door 12",
     "door_id": "DOOR-012",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 12 Motion Sensor - Associated with Door 12",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-013",
@@ -114,7 +150,10 @@
     "location": "Associated with Door 13",
     "door_id": "DOOR-013",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 13 Motion Sensor - Associated with Door 13",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-014",
@@ -123,7 +162,10 @@
     "location": "Associated with Door 14",
     "door_id": "DOOR-014",
     "controller_id": "CTRL-002",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 14 Tamper Switch - Associated with Door 14",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-015",
@@ -132,7 +174,10 @@
     "location": "Associated with Door 15",
     "door_id": "DOOR-015",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 15 Contact - Associated with Door 15",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-016",
@@ -141,7 +186,10 @@
     "location": "Associated with Door 16",
     "door_id": "DOOR-016",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 16 Contact - Associated with Door 16",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-017",
@@ -150,7 +198,10 @@
     "location": "Associated with Door 17",
     "door_id": "DOOR-017",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 17 Motion Sensor - Associated with Door 17",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-018",
@@ -159,7 +210,10 @@
     "location": "Associated with Door 18",
     "door_id": "DOOR-018",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 18 Motion Sensor - Associated with Door 18",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-019",
@@ -168,7 +222,10 @@
     "location": "Associated with Door 19",
     "door_id": "DOOR-019",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 19 Tamper Switch - Associated with Door 19",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-020",
@@ -177,7 +234,10 @@
     "location": "Associated with Door 20",
     "door_id": "DOOR-020",
     "controller_id": "CTRL-003",
-    "state": "fault"
+    "state": "fault",
+    "description": "Door 20 Contact - Associated with Door 20",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-021",
@@ -186,7 +246,10 @@
     "location": "Associated with Door 21",
     "door_id": "DOOR-021",
     "controller_id": "CTRL-003",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 21 Contact - Associated with Door 21",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-022",
@@ -195,7 +258,10 @@
     "location": "Associated with Door 22",
     "door_id": "DOOR-022",
     "controller_id": "CTRL-004",
-    "state": "fault"
+    "state": "fault",
+    "description": "Door 22 Tamper Switch - Associated with Door 22",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-023",
@@ -204,7 +270,10 @@
     "location": "Associated with Door 23",
     "door_id": "DOOR-023",
     "controller_id": "CTRL-004",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 23 Tamper Switch - Associated with Door 23",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-024",
@@ -213,7 +282,10 @@
     "location": "Associated with Door 24",
     "door_id": "DOOR-024",
     "controller_id": "CTRL-004",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 24 Tamper Switch - Associated with Door 24",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-025",
@@ -222,7 +294,10 @@
     "location": "Associated with Door 25",
     "door_id": "DOOR-025",
     "controller_id": "CTRL-004",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 25 Contact - Associated with Door 25",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-026",
@@ -231,7 +306,10 @@
     "location": "Associated with Door 26",
     "door_id": "DOOR-026",
     "controller_id": "CTRL-004",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 26 Tamper Switch - Associated with Door 26",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-027",
@@ -240,7 +318,10 @@
     "location": "Associated with Door 27",
     "door_id": "DOOR-027",
     "controller_id": "CTRL-004",
-    "state": "fault"
+    "state": "fault",
+    "description": "Door 27 Tamper Switch - Associated with Door 27",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-028",
@@ -249,7 +330,10 @@
     "location": "Associated with Door 28",
     "door_id": "DOOR-028",
     "controller_id": "CTRL-004",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 28 Motion Sensor - Associated with Door 28",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-029",
@@ -258,7 +342,10 @@
     "location": "Associated with Door 29",
     "door_id": "DOOR-029",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 29 Tamper Switch - Associated with Door 29",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-030",
@@ -267,7 +354,10 @@
     "location": "Associated with Door 30",
     "door_id": "DOOR-030",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 30 REX Button - Associated with Door 30",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-031",
@@ -276,7 +366,10 @@
     "location": "Associated with Door 31",
     "door_id": "DOOR-031",
     "controller_id": "CTRL-005",
-    "state": "alarm"
+    "state": "alarm",
+    "description": "Door 31 Motion Sensor - Associated with Door 31",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-032",
@@ -285,7 +378,10 @@
     "location": "Associated with Door 32",
     "door_id": "DOOR-032",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 32 Tamper Switch - Associated with Door 32",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-033",
@@ -294,7 +390,10 @@
     "location": "Associated with Door 33",
     "door_id": "DOOR-033",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 33 Tamper Switch - Associated with Door 33",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-034",
@@ -303,7 +402,10 @@
     "location": "Associated with Door 34",
     "door_id": "DOOR-034",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 34 Contact - Associated with Door 34",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-035",
@@ -312,7 +414,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Contact - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-036",
@@ -321,7 +426,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 REX Button - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-037",
@@ -330,7 +438,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Tamper Switch - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-038",
@@ -339,7 +450,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Tamper Switch - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-039",
@@ -348,7 +462,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "fault"
+    "state": "fault",
+    "description": "Door 35 Motion Sensor - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-040",
@@ -357,7 +474,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 REX Button - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-041",
@@ -366,7 +486,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Contact - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-042",
@@ -375,7 +498,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Tamper Switch - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-043",
@@ -384,7 +510,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Contact - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-044",
@@ -393,7 +522,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "alarm"
+    "state": "alarm",
+    "description": "Door 35 Tamper Switch - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-045",
@@ -402,7 +534,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Motion Sensor - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-046",
@@ -411,7 +546,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Contact - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-047",
@@ -420,7 +558,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 REX Button - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-048",
@@ -429,7 +570,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Contact - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-049",
@@ -438,7 +582,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 Tamper Switch - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "INPUT-050",
@@ -447,6 +594,9 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "normal"
+    "state": "normal",
+    "description": "Door 35 REX Button - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   }
 ]

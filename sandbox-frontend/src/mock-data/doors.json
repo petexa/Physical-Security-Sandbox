@@ -11,7 +11,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:48:07.122Z",
-    "event_count_24h": 145
+    "event_count_24h": 145,
+    "description": "Main Entrance - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-002",
@@ -25,7 +28,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:27:38.859Z",
-    "event_count_24h": 30
+    "event_count_24h": 30,
+    "description": "South Entrance - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-003",
@@ -39,7 +45,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:47:33.269Z",
-    "event_count_24h": 41
+    "event_count_24h": 41,
+    "description": "North Entrance - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-004",
@@ -53,7 +62,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:23:59.880Z",
-    "event_count_24h": 43
+    "event_count_24h": 43,
+    "description": "East Entrance - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-005",
@@ -67,7 +79,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:38:18.903Z",
-    "event_count_24h": 261
+    "event_count_24h": 261,
+    "description": "Reception Area - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-006",
@@ -81,7 +96,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:27:38.658Z",
-    "event_count_24h": 144
+    "event_count_24h": 144,
+    "description": "Engineering Wing Door 1 - Building A - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-007",
@@ -95,7 +113,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:04:14.164Z",
-    "event_count_24h": 202
+    "event_count_24h": 202,
+    "description": "Engineering Wing Door 2 - Building A - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-008",
@@ -109,7 +130,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:17:59.163Z",
-    "event_count_24h": 27
+    "event_count_24h": 27,
+    "description": "Executive Suite - Building A - 5th Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-009",
@@ -123,7 +147,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:19:57.591Z",
-    "event_count_24h": 88
+    "event_count_24h": 88,
+    "description": "Executive Conference Room - Building A - 5th Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-010",
@@ -137,7 +164,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:58:50.432Z",
-    "event_count_24h": 84
+    "event_count_24h": 84,
+    "description": "Cafeteria - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-011",
@@ -151,7 +181,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:01:16.430Z",
-    "event_count_24h": 242
+    "event_count_24h": 242,
+    "description": "Security Office - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-012",
@@ -165,7 +198,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:46:30.501Z",
-    "event_count_24h": 99
+    "event_count_24h": 99,
+    "description": "Security Monitoring Room - Building A - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-013",
@@ -179,7 +215,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:53:38.706Z",
-    "event_count_24h": 260
+    "event_count_24h": 260,
+    "description": "HR Department - Building A - 3rd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-014",
@@ -193,7 +232,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:36:51.983Z",
-    "event_count_24h": 47
+    "event_count_24h": 47,
+    "description": "Finance Department - Building A - 4th Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-015",
@@ -207,7 +249,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:07:48.440Z",
-    "event_count_24h": 156
+    "event_count_24h": 156,
+    "description": "IT Department - Building B - 1st Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-016",
@@ -221,7 +266,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:57:15.143Z",
-    "event_count_24h": 252
+    "event_count_24h": 252,
+    "description": "Operations Office - Building C - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-017",
@@ -235,7 +283,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:46:55.828Z",
-    "event_count_24h": 45
+    "event_count_24h": 45,
+    "description": "Warehouse Entrance - Building C - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-018",
@@ -249,7 +300,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:32:45.069Z",
-    "event_count_24h": 126
+    "event_count_24h": 126,
+    "description": "Loading Dock - Building C - Ground Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-019",
@@ -263,7 +317,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:06:29.437Z",
-    "event_count_24h": 245
+    "event_count_24h": 245,
+    "description": "Maintenance Room - Building A - Basement",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-020",
@@ -277,7 +334,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:06:44.343Z",
-    "event_count_24h": 80
+    "event_count_24h": 80,
+    "description": "Server Room Main - Building B - Basement",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-021",
@@ -291,7 +351,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:02:58.852Z",
-    "event_count_24h": 49
+    "event_count_24h": 49,
+    "description": "Server Room Backup - Building B - Basement",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-022",
@@ -305,7 +368,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:48:23.918Z",
-    "event_count_24h": 153
+    "event_count_24h": 153,
+    "description": "Electrical Room - Building A - Basement",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-023",
@@ -319,7 +385,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:52:04.246Z",
-    "event_count_24h": 84
+    "event_count_24h": 84,
+    "description": "HVAC Room - Building A - Roof",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-024",
@@ -333,7 +402,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:36:23.579Z",
-    "event_count_24h": 109
+    "event_count_24h": 109,
+    "description": "Research Lab 1 - Building B - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-025",
@@ -347,7 +419,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:30:45.528Z",
-    "event_count_24h": 171
+    "event_count_24h": 171,
+    "description": "Research Lab 2 - Building B - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-026",
@@ -361,7 +436,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:12:38.418Z",
-    "event_count_24h": 136
+    "event_count_24h": 136,
+    "description": "Testing Lab - Building B - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-027",
@@ -375,7 +453,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T20:00:01.713Z",
-    "event_count_24h": 197
+    "event_count_24h": 197,
+    "description": "Emergency Exit A - Building A - All Floors",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-028",
@@ -389,7 +470,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:37:01.893Z",
-    "event_count_24h": 285
+    "event_count_24h": 285,
+    "description": "Emergency Exit B - Building B - All Floors",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-029",
@@ -403,7 +487,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:38:14.487Z",
-    "event_count_24h": 293
+    "event_count_24h": 293,
+    "description": "Parking Garage Entrance - Parking Structure",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-030",
@@ -417,7 +504,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:46:23.831Z",
-    "event_count_24h": 174
+    "event_count_24h": 174,
+    "description": "Parking Garage Elevator - Parking Structure",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-031",
@@ -431,7 +521,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:40:20.487Z",
-    "event_count_24h": 63
+    "event_count_24h": 63,
+    "description": "Conference Room A - Building A - 3rd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-032",
@@ -445,7 +538,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:36:06.518Z",
-    "event_count_24h": 126
+    "event_count_24h": 126,
+    "description": "Conference Room B - Building A - 4th Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-033",
@@ -459,7 +555,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:38:46.815Z",
-    "event_count_24h": 152
+    "event_count_24h": 152,
+    "description": "Training Room - Building A - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-034",
@@ -473,7 +572,10 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:49:31.132Z",
-    "event_count_24h": 296
+    "event_count_24h": 296,
+    "description": "Break Room A - Building A - 2nd Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "DOOR-035",
@@ -487,6 +589,9 @@
     ],
     "schedule": "24/7",
     "last_event": "2026-01-03T19:47:05.677Z",
-    "event_count_24h": 78
+    "event_count_24h": 78,
+    "description": "Break Room B - Building B - 1st Floor",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   }
 ]

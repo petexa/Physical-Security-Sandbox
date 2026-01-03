@@ -7,6 +7,8 @@ import controllersData from '../mock-data/controllers.json';
 import inputsData from '../mock-data/inputs.json';
 import outputsData from '../mock-data/outputs.json';
 import camerasData from '../mock-data/cameras.json';
+import operatorGroupsData from '../mock-data/operator-groups.json';
+import * as gallagherMapper from './gallagherMapper.js';
 
 // Simulate network delay
 function delay(ms = 300) {
@@ -34,9 +36,14 @@ export async function get(endpoint, params = {}) {
   
   // Cardholders
   if (path === '/api/cardholders') {
+    const mapped = cardholdersData.map(gallagherMapper.mapCardholder);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/cardholders', top, skip);
+    
     return {
       status: 200,
-      data: cardholdersData,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
   }
@@ -45,16 +52,21 @@ export async function get(endpoint, params = {}) {
     const id = path.split('/').pop();
     const cardholder = cardholdersData.find(c => c.id === id);
     if (cardholder) {
-      return { status: 200, data: cardholder };
+      return { status: 200, data: gallagherMapper.mapCardholder(cardholder) };
     }
     return { status: 404, error: 'Cardholder not found' };
   }
   
   // Access Groups
   if (path === '/api/access_groups') {
+    const mapped = accessGroupsData.map(gallagherMapper.mapAccessGroup);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/access_groups', top, skip);
+    
     return {
       status: 200,
-      data: accessGroupsData,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
   }
@@ -63,16 +75,21 @@ export async function get(endpoint, params = {}) {
     const id = path.split('/').pop();
     const group = accessGroupsData.find(g => g.id === id);
     if (group) {
-      return { status: 200, data: group };
+      return { status: 200, data: gallagherMapper.mapAccessGroup(group) };
     }
     return { status: 404, error: 'Access group not found' };
   }
   
   // Doors
   if (path === '/api/doors') {
+    const mapped = doorsData.map(gallagherMapper.mapDoor);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/doors', top, skip);
+    
     return {
       status: 200,
-      data: doorsData,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
   }
@@ -81,16 +98,69 @@ export async function get(endpoint, params = {}) {
     const id = path.split('/').pop();
     const door = doorsData.find(d => d.id === id);
     if (door) {
-      return { status: 200, data: door };
+      return { status: 200, data: gallagherMapper.mapDoor(door) };
     }
     return { status: 404, error: 'Door not found' };
   }
   
-  // Controllers
-  if (path === '/api/controllers') {
+  // Items endpoint (Gallagher-style)
+  if (path === '/api/items') {
+    let items = [];
+    const type = queryParams.type;
+    
+    if (!type || type === 'door') {
+      items = [...items, ...doorsData.map(gallagherMapper.mapDoor)];
+    }
+    if (!type || type === 'controller') {
+      items = [...items, ...controllersData.map(gallagherMapper.mapController)];
+    }
+    if (!type || type === 'input') {
+      items = [...items, ...inputsData.map(gallagherMapper.mapInput)];
+    }
+    if (!type || type === 'output') {
+      items = [...items, ...outputsData.map(gallagherMapper.mapOutput)];
+    }
+    
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(items, `/items${type ? '?type=' + type : ''}`, top, skip);
+    
     return {
       status: 200,
-      data: controllersData,
+      data: paginated,
+      headers: { 'content-type': 'application/json' }
+    };
+  }
+  
+  if (path.match(/^\/api\/items\/[^/]+$/)) {
+    const id = path.split('/').pop();
+    
+    // Check all item types
+    let door = doorsData.find(d => d.id === id);
+    if (door) return { status: 200, data: gallagherMapper.mapDoor(door) };
+    
+    let controller = controllersData.find(c => c.id === id);
+    if (controller) return { status: 200, data: gallagherMapper.mapController(controller) };
+    
+    let input = inputsData.find(i => i.id === id);
+    if (input) return { status: 200, data: gallagherMapper.mapInput(input) };
+    
+    let output = outputsData.find(o => o.id === id);
+    if (output) return { status: 200, data: gallagherMapper.mapOutput(output) };
+    
+    return { status: 404, error: 'Item not found' };
+  }
+  
+  // Controllers
+  if (path === '/api/controllers') {
+    const mapped = controllersData.map(gallagherMapper.mapController);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/controllers', top, skip);
+    
+    return {
+      status: 200,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
   }
@@ -99,27 +169,60 @@ export async function get(endpoint, params = {}) {
     const id = path.split('/').pop();
     const controller = controllersData.find(c => c.id === id);
     if (controller) {
-      return { status: 200, data: controller };
+      return { status: 200, data: gallagherMapper.mapController(controller) };
     }
     return { status: 404, error: 'Controller not found' };
   }
   
   // Inputs
   if (path === '/api/inputs') {
+    const mapped = inputsData.map(gallagherMapper.mapInput);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/inputs', top, skip);
+    
     return {
       status: 200,
-      data: inputsData,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
   }
   
   // Outputs
   if (path === '/api/outputs') {
+    const mapped = outputsData.map(gallagherMapper.mapOutput);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/outputs', top, skip);
+    
     return {
       status: 200,
-      data: outputsData,
+      data: paginated,
       headers: { 'content-type': 'application/json' }
     };
+  }
+  
+  // Operator Groups
+  if (path === '/api/operator_groups') {
+    const mapped = operatorGroupsData.map(gallagherMapper.mapOperatorGroup);
+    const top = queryParams.top ? parseInt(queryParams.top) : 100;
+    const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
+    const paginated = gallagherMapper.createPaginatedResponse(mapped, '/operator_groups', top, skip);
+    
+    return {
+      status: 200,
+      data: paginated,
+      headers: { 'content-type': 'application/json' }
+    };
+  }
+  
+  if (path.match(/^\/api\/operator_groups\/[^/]+$/)) {
+    const id = path.split('/').pop();
+    const group = operatorGroupsData.find(g => g.id === id);
+    if (group) {
+      return { status: 200, data: gallagherMapper.mapOperatorGroup(group) };
+    }
+    return { status: 404, error: 'Operator group not found' };
   }
   
   // Events
