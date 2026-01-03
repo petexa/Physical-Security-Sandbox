@@ -1,0 +1,41 @@
+[
+  {
+    "id": "REC-CAM001-20241201",
+    "camera": {
+      "id": "CAM-001",
+      "name": "Main Entrance - Exterior"
+    },
+    "startTime": "2024-12-01T00:00:00Z",
+    "endTime": "2024-12-01T23:59:59Z",
+    "sequence": 12345,
+    "recordingServer": "RS-001",
+    "sizeBytes": 8589934592,
+    "status": "Completed"
+  },
+  {
+    "id": "REC-CAM002-20241201",
+    "camera": {
+      "id": "CAM-002",
+      "name": "Main Entrance - Interior"
+    },
+    "startTime": "2024-12-01T00:00:00Z",
+    "endTime": "2024-12-01T23:59:59Z",
+    "sequence": 12346,
+    "recordingServer": "RS-001",
+    "sizeBytes": 9663676416,
+    "status": "Completed"
+  },
+  {
+    "id": "REC-CAM003-20241201",
+    "camera": {
+      "id": "CAM-003",
+      "name": "Server Room - Entry"
+    },
+    "startTime": "2024-12-01T00:00:00Z",
+    "endTime": "2024-12-01T23:59:59Z",
+    "sequence": 12347,
+    "recordingServer": "RS-001",
+    "sizeBytes": 8053063680,
+    "status": "Completed"
+  }
+]

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "BM-001",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-001",
+    "name": "Server Room Forced Entry Investigation",
+    "description": "Alarm triggered at 02:34 AM - Forced entry detected. Investigating unauthorized access attempt.",
+    "created": "2024-12-15T02:35:30Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-12-15T02:30:00Z",
+    "timeEnd": "2024-12-15T02:40:00Z",
+    "camera": {
+      "id": "CAM-003",
+      "name": "Server Room - Entry",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-003"
+    },
+    "reference": "INC-2024-12-15-001",
+    "tags": ["alarm", "forced-entry", "investigation", "high-priority"],
+    "relatedPACSEvent": "EVT-2024-12-15-002234"
+  },
+  {
+    "id": "BM-002",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-002",
+    "name": "Repeated Access Denials - Jane Doe",
+    "description": "Multiple failed access attempts at main entrance. Cardholder may have deactivated card.",
+    "created": "2024-11-20T08:15:00Z",
+    "createdBy": {
+      "id": "OP-004",
+      "name": "Security Officer 1",
+      "email": "officer1@acmecorp.com"
+    },
+    "timeBegin": "2024-11-20T08:00:00Z",
+    "timeEnd": "2024-11-20T08:10:00Z",
+    "camera": {
+      "id": "CAM-001",
+      "name": "Main Entrance - Exterior",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-001"
+    },
+    "reference": "INC-2024-11-20-003",
+    "tags": ["access-denied", "investigation", "cardholder-issue"],
+    "relatedPACSEvent": "EVT-2024-11-20-000815"
+  },
+  {
+    "id": "BM-003",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-003",
+    "name": "Loading Dock - After Hours Activity",
+    "description": "Motion detected at loading dock outside normal business hours. Authorized maintenance.",
+    "created": "2024-11-18T22:45:00Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-11-18T22:40:00Z",
+    "timeEnd": "2024-11-18T23:00:00Z",
+    "camera": {
+      "id": "CAM-008",
+      "name": "Loading Dock - Overhead",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-008"
+    },
+    "reference": "LOG-2024-11-18-002",
+    "tags": ["after-hours", "loading-dock", "maintenance"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-004",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-004",
+    "name": "Executive Suite - Unauthorized Attempt",
+    "description": "Access denied event at executive suite entrance. Unknown credential presented.",
+    "created": "2024-11-10T15:22:00Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-11-10T15:20:00Z",
+    "timeEnd": "2024-11-10T15:25:00Z",
+    "camera": {
+      "id": "CAM-004",
+      "name": "Executive Suite - Hallway",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-004"
+    },
+    "reference": "INC-2024-11-10-005",
+    "tags": ["access-denied", "executive-area", "unknown-credential"],
+    "relatedPACSEvent": "EVT-2024-11-10-001520"
+  },
+  {
+    "id": "BM-005",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-005",
+    "name": "IT Room - Door Held Open",
+    "description": "IT Room door remained open for extended period. Investigating potential prop-open.",
+    "created": "2024-10-28T14:05:00Z",
+    "createdBy": {
+      "id": "OP-004",
+      "name": "Security Officer 1",
+      "email": "officer1@acmecorp.com"
+    },
+    "timeBegin": "2024-10-28T14:00:00Z",
+    "timeEnd": "2024-10-28T14:15:00Z",
+    "camera": {
+      "id": "CAM-007",
+      "name": "IT Room - Entry",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-007"
+    },
+    "reference": "INC-2024-10-28-012",
+    "tags": ["door-held", "policy-violation"],
+    "relatedPACSEvent": "EVT-2024-10-28-001400"
+  },
+  {
+    "id": "BM-006",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-006",
+    "name": "Package Delivery - Verification",
+    "description": "Delivery personnel at loading dock. Verifying credentials and vehicle.",
+    "created": "2024-10-15T10:30:00Z",
+    "createdBy": {
+      "id": "OP-005",
+      "name": "Security Officer 2",
+      "email": "officer2@acmecorp.com"
+    },
+    "timeBegin": "2024-10-15T10:25:00Z",
+    "timeEnd": "2024-10-15T10:45:00Z",
+    "camera": {
+      "id": "CAM-005",
+      "name": "Loading Dock - Exterior",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-005"
+    },
+    "reference": "LOG-2024-10-15-008",
+    "tags": ["delivery", "verification"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-007",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-007",
+    "name": "Parking Garage - Vandalism Report",
+    "description": "Vehicle vandalism reported. Reviewing footage from garage cameras.",
+    "created": "2024-10-05T08:15:00Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-10-04T18:00:00Z",
+    "timeEnd": "2024-10-05T08:00:00Z",
+    "camera": {
+      "id": "CAM-006",
+      "name": "Parking Garage - Level 1 Entrance",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-006"
+    },
+    "reference": "INC-2024-10-05-002",
+    "tags": ["vandalism", "investigation", "parking"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-008",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-008",
+    "name": "Main Entrance - Tailgating Incident",
+    "description": "Possible tailgating observed at main entrance. One card, two individuals entered.",
+    "created": "2024-09-20T09:45:00Z",
+    "createdBy": {
+      "id": "OP-004",
+      "name": "Security Officer 1",
+      "email": "officer1@acmecorp.com"
+    },
+    "timeBegin": "2024-09-20T09:42:00Z",
+    "timeEnd": "2024-09-20T09:48:00Z",
+    "camera": {
+      "id": "CAM-001",
+      "name": "Main Entrance - Exterior",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-001"
+    },
+    "reference": "INC-2024-09-20-007",
+    "tags": ["tailgating", "policy-violation", "investigation"],
+    "relatedPACSEvent": "EVT-2024-09-20-000942"
+  },
+  {
+    "id": "BM-009",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-009",
+    "name": "Data Center - Maintenance Access",
+    "description": "Scheduled maintenance access to data center. Vendor escorted by IT staff.",
+    "created": "2024-08-30T14:00:00Z",
+    "createdBy": {
+      "id": "OP-005",
+      "name": "Security Officer 2",
+      "email": "officer2@acmecorp.com"
+    },
+    "timeBegin": "2024-08-30T13:55:00Z",
+    "timeEnd": "2024-08-30T16:30:00Z",
+    "camera": {
+      "id": "CAM-019",
+      "name": "Data Center - Main Aisle",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-019"
+    },
+    "reference": "LOG-2024-08-30-010",
+    "tags": ["maintenance", "vendor", "escorted"],
+    "relatedPACSEvent": "EVT-2024-08-30-001355"
+  },
+  {
+    "id": "BM-010",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-010",
+    "name": "Conference Room - Suspicious Activity",
+    "description": "Unusual activity in conference room after hours. Employee working late.",
+    "created": "2024-08-15T21:30:00Z",
+    "createdBy": {
+      "id": "OP-004",
+      "name": "Security Officer 1",
+      "email": "officer1@acmecorp.com"
+    },
+    "timeBegin": "2024-08-15T21:20:00Z",
+    "timeEnd": "2024-08-15T21:40:00Z",
+    "camera": {
+      "id": "CAM-015",
+      "name": "Conference Room A - Entry",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-015"
+    },
+    "reference": "LOG-2024-08-15-015",
+    "tags": ["after-hours", "investigation", "resolved"],
+    "relatedPACSEvent": "EVT-2024-08-15-002120"
+  },
+  {
+    "id": "BM-011",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-011",
+    "name": "Warehouse - Forklift Incident",
+    "description": "Forklift near-miss incident in warehouse. Safety review required.",
+    "created": "2024-07-22T10:15:00Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-07-22T10:10:00Z",
+    "timeEnd": "2024-07-22T10:20:00Z",
+    "camera": {
+      "id": "CAM-018",
+      "name": "Warehouse - Overview",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-018"
+    },
+    "reference": "INC-2024-07-22-008",
+    "tags": ["safety", "incident", "warehouse"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-012",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-012",
+    "name": "Emergency Exit - Fire Drill",
+    "description": "Quarterly fire drill evacuation. Recording for compliance purposes.",
+    "created": "2024-07-10T14:00:00Z",
+    "createdBy": {
+      "id": "OP-005",
+      "name": "Security Officer 2",
+      "email": "officer2@acmecorp.com"
+    },
+    "timeBegin": "2024-07-10T14:00:00Z",
+    "timeEnd": "2024-07-10T14:20:00Z",
+    "camera": {
+      "id": "CAM-017",
+      "name": "Emergency Exit - East",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-017"
+    },
+    "reference": "LOG-2024-07-10-003",
+    "tags": ["fire-drill", "compliance", "evacuation"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-013",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-013",
+    "name": "South Entrance - Credential Clone Investigation",
+    "description": "Suspected credential cloning attempt. Card used at two locations simultaneously.",
+    "created": "2024-06-18T16:45:00Z",
+    "createdBy": {
+      "id": "OP-003",
+      "name": "Security Lead",
+      "email": "security.lead@acmecorp.com"
+    },
+    "timeBegin": "2024-06-18T16:40:00Z",
+    "timeEnd": "2024-06-18T16:50:00Z",
+    "camera": {
+      "id": "CAM-011",
+      "name": "South Entrance - Exterior",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-011"
+    },
+    "reference": "INC-2024-06-18-013",
+    "tags": ["security-breach", "credential-clone", "investigation", "high-priority"],
+    "relatedPACSEvent": "EVT-2024-06-18-001640"
+  },
+  {
+    "id": "BM-014",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-014",
+    "name": "Stairwell - Lost Item Recovery",
+    "description": "Employee reported lost property in stairwell. Footage review for recovery.",
+    "created": "2024-06-05T11:00:00Z",
+    "createdBy": {
+      "id": "OP-004",
+      "name": "Security Officer 1",
+      "email": "officer1@acmecorp.com"
+    },
+    "timeBegin": "2024-06-05T08:00:00Z",
+    "timeEnd": "2024-06-05T11:00:00Z",
+    "camera": {
+      "id": "CAM-014",
+      "name": "Stairwell A - Level 1",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-014"
+    },
+    "reference": "LOG-2024-06-05-012",
+    "tags": ["lost-property", "recovery"],
+    "relatedPACSEvent": null
+  },
+  {
+    "id": "BM-015",
+    "href": "https://localhost/milestone/api/rest/v1/bookmarks/BM-015",
+    "name": "Parking Lot - Vehicle Accident",
+    "description": "Minor vehicle accident in north parking lot. Recording for insurance claim.",
+    "created": "2024-05-28T15:30:00Z",
+    "createdBy": {
+      "id": "OP-005",
+      "name": "Security Officer 2",
+      "email": "officer2@acmecorp.com"
+    },
+    "timeBegin": "2024-05-28T15:25:00Z",
+    "timeEnd": "2024-05-28T15:35:00Z",
+    "camera": {
+      "id": "CAM-010",
+      "name": "Parking Lot - North",
+      "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-010"
+    },
+    "reference": "INC-2024-05-28-004",
+    "tags": ["accident", "parking", "insurance"],
+    "relatedPACSEvent": null
+  }
+]

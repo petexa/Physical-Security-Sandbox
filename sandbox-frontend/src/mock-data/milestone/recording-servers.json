@@ -1,0 +1,38 @@
+[
+  {
+    "id": "RS-001",
+    "name": "Recording Server 1",
+    "href": "https://localhost/milestone/api/rest/v1/recordingServers/RS-001",
+    "address": "192.168.1.50",
+    "status": "Online",
+    "version": "2023 R3",
+    "cameras": ["CAM-001", "CAM-002", "CAM-003", "CAM-004", "CAM-007", "CAM-009", "CAM-011", "CAM-012", "CAM-013", "CAM-014", "CAM-015", "CAM-019"],
+    "storage": {
+      "total": "10 TB",
+      "used": "6.8 TB",
+      "available": "3.2 TB",
+      "percentUsed": 68
+    },
+    "lastHeartbeat": "2025-01-03T14:40:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "RS-002",
+    "name": "Recording Server 2",
+    "href": "https://localhost/milestone/api/rest/v1/recordingServers/RS-002",
+    "address": "192.168.1.51",
+    "status": "Online",
+    "version": "2023 R3",
+    "cameras": ["CAM-005", "CAM-006", "CAM-008", "CAM-010", "CAM-016", "CAM-017", "CAM-018", "CAM-020"],
+    "storage": {
+      "total": "8 TB",
+      "used": "4.5 TB",
+      "available": "3.5 TB",
+      "percentUsed": 56
+    },
+    "lastHeartbeat": "2025-01-03T14:40:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  }
+]

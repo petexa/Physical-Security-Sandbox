@@ -1,0 +1,1015 @@
+[
+  {
+    "id": "CAM-001",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-001",
+    "name": "Main Entrance - Exterior",
+    "displayName": "Main Entrance - Exterior",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Main Entrance",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.0060
+    },
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1",
+      "href": "https://localhost/milestone/api/rest/v1/recordingServers/RS-001"
+    },
+    "hardware": {
+      "id": "HW-001",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.100",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      },
+      {
+        "streamId": "2",
+        "name": "Low Quality",
+        "resolution": "640x480",
+        "codec": "H.264",
+        "framerate": 15,
+        "bitrate": 512
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-001"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "234.5 GB"
+    },
+    "lastMotion": "2025-01-03T14:32:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-002",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-002",
+    "name": "Main Entrance - Interior",
+    "displayName": "Main Entrance - Interior",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Main Entrance Lobby",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-002",
+      "name": "Axis M3046-V",
+      "address": "192.168.2.101",
+      "manufacturer": "Axis",
+      "model": "M3046-V",
+      "firmwareVersion": "10.10.50"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "2688x1520",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 5120
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-001"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "312.8 GB"
+    },
+    "lastMotion": "2025-01-03T14:30:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-003",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-003",
+    "name": "Server Room - Entry",
+    "displayName": "Server Room - Entry",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Server Room",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-003",
+      "name": "Axis P3265-LVE",
+      "address": "192.168.2.102",
+      "manufacturer": "Axis",
+      "model": "P3265-LVE",
+      "firmwareVersion": "11.1.65"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": true,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-015"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 180,
+      "storageUsed": "456.2 GB"
+    },
+    "lastMotion": "2025-01-03T14:28:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-004",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-004",
+    "name": "Executive Suite - Hallway",
+    "displayName": "Executive Suite - Hallway",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - 3rd Floor Executive Area",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-004",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.103",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-008", "DOOR-009"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "198.3 GB"
+    },
+    "lastMotion": "2025-01-03T13:45:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-005",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-005",
+    "name": "Loading Dock - Exterior",
+    "displayName": "Loading Dock - Exterior",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Loading Dock",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-005",
+      "name": "Axis Q3517-LVE",
+      "address": "192.168.2.104",
+      "manufacturer": "Axis",
+      "model": "Q3517-LVE",
+      "firmwareVersion": "11.2.71"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-012"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "287.6 GB"
+    },
+    "lastMotion": "2025-01-03T14:15:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-006",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-006",
+    "name": "Parking Garage - Level 1 Entrance",
+    "displayName": "Parking Garage - Level 1 Entrance",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Parking Garage - Level 1",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-006",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.105",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-020"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 30,
+      "storageUsed": "156.8 GB"
+    },
+    "lastMotion": "2025-01-03T14:40:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-007",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-007",
+    "name": "IT Room - Entry",
+    "displayName": "IT Room - Entry",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - IT Room",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-007",
+      "name": "Axis M3046-V",
+      "address": "192.168.2.106",
+      "manufacturer": "Axis",
+      "model": "M3046-V",
+      "firmwareVersion": "10.10.50"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "2688x1520",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 5120
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-016"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 180,
+      "storageUsed": "412.5 GB"
+    },
+    "lastMotion": "2025-01-03T11:20:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-008",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-008",
+    "name": "Loading Dock - Overhead",
+    "displayName": "Loading Dock - Overhead",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Loading Dock",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-008",
+      "name": "Axis P3265-LVE",
+      "address": "192.168.2.107",
+      "manufacturer": "Axis",
+      "model": "P3265-LVE",
+      "firmwareVersion": "11.1.65"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-012"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "298.7 GB"
+    },
+    "lastMotion": "2025-01-03T14:10:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-009",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-009",
+    "name": "Reception - Front Desk",
+    "displayName": "Reception - Front Desk",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Reception",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-009",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.108",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": true,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-001"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "245.3 GB"
+    },
+    "lastMotion": "2025-01-03T14:35:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-010",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-010",
+    "name": "Parking Lot - North",
+    "displayName": "Parking Lot - North",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Exterior - North Parking Lot",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-010",
+      "name": "Axis Q3517-LVE",
+      "address": "192.168.2.109",
+      "manufacturer": "Axis",
+      "model": "Q3517-LVE",
+      "firmwareVersion": "11.2.71"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": [],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 30,
+      "storageUsed": "178.9 GB"
+    },
+    "lastMotion": "2025-01-03T14:25:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-011",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-011",
+    "name": "South Entrance - Exterior",
+    "displayName": "South Entrance - Exterior",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - South Entrance",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-011",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.110",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-002"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "221.4 GB"
+    },
+    "lastMotion": "2025-01-03T14:28:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-012",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-012",
+    "name": "North Entrance - Exterior",
+    "displayName": "North Entrance - Exterior",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - North Entrance",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-012",
+      "name": "Axis P3265-LVE",
+      "address": "192.168.2.111",
+      "manufacturer": "Axis",
+      "model": "P3265-LVE",
+      "firmwareVersion": "11.1.65"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-003"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "208.9 GB"
+    },
+    "lastMotion": "2025-01-03T14:22:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-013",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-013",
+    "name": "Cafeteria - Main Area",
+    "displayName": "Cafeteria - Main Area",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - 1st Floor Cafeteria",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-013",
+      "name": "Axis M3046-V",
+      "address": "192.168.2.112",
+      "manufacturer": "Axis",
+      "model": "M3046-V",
+      "firmwareVersion": "10.10.50"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "2688x1520",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 5120
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-006"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 30,
+      "storageUsed": "189.5 GB"
+    },
+    "lastMotion": "2025-01-03T14:42:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-014",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-014",
+    "name": "Stairwell A - Level 1",
+    "displayName": "Stairwell A - Level 1",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Stairwell A",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-014",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.113",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-010"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "167.3 GB"
+    },
+    "lastMotion": "2025-01-03T13:50:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-015",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-015",
+    "name": "Conference Room A - Entry",
+    "displayName": "Conference Room A - Entry",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - 2nd Floor Conference Room A",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-015",
+      "name": "Axis P3265-LVE",
+      "address": "192.168.2.114",
+      "manufacturer": "Axis",
+      "model": "P3265-LVE",
+      "firmwareVersion": "11.1.65"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": true,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": true,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-007"],
+    "recording": {
+      "enabled": true,
+      "mode": "Motion",
+      "retention": 60,
+      "storageUsed": "98.7 GB"
+    },
+    "lastMotion": "2025-01-03T12:15:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-016",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-016",
+    "name": "Parking Garage - Level 2",
+    "displayName": "Parking Garage - Level 2",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Parking Garage - Level 2",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-016",
+      "name": "Axis Q3517-LVE",
+      "address": "192.168.2.115",
+      "manufacturer": "Axis",
+      "model": "Q3517-LVE",
+      "firmwareVersion": "11.2.71"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": [],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 30,
+      "storageUsed": "143.2 GB"
+    },
+    "lastMotion": "2025-01-03T14:18:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-017",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-017",
+    "name": "Emergency Exit - East",
+    "displayName": "Emergency Exit - East",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - East Emergency Exit",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-017",
+      "name": "Axis P3245-LVE",
+      "address": "192.168.2.116",
+      "manufacturer": "Axis",
+      "model": "P3245-LVE",
+      "firmwareVersion": "10.12.70"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.264",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-013"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 90,
+      "storageUsed": "192.6 GB"
+    },
+    "lastMotion": "2025-01-03T10:45:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-018",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-018",
+    "name": "Warehouse - Overview",
+    "displayName": "Warehouse - Overview",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building B - Warehouse",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-018",
+      "name": "Axis P3265-LVE",
+      "address": "192.168.2.117",
+      "manufacturer": "Axis",
+      "model": "P3265-LVE",
+      "firmwareVersion": "11.1.65"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-017"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 60,
+      "storageUsed": "256.8 GB"
+    },
+    "lastMotion": "2025-01-03T14:05:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-019",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-019",
+    "name": "Data Center - Main Aisle",
+    "displayName": "Data Center - Main Aisle",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Building A - Data Center",
+    "recordingServer": {
+      "id": "RS-001",
+      "name": "Recording Server 1"
+    },
+    "hardware": {
+      "id": "HW-019",
+      "name": "Axis M3046-V",
+      "address": "192.168.2.118",
+      "manufacturer": "Axis",
+      "model": "M3046-V",
+      "firmwareVersion": "10.10.50"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "2688x1520",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 5120
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": ["DOOR-018"],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 180,
+      "storageUsed": "487.3 GB"
+    },
+    "lastMotion": "2025-01-03T13:25:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  },
+  {
+    "id": "CAM-020",
+    "href": "https://localhost/milestone/api/rest/v1/cameras/CAM-020",
+    "name": "Perimeter - South West Corner",
+    "displayName": "Perimeter - South West Corner",
+    "channel": 1,
+    "enabled": true,
+    "state": "Recording",
+    "location": "Exterior - South West Perimeter",
+    "recordingServer": {
+      "id": "RS-002",
+      "name": "Recording Server 2"
+    },
+    "hardware": {
+      "id": "HW-020",
+      "name": "Axis Q3517-LVE",
+      "address": "192.168.2.119",
+      "manufacturer": "Axis",
+      "model": "Q3517-LVE",
+      "firmwareVersion": "11.2.71"
+    },
+    "streams": [
+      {
+        "streamId": "1",
+        "name": "High Quality",
+        "resolution": "1920x1080",
+        "codec": "H.265",
+        "framerate": 30,
+        "bitrate": 4096
+      }
+    ],
+    "features": {
+      "ptz": false,
+      "audioIn": false,
+      "audioOut": false,
+      "motionDetection": true,
+      "privacyMask": false,
+      "digitalPTZ": true
+    },
+    "linkedDoors": [],
+    "recording": {
+      "enabled": true,
+      "mode": "Always",
+      "retention": 30,
+      "storageUsed": "201.4 GB"
+    },
+    "lastMotion": "2025-01-03T14:38:00Z",
+    "created": "2023-01-15T00:00:00Z",
+    "modified": "2024-12-01T10:30:00Z"
+  }
+]
