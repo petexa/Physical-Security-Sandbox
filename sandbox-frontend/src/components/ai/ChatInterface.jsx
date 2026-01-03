@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Send, Copy, Trash2, MessageSquare } from 'lucide-react';
 import Button from '../Button.jsx';
+import HowItWorksPanel from './HowItWorksPanel.jsx';
 import './ChatInterface.css';
 
 export default function ChatInterface({ onQuery, history = [], loading = false }) {
   const [input, setInput] = useState('');
   const [localHistory, setLocalHistory] = useState(history);
+  const [workflow, setWorkflow] = useState(null);
   
   const exampleQueries = [
     "How many door faults occurred last month?",
@@ -29,9 +31,37 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
     setLocalHistory(prev => [...prev, userMessage]);
     setInput('');
     
+    // Build workflow
+    const workflowSteps = [
+      {
+        type: 'processing',
+        title: 'Parse Natural Language Query',
+        description: `Analyzing: "${userMessage.text}"`,
+        dataSource: 'Pattern Matching Algorithm',
+        duration: '~10ms'
+      },
+      {
+        type: 'database',
+        title: 'Execute Query',
+        description: 'Searching event database for matching patterns',
+        dataSource: 'LocalStorage Events Database',
+        query: `filterEvents(events, parseQuery("${userMessage.text}"))`,
+        duration: '~30ms'
+      }
+    ];
+
+    setWorkflow(workflowSteps);
+    
     // Call the query handler
     if (onQuery) {
-      const response = await onQuery(input.trim());
+      const response = await onQuery(userMessage.text);
+      
+      workflowSteps.push({
+        type: 'complete',
+        title: 'Results Returned',
+        description: `Found ${response.totalCount || 0} matching records`,
+        result: response.totalCount ? `${response.totalCount} events matched your query` : 'No matching events found'
+      });
       
       const aiMessage = {
         id: Date.now() + 1,
@@ -44,6 +74,7 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
       };
       
       setLocalHistory(prev => [...prev, aiMessage]);
+      setWorkflow([...workflowSteps]);
     }
   };
   
@@ -151,6 +182,8 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
         )}
       </div>
       
+      {workflow && <HowItWorksPanel workflow={workflow} />}
+
       <div className="chat-footer">
         {displayHistory.length > 0 && (
           <button className="clear-chat" onClick={handleClear}>

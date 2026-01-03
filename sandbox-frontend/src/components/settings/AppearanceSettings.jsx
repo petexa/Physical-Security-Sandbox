@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { THEMES, getTheme, setTheme } from '../../utils/theme';
 import './AppearanceSettings.css';
 

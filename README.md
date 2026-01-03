@@ -1,49 +1,34 @@
 # Physical Security Sandbox
 
-A professional training platform for learning PACS (Physical Access Control System) and VMS (Video Management System) API integration.
+Professional training platform for PACS and VMS API integration.
 
-## 🎯 Overview
+## Features
+- API Testing Console (Gallagher, Milestone, Axis, ONVIF)
+- PACS Backend Browser
+- AI Tools with workflow transparency
+- Training Modules & Labs
+- 23,000+ realistic events
+- iPad-optimized
+- Works offline
 
-This platform provides a safe, simulated environment for:
-- Learning physical security system integration
-- Testing API endpoints (Gallagher, Milestone, Axis, ONVIF)
-- Practicing real-world security scenarios
-- Exploring 6 months of realistic event data (10,000+ events)
-- Leveraging AI-powered security operations tools
-- Interactive training modules and hands-on labs
-
-**Important:** This is a training simulation. All systems, data, and events are synthetic and for educational purposes only.
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
+## Quick Start
 ```bash
-# Clone the repository
-git clone https://github.com/petexa/Physical-Security-Sandbox.git
-cd Physical-Security-Sandbox
-
-# Navigate to the frontend
-cd sandbox-frontend
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+## Usage
+1. Navigate to Settings > Regenerate Events
+2. Explore Backend > Events tab
+3. Try AI Tools > Natural Language Queries
+4. View "How It Works" panels for transparency
 
-### Build for Production
+## Browser Support
+- Chrome, Safari, Edge, Firefox
+- iPad Safari ✅ Optimized
 
-```bash
-npm run build
-```
+## License
+MIT - Training purposes only
 
 ## 📁 Project Structure
 

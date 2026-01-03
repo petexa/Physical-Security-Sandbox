@@ -3,7 +3,7 @@ import { FileText, Download, Loader } from 'lucide-react';
 import Button from '../Button.jsx';
 import './SummaryGenerator.css';
 
-export default function SummaryGenerator({ events = [], onGenerate }) {
+export default function SummaryGenerator({ onGenerate }) {
   const [dateRange, setDateRange] = useState('last30days');
   const [eventTypeFilter, setEventTypeFilter] = useState('all');
   const [loading, setLoading] = useState(false);
