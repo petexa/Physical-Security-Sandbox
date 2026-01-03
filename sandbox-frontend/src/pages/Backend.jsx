@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import TabBar from '../components/backend/TabBar';
 import DataTable from '../components/backend/DataTable';
 import EventViewer from '../components/backend/EventViewer';
@@ -8,15 +8,16 @@ import './Backend.css';
 
 export default function Backend() {
   const [activeTab, setActiveTab] = useState('cardholders');
-  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Initialize data on component mount
-    const loadedData = initializeData();
-    setData(loadedData);
-    setLoading(false);
-  }, []);
+  // Use useMemo to initialize data once
+  const data = useMemo(() => {
+    if (loading) {
+      setTimeout(() => setLoading(false), 0);
+      return initializeData();
+    }
+    return null;
+  }, [loading]);
 
   if (loading || !data) {
     return (
@@ -241,8 +242,6 @@ export default function Backend() {
         {activeTab === 'events' && (
           <EventViewer
             events={data.events}
-            doors={data.doors}
-            cardholders={data.cardholders}
           />
         )}
       </div>

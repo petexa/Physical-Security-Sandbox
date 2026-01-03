@@ -347,7 +347,7 @@ export async function patch(endpoint, body = {}) {
 }
 
 // Mock DELETE request
-export async function del(endpoint) {
+export async function del() {
   await delay(500);
   
   return {

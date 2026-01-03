@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Download, Filter, X, Calendar, ChevronDown } from 'lucide-react';
 import DataTable from './DataTable';
 import StatusBadge from '../StatusBadge';
@@ -13,7 +13,7 @@ import {
   getFaultsAndAlarms
 } from '../../utils/eventQuery';
 
-export default function EventViewer({ events, doors, cardholders }) {
+export default function EventViewer({ events }) {
   const [filters, setFilters] = useState({
     startDate: (() => {
       const date = new Date();

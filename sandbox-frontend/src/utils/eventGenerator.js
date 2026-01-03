@@ -20,7 +20,7 @@ const EVENT_TYPES = {
 // Create weighted array for random selection
 function createWeightedArray() {
   const arr = [];
-  Object.entries(EVENT_TYPES).forEach(([key, config]) => {
+  Object.entries(EVENT_TYPES).forEach(([, config]) => {
     for (let i = 0; i < config.weight; i++) {
       arr.push(config);
     }
