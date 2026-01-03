@@ -4,6 +4,10 @@ import DataTable from '../components/backend/DataTable';
 import EventViewer from '../components/backend/EventViewer';
 import DetailModal from '../components/DetailModal';
 import StatusBadge from '../components/StatusBadge';
+import MilestoneCamerasTable from '../components/backend/MilestoneCamerasTable';
+import BookmarksTable from '../components/backend/BookmarksTable';
+import VMSEventsTable from '../components/backend/VMSEventsTable';
+import RecordingServersTable from '../components/backend/RecordingServersTable';
 import { initializeData } from '../utils/initData';
 import './Backend.css';
 
@@ -41,7 +45,11 @@ export default function Backend() {
     'operator-groups': data.operatorGroups.length,
     'inputs': data.inputs.length,
     'outputs': data.outputs.length,
-    'events': data.events.length
+    'events': data.events.length,
+    'milestone-cameras': 20,
+    'bookmarks': 15,
+    'vms-events': 6,
+    'recording-servers': 2
   };
 
   const handleRowClick = (item, type) => {
@@ -213,7 +221,7 @@ export default function Backend() {
     <div className="backend">
       <div className="backend-header">
         <h1>PACS Backend Browser</h1>
-        <p>Browse and explore simulated physical access control system data</p>
+        <p>Explore Gallagher PACS and Milestone XProtect data</p>
       </div>
 
       <TabBar
@@ -304,6 +312,22 @@ export default function Backend() {
           <EventViewer
             events={data.events}
           />
+        )}
+
+        {activeTab === 'milestone-cameras' && (
+          <MilestoneCamerasTable onRowClick={(row) => handleRowClick(row, 'milestone-camera')} />
+        )}
+
+        {activeTab === 'bookmarks' && (
+          <BookmarksTable onRowClick={(row) => handleRowClick(row, 'bookmark')} />
+        )}
+
+        {activeTab === 'vms-events' && (
+          <VMSEventsTable onRowClick={(row) => handleRowClick(row, 'vms-event')} />
+        )}
+
+        {activeTab === 'recording-servers' && (
+          <RecordingServersTable onRowClick={(row) => handleRowClick(row, 'recording-server')} />
         )}
       </div>
 
