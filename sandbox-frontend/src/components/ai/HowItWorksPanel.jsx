@@ -37,11 +37,11 @@ function WorkflowStep({ step, index, isLast }) {
 
   const getStepIcon = () => {
     switch (step.type) {
-      case 'database':  return <Database size={20} />;
+      case 'database': return <Database size={20} />;
       case 'processing': return <Cpu size={20} />;
       case 'output': return <FileText size={20} />;
       case 'complete': return <CheckCircle size={20} />;
-      default:  return <Cpu size={20} />;
+      default: return <Cpu size={20} />;
     }
   };
 

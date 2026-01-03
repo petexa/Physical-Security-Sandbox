@@ -29,7 +29,6 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
     };
     
     setLocalHistory(prev => [...prev, userMessage]);
-    const userQuery = input.trim();
     setInput('');
     
     // Build workflow
@@ -37,16 +36,16 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
       {
         type: 'processing',
         title: 'Parse Natural Language Query',
-        description: `Analyzing: "${userQuery}"`,
+        description: `Analyzing: "${userMessage.text}"`,
         dataSource: 'Pattern Matching Algorithm',
         duration: '~10ms'
       },
       {
         type: 'database',
         title: 'Execute Query',
-        description: 'Searching event database',
+        description: 'Searching event database for matching patterns',
         dataSource: 'LocalStorage Events Database',
-        query: 'filterEvents(events, { eventTypes: ["fault"] })',
+        query: `filterEvents(events, parseQuery("${userMessage.text}"))`,
         duration: '~30ms'
       }
     ];
@@ -55,7 +54,7 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
     
     // Call the query handler
     if (onQuery) {
-      const response = await onQuery(userQuery);
+      const response = await onQuery(userMessage.text);
       
       workflowSteps.push({
         type: 'complete',
