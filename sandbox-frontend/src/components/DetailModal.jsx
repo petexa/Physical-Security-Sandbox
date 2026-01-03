@@ -672,6 +672,313 @@ function CameraDetails({ data }) {
   );
 }
 
+function MilestoneCameraDetails({ data }) {
+  return (
+    <div className="detail-grid">
+      <div className="detail-section">
+        <h3>Basic Information</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">ID</div>
+            <div className="detail-value"><code>{data.id}</code></div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Name</div>
+            <div className="detail-value">{data.name}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Location</div>
+            <div className="detail-value">{data.location}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">State</div>
+            <div className="detail-value">
+              <StatusBadge 
+                status={data.state === 'Recording' ? 'success' : 'error'} 
+                text={data.state} 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Hardware</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Manufacturer</div>
+            <div className="detail-value">{data.hardware.manufacturer}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Model</div>
+            <div className="detail-value">{data.hardware.model}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">IP Address</div>
+            <div className="detail-value"><code>{data.hardware.address}</code></div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Firmware</div>
+            <div className="detail-value">{data.hardware.firmwareVersion}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Linked PACS Doors</h3>
+        <div className="detail-rows">
+          {data.linkedDoors?.length > 0 ? (
+            data.linkedDoors.map(doorId => (
+              <div key={doorId} className="detail-row">
+                <div className="detail-label">Door</div>
+                <div className="detail-value"><code>{doorId}</code></div>
+              </div>
+            ))
+          ) : (
+            <p>No linked doors</p>
+          )}
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Recording</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Mode</div>
+            <div className="detail-value">{data.recording.mode}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Retention</div>
+            <div className="detail-value">{data.recording.retention} days</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Storage Used</div>
+            <div className="detail-value">{data.recording.storageUsed}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BookmarkDetails({ data }) {
+  return (
+    <div className="detail-grid">
+      <div className="detail-section">
+        <h3>Bookmark Information</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Name</div>
+            <div className="detail-value">{data.name}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Description</div>
+            <div className="detail-value">{data.description}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Time Range</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Start</div>
+            <div className="detail-value">{new Date(data.timeBegin).toLocaleString()}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">End</div>
+            <div className="detail-value">{new Date(data.timeEnd).toLocaleString()}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Duration</div>
+            <div className="detail-value">{Math.round((new Date(data.timeEnd) - new Date(data.timeBegin)) / 60000)} min</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Camera</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Camera</div>
+            <div className="detail-value">{data.camera.name}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Created By</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Operator</div>
+            <div className="detail-value">{data.createdBy.name}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Created</div>
+            <div className="detail-value">{new Date(data.created).toLocaleString()}</div>
+          </div>
+        </div>
+      </div>
+
+      {data.relatedPACSEvent && (
+        <div className="detail-section">
+          <h3>Related PACS Event</h3>
+          <div className="detail-rows">
+            <div className="detail-row">
+              <div className="detail-label">Event ID</div>
+              <div className="detail-value"><code>{data.relatedPACSEvent}</code></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="detail-section">
+        <h3>Tags</h3>
+        <div className="tag-list">
+          {data.tags?.map(tag => (
+            <span key={tag} className="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function VMSEventDetails({ data }) {
+  return (
+    <div className="detail-grid">
+      <div className="detail-section">
+        <h3>Event Information</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Type</div>
+            <div className="detail-value">{data.type}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Timestamp</div>
+            <div className="detail-value">{new Date(data.timestamp).toLocaleString()}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Priority</div>
+            <div className="detail-value">
+              <StatusBadge 
+                status={data.priority === 'High' ? 'error' : data.priority === 'Medium' ? 'warning' : 'info'} 
+                text={data.priority} 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Source</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Name</div>
+            <div className="detail-value">{data.source.name}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Type</div>
+            <div className="detail-value">{data.source.type}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Message</h3>
+        <p>{data.message}</p>
+      </div>
+
+      <div className="detail-section">
+        <h3>Acknowledgement</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Status</div>
+            <div className="detail-value">{data.acknowledged ? 'Acknowledged' : 'Pending'}</div>
+          </div>
+          {data.acknowledged && (
+            <>
+              <div className="detail-row">
+                <div className="detail-label">By</div>
+                <div className="detail-value">{data.acknowledgedBy}</div>
+              </div>
+              <div className="detail-row">
+                <div className="detail-label">At</div>
+                <div className="detail-value">{new Date(data.acknowledgedAt).toLocaleString()}</div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RecordingServerDetails({ data }) {
+  return (
+    <div className="detail-grid">
+      <div className="detail-section">
+        <h3>Server Information</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Name</div>
+            <div className="detail-value">{data.name}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">IP Address</div>
+            <div className="detail-value"><code>{data.address}</code></div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Status</div>
+            <div className="detail-value">
+              <StatusBadge 
+                status={data.status === 'Online' ? 'success' : 'error'} 
+                text={data.status} 
+              />
+            </div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Version</div>
+            <div className="detail-value">{data.version}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Cameras</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Count</div>
+            <div className="detail-value">{data.cameras.length}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="detail-section">
+        <h3>Storage</h3>
+        <div className="detail-rows">
+          <div className="detail-row">
+            <div className="detail-label">Total</div>
+            <div className="detail-value">{data.storage.total}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Used</div>
+            <div className="detail-value">{data.storage.used}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Available</div>
+            <div className="detail-value">{data.storage.available}</div>
+          </div>
+          <div className="detail-row">
+            <div className="detail-label">Percent Used</div>
+            <div className="detail-value">{data.storage.percentUsed}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function DetailModal({ isOpen, onClose, title, data, type }) {
   if (!isOpen || !data) return null;
 
@@ -699,6 +1006,14 @@ export default function DetailModal({ isOpen, onClose, title, data, type }) {
         return <AccessGroupDetails data={data} />;
       case 'cameras':
         return <CameraDetails data={data} />;
+      case 'milestone-camera':
+        return <MilestoneCameraDetails data={data} />;
+      case 'bookmark':
+        return <BookmarkDetails data={data} />;
+      case 'vms-event':
+        return <VMSEventDetails data={data} />;
+      case 'recording-server':
+        return <RecordingServerDetails data={data} />;
       default:
         return <div>Details not available for this entity type</div>;
     }

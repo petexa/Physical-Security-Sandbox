@@ -1,4 +1,4 @@
-import { Users, Shield, DoorOpen, Server, UserCog, Plug, Radio, Activity } from 'lucide-react';
+import { Users, Shield, DoorOpen, Server, UserCog, Plug, Radio, Activity, Camera, Bookmark, AlertCircle, Database } from 'lucide-react';
 import './TabBar.css';
 
 const tabs = [
@@ -9,7 +9,11 @@ const tabs = [
   { id: 'operator-groups', label: 'Operator Groups', icon: UserCog },
   { id: 'inputs', label: 'Inputs', icon: Plug },
   { id: 'outputs', label: 'Outputs', icon: Radio },
-  { id: 'events', label: 'Events', icon: Activity }
+  { id: 'events', label: 'Events', icon: Activity },
+  { id: 'milestone-cameras', label: 'Milestone Cameras', icon: Camera },
+  { id: 'bookmarks', label: 'Bookmarks', icon: Bookmark },
+  { id: 'vms-events', label: 'VMS Events', icon: AlertCircle },
+  { id: 'recording-servers', label: 'Recording Servers', icon: Database }
 ];
 
 export default function TabBar({ activeTab, onTabChange, counts }) {
