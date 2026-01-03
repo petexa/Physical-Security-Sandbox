@@ -1,0 +1,452 @@
+[
+  {
+    "id": "INPUT-001",
+    "name": "Door 1 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 1",
+    "door_id": "DOOR-001",
+    "controller_id": "CTRL-001",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-002",
+    "name": "Door 2 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 2",
+    "door_id": "DOOR-002",
+    "controller_id": "CTRL-001",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-003",
+    "name": "Door 3 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 3",
+    "door_id": "DOOR-003",
+    "controller_id": "CTRL-001",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-004",
+    "name": "Door 4 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 4",
+    "door_id": "DOOR-004",
+    "controller_id": "CTRL-001",
+    "state": "alarm"
+  },
+  {
+    "id": "INPUT-005",
+    "name": "Door 5 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 5",
+    "door_id": "DOOR-005",
+    "controller_id": "CTRL-001",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-006",
+    "name": "Door 6 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 6",
+    "door_id": "DOOR-006",
+    "controller_id": "CTRL-001",
+    "state": "fault"
+  },
+  {
+    "id": "INPUT-007",
+    "name": "Door 7 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 7",
+    "door_id": "DOOR-007",
+    "controller_id": "CTRL-001",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-008",
+    "name": "Door 8 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 8",
+    "door_id": "DOOR-008",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-009",
+    "name": "Door 9 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 9",
+    "door_id": "DOOR-009",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-010",
+    "name": "Door 10 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 10",
+    "door_id": "DOOR-010",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-011",
+    "name": "Door 11 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 11",
+    "door_id": "DOOR-011",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-012",
+    "name": "Door 12 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 12",
+    "door_id": "DOOR-012",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-013",
+    "name": "Door 13 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 13",
+    "door_id": "DOOR-013",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-014",
+    "name": "Door 14 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 14",
+    "door_id": "DOOR-014",
+    "controller_id": "CTRL-002",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-015",
+    "name": "Door 15 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 15",
+    "door_id": "DOOR-015",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-016",
+    "name": "Door 16 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 16",
+    "door_id": "DOOR-016",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-017",
+    "name": "Door 17 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 17",
+    "door_id": "DOOR-017",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-018",
+    "name": "Door 18 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 18",
+    "door_id": "DOOR-018",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-019",
+    "name": "Door 19 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 19",
+    "door_id": "DOOR-019",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-020",
+    "name": "Door 20 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 20",
+    "door_id": "DOOR-020",
+    "controller_id": "CTRL-003",
+    "state": "fault"
+  },
+  {
+    "id": "INPUT-021",
+    "name": "Door 21 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 21",
+    "door_id": "DOOR-021",
+    "controller_id": "CTRL-003",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-022",
+    "name": "Door 22 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 22",
+    "door_id": "DOOR-022",
+    "controller_id": "CTRL-004",
+    "state": "fault"
+  },
+  {
+    "id": "INPUT-023",
+    "name": "Door 23 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 23",
+    "door_id": "DOOR-023",
+    "controller_id": "CTRL-004",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-024",
+    "name": "Door 24 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 24",
+    "door_id": "DOOR-024",
+    "controller_id": "CTRL-004",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-025",
+    "name": "Door 25 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 25",
+    "door_id": "DOOR-025",
+    "controller_id": "CTRL-004",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-026",
+    "name": "Door 26 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 26",
+    "door_id": "DOOR-026",
+    "controller_id": "CTRL-004",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-027",
+    "name": "Door 27 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 27",
+    "door_id": "DOOR-027",
+    "controller_id": "CTRL-004",
+    "state": "fault"
+  },
+  {
+    "id": "INPUT-028",
+    "name": "Door 28 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 28",
+    "door_id": "DOOR-028",
+    "controller_id": "CTRL-004",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-029",
+    "name": "Door 29 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 29",
+    "door_id": "DOOR-029",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-030",
+    "name": "Door 30 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 30",
+    "door_id": "DOOR-030",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-031",
+    "name": "Door 31 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 31",
+    "door_id": "DOOR-031",
+    "controller_id": "CTRL-005",
+    "state": "alarm"
+  },
+  {
+    "id": "INPUT-032",
+    "name": "Door 32 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 32",
+    "door_id": "DOOR-032",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-033",
+    "name": "Door 33 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 33",
+    "door_id": "DOOR-033",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-034",
+    "name": "Door 34 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 34",
+    "door_id": "DOOR-034",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-035",
+    "name": "Door 35 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-036",
+    "name": "Door 35 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-037",
+    "name": "Door 35 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-038",
+    "name": "Door 35 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-039",
+    "name": "Door 35 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "fault"
+  },
+  {
+    "id": "INPUT-040",
+    "name": "Door 35 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-041",
+    "name": "Door 35 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-042",
+    "name": "Door 35 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-043",
+    "name": "Door 35 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-044",
+    "name": "Door 35 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "alarm"
+  },
+  {
+    "id": "INPUT-045",
+    "name": "Door 35 Motion Sensor",
+    "type": "motion_sensor",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-046",
+    "name": "Door 35 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-047",
+    "name": "Door 35 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-048",
+    "name": "Door 35 Contact",
+    "type": "door_contact",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-049",
+    "name": "Door 35 Tamper Switch",
+    "type": "tamper_switch",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  },
+  {
+    "id": "INPUT-050",
+    "name": "Door 35 REX Button",
+    "type": "rex_button",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "normal"
+  }
+]

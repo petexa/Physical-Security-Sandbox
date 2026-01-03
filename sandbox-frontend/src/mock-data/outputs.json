@@ -1,0 +1,452 @@
+[
+  {
+    "id": "OUTPUT-001",
+    "name": "Door 1 Relay",
+    "type": "relay",
+    "location": "Associated with Door 1",
+    "door_id": "DOOR-001",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-002",
+    "name": "Door 2 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 2",
+    "door_id": "DOOR-002",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-003",
+    "name": "Door 3 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 3",
+    "door_id": "DOOR-003",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-004",
+    "name": "Door 4 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 4",
+    "door_id": "DOOR-004",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-005",
+    "name": "Door 5 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 5",
+    "door_id": "DOOR-005",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-006",
+    "name": "Door 6 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 6",
+    "door_id": "DOOR-006",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-007",
+    "name": "Door 7 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 7",
+    "door_id": "DOOR-007",
+    "controller_id": "CTRL-001",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-008",
+    "name": "Door 8 Relay",
+    "type": "relay",
+    "location": "Associated with Door 8",
+    "door_id": "DOOR-008",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-009",
+    "name": "Door 9 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 9",
+    "door_id": "DOOR-009",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-010",
+    "name": "Door 10 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 10",
+    "door_id": "DOOR-010",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-011",
+    "name": "Door 11 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 11",
+    "door_id": "DOOR-011",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-012",
+    "name": "Door 12 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 12",
+    "door_id": "DOOR-012",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-013",
+    "name": "Door 13 Relay",
+    "type": "relay",
+    "location": "Associated with Door 13",
+    "door_id": "DOOR-013",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-014",
+    "name": "Door 14 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 14",
+    "door_id": "DOOR-014",
+    "controller_id": "CTRL-002",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-015",
+    "name": "Door 15 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 15",
+    "door_id": "DOOR-015",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-016",
+    "name": "Door 16 Relay",
+    "type": "relay",
+    "location": "Associated with Door 16",
+    "door_id": "DOOR-016",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-017",
+    "name": "Door 17 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 17",
+    "door_id": "DOOR-017",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-018",
+    "name": "Door 18 Relay",
+    "type": "relay",
+    "location": "Associated with Door 18",
+    "door_id": "DOOR-018",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-019",
+    "name": "Door 19 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 19",
+    "door_id": "DOOR-019",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-020",
+    "name": "Door 20 Relay",
+    "type": "relay",
+    "location": "Associated with Door 20",
+    "door_id": "DOOR-020",
+    "controller_id": "CTRL-003",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-021",
+    "name": "Door 21 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 21",
+    "door_id": "DOOR-021",
+    "controller_id": "CTRL-003",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-022",
+    "name": "Door 22 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 22",
+    "door_id": "DOOR-022",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-023",
+    "name": "Door 23 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 23",
+    "door_id": "DOOR-023",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-024",
+    "name": "Door 24 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 24",
+    "door_id": "DOOR-024",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-025",
+    "name": "Door 25 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 25",
+    "door_id": "DOOR-025",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-026",
+    "name": "Door 26 Relay",
+    "type": "relay",
+    "location": "Associated with Door 26",
+    "door_id": "DOOR-026",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-027",
+    "name": "Door 27 Relay",
+    "type": "relay",
+    "location": "Associated with Door 27",
+    "door_id": "DOOR-027",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-028",
+    "name": "Door 28 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 28",
+    "door_id": "DOOR-028",
+    "controller_id": "CTRL-004",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-029",
+    "name": "Door 29 Relay",
+    "type": "relay",
+    "location": "Associated with Door 29",
+    "door_id": "DOOR-029",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-030",
+    "name": "Door 30 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 30",
+    "door_id": "DOOR-030",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-031",
+    "name": "Door 31 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 31",
+    "door_id": "DOOR-031",
+    "controller_id": "CTRL-005",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-032",
+    "name": "Door 32 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 32",
+    "door_id": "DOOR-032",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-033",
+    "name": "Door 33 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 33",
+    "door_id": "DOOR-033",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-034",
+    "name": "Door 34 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 34",
+    "door_id": "DOOR-034",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-035",
+    "name": "Door 35 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-036",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-037",
+    "name": "Door 35 Relay",
+    "type": "relay",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-038",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-039",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-040",
+    "name": "Door 35 Relay",
+    "type": "relay",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-041",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-042",
+    "name": "Door 35 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-043",
+    "name": "Door 35 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-044",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-045",
+    "name": "Door 35 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-046",
+    "name": "Door 35 Strike",
+    "type": "door_strike",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-047",
+    "name": "Door 35 LED",
+    "type": "led_indicator",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-048",
+    "name": "Door 35 Relay",
+    "type": "relay",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "active"
+  },
+  {
+    "id": "OUTPUT-049",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  },
+  {
+    "id": "OUTPUT-050",
+    "name": "Door 35 Alarm",
+    "type": "alarm_output",
+    "location": "Associated with Door 35",
+    "door_id": "DOOR-035",
+    "controller_id": "CTRL-005",
+    "state": "inactive"
+  }
+]

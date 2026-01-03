@@ -1,0 +1,1575 @@
+[
+  {
+    "id": "CH-001",
+    "first_name": "Pamela",
+    "last_name": "Castillo",
+    "email": "pamela.castillo@acmecorp.com",
+    "phone": "+1-555-3908",
+    "department": "Operations",
+    "job_title": "Operations Analyst",
+    "hire_date": "2025-01-31",
+    "status": "active",
+    "card_number": "1000011111",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-002",
+    "first_name": "Emma",
+    "last_name": "Cooper",
+    "email": "emma.cooper@acmecorp.com",
+    "phone": "+1-555-0463",
+    "department": "Operations",
+    "job_title": "Logistics Coordinator",
+    "hire_date": "2024-08-16",
+    "status": "active",
+    "card_number": "1000022222",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-003",
+    "first_name": "Michael",
+    "last_name": "Lee",
+    "email": "michael.lee@techcorp.com",
+    "phone": "+1-555-1237",
+    "department": "Legal",
+    "job_title": "General Counsel",
+    "hire_date": "2022-05-20",
+    "status": "active",
+    "card_number": "1000033333",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-004",
+    "first_name": "Jennifer",
+    "last_name": "Nguyen",
+    "email": "jennifer.nguyen@techcorp.com",
+    "phone": "+1-555-8707",
+    "department": "Security",
+    "job_title": "Security Manager",
+    "hire_date": "2025-08-26",
+    "status": "active",
+    "card_number": "1000044444",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-SECURITY",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-005",
+    "first_name": "Eric",
+    "last_name": "Ruiz",
+    "email": "eric.ruiz@acmecorp.com",
+    "phone": "+1-555-6716",
+    "department": "Security",
+    "job_title": "Security Manager",
+    "hire_date": "2021-01-11",
+    "status": "active",
+    "card_number": "1000055555",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-SECURITY",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-006",
+    "first_name": "Diane",
+    "last_name": "Brooks",
+    "email": "diane.brooks@techcorp.com",
+    "phone": "+1-555-3466",
+    "department": "Marketing",
+    "job_title": "Marketing Manager",
+    "hire_date": "2023-04-15",
+    "status": "inactive",
+    "card_number": "1000066666",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-007",
+    "first_name": "Nicholas",
+    "last_name": "Ross",
+    "email": "nicholas.ross@acmecorp.com",
+    "phone": "+1-555-2880",
+    "department": "Finance",
+    "job_title": "Accountant",
+    "hire_date": "2023-05-14",
+    "status": "active",
+    "card_number": "1000077777",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-008",
+    "first_name": "Maria",
+    "last_name": "Cox",
+    "email": "maria.cox@acmecorp.com",
+    "phone": "+1-555-9694",
+    "department": "Research",
+    "job_title": "Research Manager",
+    "hire_date": "2024-04-19",
+    "status": "active",
+    "card_number": "1000088888",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-009",
+    "first_name": "Larry",
+    "last_name": "Patel",
+    "email": "larry.patel@acmecorp.com",
+    "phone": "+1-555-4299",
+    "department": "Research",
+    "job_title": "Research Manager",
+    "hire_date": "2022-12-06",
+    "status": "active",
+    "card_number": "1000099999",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-010",
+    "first_name": "Stephen",
+    "last_name": "Taylor",
+    "email": "stephen.taylor@techcorp.com",
+    "phone": "+1-555-2625",
+    "department": "HR",
+    "job_title": "HR Specialist",
+    "hire_date": "2022-08-04",
+    "status": "active",
+    "card_number": "1000111110",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-HR"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-011",
+    "first_name": "Tyler",
+    "last_name": "Hill",
+    "email": "tyler.hill@techcorp.com",
+    "phone": "+1-555-9346",
+    "department": "Sales",
+    "job_title": "Sales Director",
+    "hire_date": "2025-01-06",
+    "status": "active",
+    "card_number": "1000122221",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-012",
+    "first_name": "Dennis",
+    "last_name": "Gonzalez",
+    "email": "dennis.gonzalez@techcorp.com",
+    "phone": "+1-555-6936",
+    "department": "IT",
+    "job_title": "IT Support Specialist",
+    "hire_date": "2024-08-17",
+    "status": "active",
+    "card_number": "1000133332",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-013",
+    "first_name": "Sarah",
+    "last_name": "Peterson",
+    "email": "sarah.peterson@globalindustries.com",
+    "phone": "+1-555-8452",
+    "department": "Research",
+    "job_title": "Lab Technician",
+    "hire_date": "2024-06-21",
+    "status": "active",
+    "card_number": "1000144443",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-014",
+    "first_name": "William",
+    "last_name": "Peterson",
+    "email": "william.peterson@techcorp.com",
+    "phone": "+1-555-9086",
+    "department": "Sales",
+    "job_title": "Sales Director",
+    "hire_date": "2021-08-08",
+    "status": "active",
+    "card_number": "1000155554",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-015",
+    "first_name": "Donna",
+    "last_name": "Adams",
+    "email": "donna.adams@acmecorp.com",
+    "phone": "+1-555-3369",
+    "department": "Finance",
+    "job_title": "CFO",
+    "hire_date": "2022-08-16",
+    "status": "active",
+    "card_number": "1000166665",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-016",
+    "first_name": "Christine",
+    "last_name": "Gonzalez",
+    "email": "christine.gonzalez@acmecorp.com",
+    "phone": "+1-555-2127",
+    "department": "Research",
+    "job_title": "Research Scientist",
+    "hire_date": "2021-03-06",
+    "status": "active",
+    "card_number": "1000177776",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-017",
+    "first_name": "Samuel",
+    "last_name": "White",
+    "email": "samuel.white@acmecorp.com",
+    "phone": "+1-555-1173",
+    "department": "Engineering",
+    "job_title": "Senior Engineer",
+    "hire_date": "2025-02-10",
+    "status": "active",
+    "card_number": "1000188887",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-018",
+    "first_name": "James",
+    "last_name": "Howard",
+    "email": "james.howard@techcorp.com",
+    "phone": "+1-555-3086",
+    "department": "HR",
+    "job_title": "Recruiter",
+    "hire_date": "2023-08-21",
+    "status": "active",
+    "card_number": "1000199998",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-HR"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-019",
+    "first_name": "Benjamin",
+    "last_name": "Rogers",
+    "email": "benjamin.rogers@techcorp.com",
+    "phone": "+1-555-5797",
+    "department": "IT",
+    "job_title": "DevOps Engineer",
+    "hire_date": "2022-07-22",
+    "status": "active",
+    "card_number": "1000211109",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-020",
+    "first_name": "James",
+    "last_name": "Cox",
+    "email": "james.cox@acmecorp.com",
+    "phone": "+1-555-8335",
+    "department": "Executive",
+    "job_title": "CTO",
+    "hire_date": "2021-05-09",
+    "status": "active",
+    "card_number": "1000222220",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-EXECUTIVE",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-021",
+    "first_name": "Jeffrey",
+    "last_name": "Reed",
+    "email": "jeffrey.reed@globalindustries.com",
+    "phone": "+1-555-3581",
+    "department": "Sales",
+    "job_title": "Sales Director",
+    "hire_date": "2025-03-10",
+    "status": "inactive",
+    "card_number": "1000233331",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-022",
+    "first_name": "David",
+    "last_name": "Young",
+    "email": "david.young@techcorp.com",
+    "phone": "+1-555-4418",
+    "department": "Legal",
+    "job_title": "Legal Counsel",
+    "hire_date": "2024-10-16",
+    "status": "active",
+    "card_number": "1000244442",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-023",
+    "first_name": "Betty",
+    "last_name": "Turner",
+    "email": "betty.turner@techcorp.com",
+    "phone": "+1-555-5785",
+    "department": "Facilities",
+    "job_title": "Facilities Manager",
+    "hire_date": "2025-08-02",
+    "status": "active",
+    "card_number": "1000255553",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-FACILITIES",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-024",
+    "first_name": "Sandra",
+    "last_name": "Parker",
+    "email": "sandra.parker@globalindustries.com",
+    "phone": "+1-555-4083",
+    "department": "Executive",
+    "job_title": "COO",
+    "hire_date": "2021-08-13",
+    "status": "active",
+    "card_number": "1000266664",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-EXECUTIVE",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-025",
+    "first_name": "Linda",
+    "last_name": "Harris",
+    "email": "linda.harris@globalindustries.com",
+    "phone": "+1-555-2771",
+    "department": "Facilities",
+    "job_title": "Facilities Manager",
+    "hire_date": "2025-02-19",
+    "status": "active",
+    "card_number": "1000277775",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-FACILITIES",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-026",
+    "first_name": "Nicholas",
+    "last_name": "Diaz",
+    "email": "nicholas.diaz@acmecorp.com",
+    "phone": "+1-555-7937",
+    "department": "Finance",
+    "job_title": "Finance Manager",
+    "hire_date": "2023-05-26",
+    "status": "active",
+    "card_number": "1000288886",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-027",
+    "first_name": "Pamela",
+    "last_name": "Kelly",
+    "email": "pamela.kelly@globalindustries.com",
+    "phone": "+1-555-5914",
+    "department": "Engineering",
+    "job_title": "Engineer",
+    "hire_date": "2022-08-08",
+    "status": "active",
+    "card_number": "1000299997",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-028",
+    "first_name": "Jeffrey",
+    "last_name": "Lewis",
+    "email": "jeffrey.lewis@techcorp.com",
+    "phone": "+1-555-8222",
+    "department": "Facilities",
+    "job_title": "Facilities Manager",
+    "hire_date": "2024-10-15",
+    "status": "active",
+    "card_number": "1000311108",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-FACILITIES",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-029",
+    "first_name": "Jose",
+    "last_name": "Reed",
+    "email": "jose.reed@acmecorp.com",
+    "phone": "+1-555-0789",
+    "department": "Legal",
+    "job_title": "Paralegal",
+    "hire_date": "2023-06-24",
+    "status": "active",
+    "card_number": "1000322219",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-030",
+    "first_name": "Matthew",
+    "last_name": "Jackson",
+    "email": "matthew.jackson@acmecorp.com",
+    "phone": "+1-555-4516",
+    "department": "IT",
+    "job_title": "System Administrator",
+    "hire_date": "2023-06-04",
+    "status": "active",
+    "card_number": "1000333330",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-031",
+    "first_name": "Ronald",
+    "last_name": "Watson",
+    "email": "ronald.watson@acmecorp.com",
+    "phone": "+1-555-4730",
+    "department": "Marketing",
+    "job_title": "Marketing Director",
+    "hire_date": "2021-09-21",
+    "status": "active",
+    "card_number": "1000344441",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-032",
+    "first_name": "Emily",
+    "last_name": "Nelson",
+    "email": "emily.nelson@acmecorp.com",
+    "phone": "+1-555-1946",
+    "department": "Legal",
+    "job_title": "General Counsel",
+    "hire_date": "2023-12-10",
+    "status": "active",
+    "card_number": "1000355552",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-033",
+    "first_name": "Catherine",
+    "last_name": "White",
+    "email": "catherine.white@globalindustries.com",
+    "phone": "+1-555-3115",
+    "department": "IT",
+    "job_title": "System Administrator",
+    "hire_date": "2022-09-16",
+    "status": "active",
+    "card_number": "1000366663",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-034",
+    "first_name": "Anthony",
+    "last_name": "Price",
+    "email": "anthony.price@globalindustries.com",
+    "phone": "+1-555-5008",
+    "department": "Legal",
+    "job_title": "General Counsel",
+    "hire_date": "2024-06-04",
+    "status": "active",
+    "card_number": "1000377774",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-035",
+    "first_name": "Tyler",
+    "last_name": "Ross",
+    "email": "tyler.ross@globalindustries.com",
+    "phone": "+1-555-6266",
+    "department": "IT",
+    "job_title": "IT Support Specialist",
+    "hire_date": "2025-03-06",
+    "status": "active",
+    "card_number": "1000388885",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-036",
+    "first_name": "Maria",
+    "last_name": "Jackson",
+    "email": "maria.jackson@acmecorp.com",
+    "phone": "+1-555-6901",
+    "department": "Finance",
+    "job_title": "Controller",
+    "hire_date": "2024-02-12",
+    "status": "active",
+    "card_number": "1000399996",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-037",
+    "first_name": "Gary",
+    "last_name": "Roberts",
+    "email": "gary.roberts@globalindustries.com",
+    "phone": "+1-555-1131",
+    "department": "Research",
+    "job_title": "Research Scientist",
+    "hire_date": "2023-08-29",
+    "status": "active",
+    "card_number": "1000411107",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-038",
+    "first_name": "Cynthia",
+    "last_name": "Anderson",
+    "email": "cynthia.anderson@acmecorp.com",
+    "phone": "+1-555-9299",
+    "department": "Engineering",
+    "job_title": "Lead Engineer",
+    "hire_date": "2021-09-25",
+    "status": "active",
+    "card_number": "1000422218",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-039",
+    "first_name": "Jacob",
+    "last_name": "Young",
+    "email": "jacob.young@globalindustries.com",
+    "phone": "+1-555-1461",
+    "department": "HR",
+    "job_title": "HR Manager",
+    "hire_date": "2023-07-21",
+    "status": "active",
+    "card_number": "1000433329",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-HR"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-040",
+    "first_name": "Diane",
+    "last_name": "Carter",
+    "email": "diane.carter@techcorp.com",
+    "phone": "+1-555-9781",
+    "department": "IT",
+    "job_title": "System Administrator",
+    "hire_date": "2023-04-13",
+    "status": "active",
+    "card_number": "1000444440",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-041",
+    "first_name": "Tyler",
+    "last_name": "Martinez",
+    "email": "tyler.martinez@globalindustries.com",
+    "phone": "+1-555-4345",
+    "department": "Facilities",
+    "job_title": "Facilities Manager",
+    "hire_date": "2021-07-30",
+    "status": "active",
+    "card_number": "1000455551",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-FACILITIES",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-042",
+    "first_name": "Kevin",
+    "last_name": "Gray",
+    "email": "kevin.gray@globalindustries.com",
+    "phone": "+1-555-5126",
+    "department": "Engineering",
+    "job_title": "Principal Engineer",
+    "hire_date": "2022-11-17",
+    "status": "active",
+    "card_number": "1000466662",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-043",
+    "first_name": "Jack",
+    "last_name": "Castillo",
+    "email": "jack.castillo@acmecorp.com",
+    "phone": "+1-555-0027",
+    "department": "Engineering",
+    "job_title": "Senior Engineer",
+    "hire_date": "2025-03-12",
+    "status": "active",
+    "card_number": "1000477773",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-044",
+    "first_name": "Jerry",
+    "last_name": "Richardson",
+    "email": "jerry.richardson@techcorp.com",
+    "phone": "+1-555-4966",
+    "department": "Facilities",
+    "job_title": "Maintenance Technician",
+    "hire_date": "2024-03-20",
+    "status": "active",
+    "card_number": "1000488884",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-FACILITIES",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-045",
+    "first_name": "Pamela",
+    "last_name": "Hernandez",
+    "email": "pamela.hernandez@acmecorp.com",
+    "phone": "+1-555-2324",
+    "department": "Sales",
+    "job_title": "Sales Manager",
+    "hire_date": "2021-09-02",
+    "status": "active",
+    "card_number": "1000499995",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-046",
+    "first_name": "Christine",
+    "last_name": "Martin",
+    "email": "christine.martin@globalindustries.com",
+    "phone": "+1-555-8615",
+    "department": "IT",
+    "job_title": "IT Manager",
+    "hire_date": "2023-12-01",
+    "status": "active",
+    "card_number": "1000511106",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-047",
+    "first_name": "Debra",
+    "last_name": "Green",
+    "email": "debra.green@acmecorp.com",
+    "phone": "+1-555-2748",
+    "department": "Research",
+    "job_title": "Research Scientist",
+    "hire_date": "2021-11-02",
+    "status": "active",
+    "card_number": "1000522217",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-048",
+    "first_name": "Amanda",
+    "last_name": "Hughes",
+    "email": "amanda.hughes@globalindustries.com",
+    "phone": "+1-555-7796",
+    "department": "Marketing",
+    "job_title": "Marketing Specialist",
+    "hire_date": "2021-04-04",
+    "status": "active",
+    "card_number": "1000533328",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-049",
+    "first_name": "Donna",
+    "last_name": "Allen",
+    "email": "donna.allen@globalindustries.com",
+    "phone": "+1-555-6548",
+    "department": "Research",
+    "job_title": "Lab Technician",
+    "hire_date": "2025-10-06",
+    "status": "active",
+    "card_number": "1000544439",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-050",
+    "first_name": "Andrew",
+    "last_name": "Hall",
+    "email": "andrew.hall@globalindustries.com",
+    "phone": "+1-555-7454",
+    "department": "Engineering",
+    "job_title": "Junior Engineer",
+    "hire_date": "2025-03-01",
+    "status": "inactive",
+    "card_number": "1000555550",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-051",
+    "first_name": "Deborah",
+    "last_name": "Ward",
+    "email": "deborah.ward@techcorp.com",
+    "phone": "+1-555-2489",
+    "department": "Legal",
+    "job_title": "Legal Counsel",
+    "hire_date": "2024-09-16",
+    "status": "active",
+    "card_number": "1000566661",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-052",
+    "first_name": "Melissa",
+    "last_name": "Lopez",
+    "email": "melissa.lopez@acmecorp.com",
+    "phone": "+1-555-1466",
+    "department": "Engineering",
+    "job_title": "Lead Engineer",
+    "hire_date": "2023-11-02",
+    "status": "active",
+    "card_number": "1000577772",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-053",
+    "first_name": "Richard",
+    "last_name": "Cruz",
+    "email": "richard.cruz@techcorp.com",
+    "phone": "+1-555-7464",
+    "department": "Engineering",
+    "job_title": "Engineer",
+    "hire_date": "2025-03-02",
+    "status": "active",
+    "card_number": "1000588883",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-054",
+    "first_name": "Raymond",
+    "last_name": "Foster",
+    "email": "raymond.foster@techcorp.com",
+    "phone": "+1-555-8761",
+    "department": "Research",
+    "job_title": "Lab Technician",
+    "hire_date": "2023-02-16",
+    "status": "active",
+    "card_number": "1000599994",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-055",
+    "first_name": "Sandra",
+    "last_name": "Rivera",
+    "email": "sandra.rivera@globalindustries.com",
+    "phone": "+1-555-8698",
+    "department": "Operations",
+    "job_title": "Operations Analyst",
+    "hire_date": "2021-03-02",
+    "status": "inactive",
+    "card_number": "1000611105",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-056",
+    "first_name": "Benjamin",
+    "last_name": "Nelson",
+    "email": "benjamin.nelson@techcorp.com",
+    "phone": "+1-555-0331",
+    "department": "Engineering",
+    "job_title": "Engineering Manager",
+    "hire_date": "2025-09-12",
+    "status": "active",
+    "card_number": "1000622216",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-057",
+    "first_name": "Raymond",
+    "last_name": "Hernandez",
+    "email": "raymond.hernandez@acmecorp.com",
+    "phone": "+1-555-1043",
+    "department": "Operations",
+    "job_title": "Operations Director",
+    "hire_date": "2023-08-05",
+    "status": "active",
+    "card_number": "1000633327",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-058",
+    "first_name": "Stephen",
+    "last_name": "Perez",
+    "email": "stephen.perez@acmecorp.com",
+    "phone": "+1-555-5226",
+    "department": "Sales",
+    "job_title": "Account Executive",
+    "hire_date": "2025-11-24",
+    "status": "active",
+    "card_number": "1000644438",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-059",
+    "first_name": "Sharon",
+    "last_name": "Hall",
+    "email": "sharon.hall@techcorp.com",
+    "phone": "+1-555-4471",
+    "department": "Operations",
+    "job_title": "Operations Manager",
+    "hire_date": "2021-08-03",
+    "status": "active",
+    "card_number": "1000655549",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-060",
+    "first_name": "Carol",
+    "last_name": "Campbell",
+    "email": "carol.campbell@acmecorp.com",
+    "phone": "+1-555-6311",
+    "department": "Operations",
+    "job_title": "Logistics Coordinator",
+    "hire_date": "2021-02-02",
+    "status": "active",
+    "card_number": "1000666660",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-061",
+    "first_name": "Jennifer",
+    "last_name": "Reyes",
+    "email": "jennifer.reyes@globalindustries.com",
+    "phone": "+1-555-5917",
+    "department": "IT",
+    "job_title": "DevOps Engineer",
+    "hire_date": "2022-10-30",
+    "status": "active",
+    "card_number": "1000677771",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-062",
+    "first_name": "Nicole",
+    "last_name": "Walker",
+    "email": "nicole.walker@globalindustries.com",
+    "phone": "+1-555-5916",
+    "department": "Operations",
+    "job_title": "Operations Analyst",
+    "hire_date": "2024-07-23",
+    "status": "inactive",
+    "card_number": "1000688882",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-063",
+    "first_name": "Thomas",
+    "last_name": "Adams",
+    "email": "thomas.adams@globalindustries.com",
+    "phone": "+1-555-5865",
+    "department": "Engineering",
+    "job_title": "Engineering Manager",
+    "hire_date": "2024-05-24",
+    "status": "active",
+    "card_number": "1000699993",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-064",
+    "first_name": "Donna",
+    "last_name": "Young",
+    "email": "donna.young@techcorp.com",
+    "phone": "+1-555-9209",
+    "department": "Finance",
+    "job_title": "Financial Analyst",
+    "hire_date": "2023-10-05",
+    "status": "inactive",
+    "card_number": "1000711104",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-065",
+    "first_name": "Jeffrey",
+    "last_name": "Scott",
+    "email": "jeffrey.scott@globalindustries.com",
+    "phone": "+1-555-9982",
+    "department": "Engineering",
+    "job_title": "Junior Engineer",
+    "hire_date": "2025-09-04",
+    "status": "active",
+    "card_number": "1000722215",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-066",
+    "first_name": "Mark",
+    "last_name": "King",
+    "email": "mark.king@techcorp.com",
+    "phone": "+1-555-4046",
+    "department": "Security",
+    "job_title": "Security Manager",
+    "hire_date": "2024-03-02",
+    "status": "active",
+    "card_number": "1000733326",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-SECURITY",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-067",
+    "first_name": "Benjamin",
+    "last_name": "Moore",
+    "email": "benjamin.moore@globalindustries.com",
+    "phone": "+1-555-9888",
+    "department": "HR",
+    "job_title": "HR Specialist",
+    "hire_date": "2021-05-31",
+    "status": "active",
+    "card_number": "1000744437",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-HR"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-068",
+    "first_name": "Angela",
+    "last_name": "Evans",
+    "email": "angela.evans@acmecorp.com",
+    "phone": "+1-555-1094",
+    "department": "Sales",
+    "job_title": "Account Executive",
+    "hire_date": "2022-11-29",
+    "status": "active",
+    "card_number": "1000755548",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-069",
+    "first_name": "Amy",
+    "last_name": "Hall",
+    "email": "amy.hall@acmecorp.com",
+    "phone": "+1-555-3259",
+    "department": "Operations",
+    "job_title": "Operations Manager",
+    "hire_date": "2023-08-24",
+    "status": "active",
+    "card_number": "1000766659",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-070",
+    "first_name": "Jeffrey",
+    "last_name": "Walker",
+    "email": "jeffrey.walker@techcorp.com",
+    "phone": "+1-555-1654",
+    "department": "Legal",
+    "job_title": "Legal Counsel",
+    "hire_date": "2023-06-02",
+    "status": "active",
+    "card_number": "1000777770",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-071",
+    "first_name": "Thomas",
+    "last_name": "Flores",
+    "email": "thomas.flores@globalindustries.com",
+    "phone": "+1-555-5855",
+    "department": "Engineering",
+    "job_title": "Lead Engineer",
+    "hire_date": "2023-10-07",
+    "status": "active",
+    "card_number": "1000788881",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-072",
+    "first_name": "Jack",
+    "last_name": "Murphy",
+    "email": "jack.murphy@techcorp.com",
+    "phone": "+1-555-6227",
+    "department": "IT",
+    "job_title": "IT Support Specialist",
+    "hire_date": "2022-12-06",
+    "status": "active",
+    "card_number": "1000799992",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-073",
+    "first_name": "Jacob",
+    "last_name": "Evans",
+    "email": "jacob.evans@techcorp.com",
+    "phone": "+1-555-1612",
+    "department": "Operations",
+    "job_title": "Operations Director",
+    "hire_date": "2025-02-15",
+    "status": "active",
+    "card_number": "1000811103",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-074",
+    "first_name": "Jennifer",
+    "last_name": "Ward",
+    "email": "jennifer.ward@acmecorp.com",
+    "phone": "+1-555-6360",
+    "department": "Operations",
+    "job_title": "Logistics Coordinator",
+    "hire_date": "2022-04-14",
+    "status": "active",
+    "card_number": "1000822214",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-075",
+    "first_name": "Rachel",
+    "last_name": "James",
+    "email": "rachel.james@globalindustries.com",
+    "phone": "+1-555-1724",
+    "department": "Engineering",
+    "job_title": "Engineering Manager",
+    "hire_date": "2025-02-08",
+    "status": "active",
+    "card_number": "1000833325",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-076",
+    "first_name": "David",
+    "last_name": "Ross",
+    "email": "david.ross@techcorp.com",
+    "phone": "+1-555-6435",
+    "department": "Engineering",
+    "job_title": "Engineering Manager",
+    "hire_date": "2022-03-14",
+    "status": "active",
+    "card_number": "1000844436",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-077",
+    "first_name": "Matthew",
+    "last_name": "Sanchez",
+    "email": "matthew.sanchez@acmecorp.com",
+    "phone": "+1-555-4846",
+    "department": "IT",
+    "job_title": "System Administrator",
+    "hire_date": "2023-01-08",
+    "status": "inactive",
+    "card_number": "1000855547",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-IT",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-078",
+    "first_name": "Patricia",
+    "last_name": "Castillo",
+    "email": "patricia.castillo@globalindustries.com",
+    "phone": "+1-555-1355",
+    "department": "Research",
+    "job_title": "Lab Technician",
+    "hire_date": "2021-11-01",
+    "status": "inactive",
+    "card_number": "1000866658",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-079",
+    "first_name": "Debra",
+    "last_name": "Anderson",
+    "email": "debra.anderson@acmecorp.com",
+    "phone": "+1-555-5017",
+    "department": "Engineering",
+    "job_title": "Engineering Manager",
+    "hire_date": "2023-09-11",
+    "status": "active",
+    "card_number": "1000877769",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-080",
+    "first_name": "Donald",
+    "last_name": "Baker",
+    "email": "donald.baker@acmecorp.com",
+    "phone": "+1-555-9396",
+    "department": "Operations",
+    "job_title": "Operations Analyst",
+    "hire_date": "2022-11-27",
+    "status": "active",
+    "card_number": "1000888880",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-OPERATIONS"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-081",
+    "first_name": "Tyler",
+    "last_name": "Collins",
+    "email": "tyler.collins@globalindustries.com",
+    "phone": "+1-555-1395",
+    "department": "Marketing",
+    "job_title": "Marketing Director",
+    "hire_date": "2025-11-20",
+    "status": "active",
+    "card_number": "1000899991",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-082",
+    "first_name": "Maria",
+    "last_name": "Cooper",
+    "email": "maria.cooper@globalindustries.com",
+    "phone": "+1-555-5609",
+    "department": "Executive",
+    "job_title": "CEO",
+    "hire_date": "2024-07-04",
+    "status": "active",
+    "card_number": "1000911102",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-EXECUTIVE",
+      "AG-MAIN-BUILDING",
+      "AG-SERVER-ROOM"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-083",
+    "first_name": "Laura",
+    "last_name": "Reed",
+    "email": "laura.reed@techcorp.com",
+    "phone": "+1-555-3535",
+    "department": "Research",
+    "job_title": "Research Scientist",
+    "hire_date": "2023-11-22",
+    "status": "active",
+    "card_number": "1000922213",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-RESEARCH",
+      "AG-MAIN-BUILDING",
+      "AG-LAB"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-084",
+    "first_name": "Jacob",
+    "last_name": "Nguyen",
+    "email": "jacob.nguyen@globalindustries.com",
+    "phone": "+1-555-9313",
+    "department": "Finance",
+    "job_title": "Accountant",
+    "hire_date": "2022-08-02",
+    "status": "active",
+    "card_number": "1000933324",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING",
+      "AG-FINANCE"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-085",
+    "first_name": "Carol",
+    "last_name": "Carter",
+    "email": "carol.carter@globalindustries.com",
+    "phone": "+1-555-7579",
+    "department": "Legal",
+    "job_title": "Paralegal",
+    "hire_date": "2024-10-04",
+    "status": "active",
+    "card_number": "1000944435",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-086",
+    "first_name": "Kevin",
+    "last_name": "Baker",
+    "email": "kevin.baker@techcorp.com",
+    "phone": "+1-555-1316",
+    "department": "Engineering",
+    "job_title": "Junior Engineer",
+    "hire_date": "2024-08-23",
+    "status": "active",
+    "card_number": "1000955546",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-ENGINEERING",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "CH-087",
+    "first_name": "Justin",
+    "last_name": "Alvarez",
+    "email": "justin.alvarez@acmecorp.com",
+    "phone": "+1-555-5132",
+    "department": "Legal",
+    "job_title": "General Counsel",
+    "hire_date": "2025-06-05",
+    "status": "active",
+    "card_number": "1000966657",
+    "access_groups": [
+      "AG-ALL-STAFF",
+      "AG-MAIN-BUILDING"
+    ],
+    "photo_url": null
+  }
+]

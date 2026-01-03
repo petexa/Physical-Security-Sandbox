@@ -1,0 +1,154 @@
+[
+  {
+    "id": "AG-ALL-STAFF",
+    "name": "All Staff",
+    "description": "Standard building access for all employees",
+    "member_count": 87,
+    "doors": [
+      "DOOR-001",
+      "DOOR-002",
+      "DOOR-005",
+      "DOOR-010"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-MAIN-BUILDING",
+    "name": "Main Building",
+    "description": "Access to main building during business hours",
+    "member_count": 87,
+    "doors": [
+      "DOOR-001",
+      "DOOR-002",
+      "DOOR-003",
+      "DOOR-004",
+      "DOOR-005"
+    ],
+    "schedule": "Mon-Fri 6am-8pm"
+  },
+  {
+    "id": "AG-ENGINEERING",
+    "name": "Engineering",
+    "description": "Engineering department areas",
+    "member_count": 25,
+    "doors": [
+      "DOOR-006",
+      "DOOR-007",
+      "DOOR-015"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-EXECUTIVE",
+    "name": "Executive",
+    "description": "Executive suite access",
+    "member_count": 8,
+    "doors": [
+      "DOOR-008",
+      "DOOR-009"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-SERVER-ROOM",
+    "name": "Server Room",
+    "description": "Data center and server room access",
+    "member_count": 12,
+    "doors": [
+      "DOOR-020",
+      "DOOR-021"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-SECURITY",
+    "name": "Security",
+    "description": "Security office and monitoring areas",
+    "member_count": 6,
+    "doors": [
+      "DOOR-011",
+      "DOOR-012",
+      "DOOR-020"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-HR",
+    "name": "HR Department",
+    "description": "Human Resources areas",
+    "member_count": 8,
+    "doors": [
+      "DOOR-013"
+    ],
+    "schedule": "Mon-Fri 7am-6pm"
+  },
+  {
+    "id": "AG-FINANCE",
+    "name": "Finance",
+    "description": "Finance department secure areas",
+    "member_count": 10,
+    "doors": [
+      "DOOR-014"
+    ],
+    "schedule": "Mon-Fri 7am-7pm"
+  },
+  {
+    "id": "AG-IT",
+    "name": "IT Department",
+    "description": "IT department and technical areas",
+    "member_count": 15,
+    "doors": [
+      "DOOR-015",
+      "DOOR-020",
+      "DOOR-021"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-OPERATIONS",
+    "name": "Operations",
+    "description": "Operations and warehouse access",
+    "member_count": 18,
+    "doors": [
+      "DOOR-016",
+      "DOOR-017",
+      "DOOR-018"
+    ],
+    "schedule": "Mon-Sat 5am-11pm"
+  },
+  {
+    "id": "AG-FACILITIES",
+    "name": "Facilities",
+    "description": "Building maintenance and facilities",
+    "member_count": 8,
+    "doors": [
+      "DOOR-019",
+      "DOOR-022",
+      "DOOR-023"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-RESEARCH",
+    "name": "Research",
+    "description": "Research and development areas",
+    "member_count": 12,
+    "doors": [
+      "DOOR-024",
+      "DOOR-025"
+    ],
+    "schedule": "24/7"
+  },
+  {
+    "id": "AG-LAB",
+    "name": "Laboratory",
+    "description": "Laboratory and testing facilities",
+    "member_count": 10,
+    "doors": [
+      "DOOR-024",
+      "DOOR-025",
+      "DOOR-026"
+    ],
+    "schedule": "Mon-Fri 6am-10pm"
+  }
+]

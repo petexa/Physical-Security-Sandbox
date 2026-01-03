@@ -1,0 +1,92 @@
+[
+  {
+    "id": "CTRL-001",
+    "name": "Building A Controller 1",
+    "location": "Building A - Comms Room",
+    "ip_address": "192.168.1.100",
+    "status": "online",
+    "firmware_version": "8.28.9890",
+    "last_communication": "2026-01-03T20:19:51.019Z",
+    "connected_doors": [
+      "DOOR-001",
+      "DOOR-002",
+      "DOOR-003",
+      "DOOR-004",
+      "DOOR-005",
+      "DOOR-006",
+      "DOOR-007"
+    ]
+  },
+  {
+    "id": "CTRL-002",
+    "name": "Building A Controller 2",
+    "location": "Building A - Comms Room",
+    "ip_address": "192.168.2.100",
+    "status": "online",
+    "firmware_version": "8.34.4885",
+    "last_communication": "2026-01-03T20:20:11.416Z",
+    "connected_doors": [
+      "DOOR-008",
+      "DOOR-009",
+      "DOOR-010",
+      "DOOR-011",
+      "DOOR-012",
+      "DOOR-013",
+      "DOOR-014"
+    ]
+  },
+  {
+    "id": "CTRL-003",
+    "name": "Building B Controller 3",
+    "location": "Building B - Comms Room",
+    "ip_address": "192.168.3.100",
+    "status": "online",
+    "firmware_version": "8.29.1297",
+    "last_communication": "2026-01-03T20:19:38.835Z",
+    "connected_doors": [
+      "DOOR-015",
+      "DOOR-016",
+      "DOOR-017",
+      "DOOR-018",
+      "DOOR-019",
+      "DOOR-020",
+      "DOOR-021"
+    ]
+  },
+  {
+    "id": "CTRL-004",
+    "name": "Building B Controller 4",
+    "location": "Building B - Comms Room",
+    "ip_address": "192.168.4.100",
+    "status": "online",
+    "firmware_version": "8.30.7330",
+    "last_communication": "2026-01-03T20:17:27.693Z",
+    "connected_doors": [
+      "DOOR-022",
+      "DOOR-023",
+      "DOOR-024",
+      "DOOR-025",
+      "DOOR-026",
+      "DOOR-027",
+      "DOOR-028"
+    ]
+  },
+  {
+    "id": "CTRL-005",
+    "name": "Building C Controller 5",
+    "location": "Building C - Comms Room",
+    "ip_address": "192.168.5.100",
+    "status": "offline",
+    "firmware_version": "8.58.5589",
+    "last_communication": "2026-01-03T20:22:17.437Z",
+    "connected_doors": [
+      "DOOR-029",
+      "DOOR-030",
+      "DOOR-031",
+      "DOOR-032",
+      "DOOR-033",
+      "DOOR-034",
+      "DOOR-035"
+    ]
+  }
+]

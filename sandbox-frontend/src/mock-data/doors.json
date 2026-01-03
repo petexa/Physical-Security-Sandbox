@@ -1,0 +1,492 @@
+[
+  {
+    "id": "DOOR-001",
+    "name": "Main Entrance",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-001",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:48:07.122Z",
+    "event_count_24h": 145
+  },
+  {
+    "id": "DOOR-002",
+    "name": "South Entrance",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-002",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:27:38.859Z",
+    "event_count_24h": 30
+  },
+  {
+    "id": "DOOR-003",
+    "name": "North Entrance",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-003",
+    "status": "offline",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:47:33.269Z",
+    "event_count_24h": 41
+  },
+  {
+    "id": "DOOR-004",
+    "name": "East Entrance",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-004",
+    "status": "offline",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:23:59.880Z",
+    "event_count_24h": 43
+  },
+  {
+    "id": "DOOR-005",
+    "name": "Reception Area",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-005",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:38:18.903Z",
+    "event_count_24h": 261
+  },
+  {
+    "id": "DOOR-006",
+    "name": "Engineering Wing Door 1",
+    "location": "Building A - 2nd Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-006",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:27:38.658Z",
+    "event_count_24h": 144
+  },
+  {
+    "id": "DOOR-007",
+    "name": "Engineering Wing Door 2",
+    "location": "Building A - 2nd Floor",
+    "controller_id": "CTRL-001",
+    "reader_id": "RDR-007",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:04:14.164Z",
+    "event_count_24h": 202
+  },
+  {
+    "id": "DOOR-008",
+    "name": "Executive Suite",
+    "location": "Building A - 5th Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-008",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:17:59.163Z",
+    "event_count_24h": 27
+  },
+  {
+    "id": "DOOR-009",
+    "name": "Executive Conference Room",
+    "location": "Building A - 5th Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-009",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:19:57.591Z",
+    "event_count_24h": 88
+  },
+  {
+    "id": "DOOR-010",
+    "name": "Cafeteria",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-010",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:58:50.432Z",
+    "event_count_24h": 84
+  },
+  {
+    "id": "DOOR-011",
+    "name": "Security Office",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-011",
+    "status": "fault",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:01:16.430Z",
+    "event_count_24h": 242
+  },
+  {
+    "id": "DOOR-012",
+    "name": "Security Monitoring Room",
+    "location": "Building A - Ground Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-012",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:46:30.501Z",
+    "event_count_24h": 99
+  },
+  {
+    "id": "DOOR-013",
+    "name": "HR Department",
+    "location": "Building A - 3rd Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-013",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:53:38.706Z",
+    "event_count_24h": 260
+  },
+  {
+    "id": "DOOR-014",
+    "name": "Finance Department",
+    "location": "Building A - 4th Floor",
+    "controller_id": "CTRL-002",
+    "reader_id": "RDR-014",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:36:51.983Z",
+    "event_count_24h": 47
+  },
+  {
+    "id": "DOOR-015",
+    "name": "IT Department",
+    "location": "Building B - 1st Floor",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-015",
+    "status": "fault",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:07:48.440Z",
+    "event_count_24h": 156
+  },
+  {
+    "id": "DOOR-016",
+    "name": "Operations Office",
+    "location": "Building C - Ground Floor",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-016",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:57:15.143Z",
+    "event_count_24h": 252
+  },
+  {
+    "id": "DOOR-017",
+    "name": "Warehouse Entrance",
+    "location": "Building C - Ground Floor",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-017",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:46:55.828Z",
+    "event_count_24h": 45
+  },
+  {
+    "id": "DOOR-018",
+    "name": "Loading Dock",
+    "location": "Building C - Ground Floor",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-018",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:32:45.069Z",
+    "event_count_24h": 126
+  },
+  {
+    "id": "DOOR-019",
+    "name": "Maintenance Room",
+    "location": "Building A - Basement",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-019",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:06:29.437Z",
+    "event_count_24h": 245
+  },
+  {
+    "id": "DOOR-020",
+    "name": "Server Room Main",
+    "location": "Building B - Basement",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-020",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:06:44.343Z",
+    "event_count_24h": 80
+  },
+  {
+    "id": "DOOR-021",
+    "name": "Server Room Backup",
+    "location": "Building B - Basement",
+    "controller_id": "CTRL-003",
+    "reader_id": "RDR-021",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:02:58.852Z",
+    "event_count_24h": 49
+  },
+  {
+    "id": "DOOR-022",
+    "name": "Electrical Room",
+    "location": "Building A - Basement",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-022",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:48:23.918Z",
+    "event_count_24h": 153
+  },
+  {
+    "id": "DOOR-023",
+    "name": "HVAC Room",
+    "location": "Building A - Roof",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-023",
+    "status": "offline",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:52:04.246Z",
+    "event_count_24h": 84
+  },
+  {
+    "id": "DOOR-024",
+    "name": "Research Lab 1",
+    "location": "Building B - 2nd Floor",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-024",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:36:23.579Z",
+    "event_count_24h": 109
+  },
+  {
+    "id": "DOOR-025",
+    "name": "Research Lab 2",
+    "location": "Building B - 2nd Floor",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-025",
+    "status": "offline",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:30:45.528Z",
+    "event_count_24h": 171
+  },
+  {
+    "id": "DOOR-026",
+    "name": "Testing Lab",
+    "location": "Building B - 2nd Floor",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-026",
+    "status": "fault",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:12:38.418Z",
+    "event_count_24h": 136
+  },
+  {
+    "id": "DOOR-027",
+    "name": "Emergency Exit A",
+    "location": "Building A - All Floors",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-027",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T20:00:01.713Z",
+    "event_count_24h": 197
+  },
+  {
+    "id": "DOOR-028",
+    "name": "Emergency Exit B",
+    "location": "Building B - All Floors",
+    "controller_id": "CTRL-004",
+    "reader_id": "RDR-028",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:37:01.893Z",
+    "event_count_24h": 285
+  },
+  {
+    "id": "DOOR-029",
+    "name": "Parking Garage Entrance",
+    "location": "Parking Structure",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-029",
+    "status": "offline",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:38:14.487Z",
+    "event_count_24h": 293
+  },
+  {
+    "id": "DOOR-030",
+    "name": "Parking Garage Elevator",
+    "location": "Parking Structure",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-030",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:46:23.831Z",
+    "event_count_24h": 174
+  },
+  {
+    "id": "DOOR-031",
+    "name": "Conference Room A",
+    "location": "Building A - 3rd Floor",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-031",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:40:20.487Z",
+    "event_count_24h": 63
+  },
+  {
+    "id": "DOOR-032",
+    "name": "Conference Room B",
+    "location": "Building A - 4th Floor",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-032",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:36:06.518Z",
+    "event_count_24h": 126
+  },
+  {
+    "id": "DOOR-033",
+    "name": "Training Room",
+    "location": "Building A - 2nd Floor",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-033",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:38:46.815Z",
+    "event_count_24h": 152
+  },
+  {
+    "id": "DOOR-034",
+    "name": "Break Room A",
+    "location": "Building A - 2nd Floor",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-034",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:49:31.132Z",
+    "event_count_24h": 296
+  },
+  {
+    "id": "DOOR-035",
+    "name": "Break Room B",
+    "location": "Building B - 1st Floor",
+    "controller_id": "CTRL-005",
+    "reader_id": "RDR-035",
+    "status": "online",
+    "access_groups": [
+      "AG-ALL-STAFF"
+    ],
+    "schedule": "24/7",
+    "last_event": "2026-01-03T19:47:05.677Z",
+    "event_count_24h": 78
+  }
+]
