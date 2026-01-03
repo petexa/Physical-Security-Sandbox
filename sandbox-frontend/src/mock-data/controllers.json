@@ -15,7 +15,13 @@
       "DOOR-005",
       "DOOR-006",
       "DOOR-007"
-    ]
+    ],
+    "description": "Building A Controller 1 - Building A - Comms Room",
+    "serial_number": "SN-001234567890",
+    "hardware_version": "8.30",
+    "boot_version": "8.20.1000",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "CTRL-002",
@@ -33,7 +39,13 @@
       "DOOR-012",
       "DOOR-013",
       "DOOR-014"
-    ]
+    ],
+    "description": "Building A Controller 2 - Building A - Comms Room",
+    "serial_number": "SN-002234567890",
+    "hardware_version": "8.30",
+    "boot_version": "8.20.1000",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "CTRL-003",
@@ -51,7 +63,13 @@
       "DOOR-019",
       "DOOR-020",
       "DOOR-021"
-    ]
+    ],
+    "description": "Building B Controller 3 - Building B - Comms Room",
+    "serial_number": "SN-003234567890",
+    "hardware_version": "8.30",
+    "boot_version": "8.20.1000",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "CTRL-004",
@@ -69,7 +87,13 @@
       "DOOR-026",
       "DOOR-027",
       "DOOR-028"
-    ]
+    ],
+    "description": "Building B Controller 4 - Building B - Comms Room",
+    "serial_number": "SN-004234567890",
+    "hardware_version": "8.30",
+    "boot_version": "8.20.1000",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "CTRL-005",
@@ -87,6 +111,12 @@
       "DOOR-033",
       "DOOR-034",
       "DOOR-035"
-    ]
+    ],
+    "description": "Building C Controller 5 - Building C - Comms Room",
+    "serial_number": "SN-005234567890",
+    "hardware_version": "8.30",
+    "boot_version": "8.20.1000",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   }
 ]

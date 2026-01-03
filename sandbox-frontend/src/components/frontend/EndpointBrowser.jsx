@@ -11,13 +11,19 @@ const endpoints = {
         name: 'List Cardholders',
         path: '/api/cardholders',
         method: 'GET',
-        description: 'Get all cardholders'
+        description: 'Retrieve paginated list of cardholders'
       },
       {
-        name: 'Get Cardholder',
+        name: 'List Cardholders (Paginated)',
+        path: '/api/cardholders?top=10&skip=0',
+        method: 'GET',
+        description: 'Retrieve cardholders with pagination (top=10, skip=0)'
+      },
+      {
+        name: 'Get Cardholder by ID',
         path: '/api/cardholders/CH-001',
         method: 'GET',
-        description: 'Get specific cardholder by ID'
+        description: 'Retrieve single cardholder with full details'
       },
       {
         name: 'Create Cardholder',
@@ -46,7 +52,7 @@ const endpoints = {
         name: 'List Access Groups',
         path: '/api/access_groups',
         method: 'GET',
-        description: 'Get all access groups'
+        description: 'Retrieve all access groups'
       },
       {
         name: 'Get Access Group',
@@ -56,33 +62,63 @@ const endpoints = {
       },
       {
         name: 'List Doors',
-        path: '/api/doors',
+        path: '/api/items?type=door',
         method: 'GET',
-        description: 'Get all doors'
+        description: 'Retrieve all doors'
       },
       {
-        name: 'Get Door',
-        path: '/api/doors/DOOR-001',
+        name: 'List Doors (Paginated)',
+        path: '/api/items?type=door&top=5&skip=0',
+        method: 'GET',
+        description: 'Retrieve doors with pagination'
+      },
+      {
+        name: 'Get Door by ID',
+        path: '/api/items/DOOR-001',
         method: 'GET',
         description: 'Get specific door by ID'
       },
       {
         name: 'List Controllers',
-        path: '/api/controllers',
+        path: '/api/items?type=controller',
         method: 'GET',
-        description: 'Get all controllers'
+        description: 'Retrieve all controllers'
+      },
+      {
+        name: 'Get Controller by ID',
+        path: '/api/items/CTRL-001',
+        method: 'GET',
+        description: 'Get specific controller by ID'
       },
       {
         name: 'List Inputs',
-        path: '/api/inputs',
+        path: '/api/items?type=input',
         method: 'GET',
         description: 'Get all input points'
       },
       {
         name: 'List Outputs',
-        path: '/api/outputs',
+        path: '/api/items?type=output',
         method: 'GET',
         description: 'Get all output points'
+      },
+      {
+        name: 'List All Items',
+        path: '/api/items',
+        method: 'GET',
+        description: 'Get all items (doors, controllers, inputs, outputs)'
+      },
+      {
+        name: 'List Operator Groups',
+        path: '/api/operator_groups',
+        method: 'GET',
+        description: 'Retrieve all operator groups'
+      },
+      {
+        name: 'Query Events',
+        path: '/api/events?start_time=2024-11-01T00:00:00Z&end_time=2024-11-30T23:59:59Z&type=fault',
+        method: 'GET',
+        description: 'Query events with filters'
       },
       {
         name: 'List Events',

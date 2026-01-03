@@ -6,7 +6,10 @@
     "location": "Associated with Door 1",
     "door_id": "DOOR-001",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 1 Relay - Associated with Door 1",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-002",
@@ -15,7 +18,10 @@
     "location": "Associated with Door 2",
     "door_id": "DOOR-002",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 2 Strike - Associated with Door 2",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-003",
@@ -24,7 +30,10 @@
     "location": "Associated with Door 3",
     "door_id": "DOOR-003",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 3 Strike - Associated with Door 3",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-004",
@@ -33,7 +42,10 @@
     "location": "Associated with Door 4",
     "door_id": "DOOR-004",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 4 Alarm - Associated with Door 4",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-005",
@@ -42,7 +54,10 @@
     "location": "Associated with Door 5",
     "door_id": "DOOR-005",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 5 LED - Associated with Door 5",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-006",
@@ -51,7 +66,10 @@
     "location": "Associated with Door 6",
     "door_id": "DOOR-006",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 6 Strike - Associated with Door 6",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-007",
@@ -60,7 +78,10 @@
     "location": "Associated with Door 7",
     "door_id": "DOOR-007",
     "controller_id": "CTRL-001",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 7 LED - Associated with Door 7",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-008",
@@ -69,7 +90,10 @@
     "location": "Associated with Door 8",
     "door_id": "DOOR-008",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 8 Relay - Associated with Door 8",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-009",
@@ -78,7 +102,10 @@
     "location": "Associated with Door 9",
     "door_id": "DOOR-009",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 9 Alarm - Associated with Door 9",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-010",
@@ -87,7 +114,10 @@
     "location": "Associated with Door 10",
     "door_id": "DOOR-010",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 10 LED - Associated with Door 10",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-011",
@@ -96,7 +126,10 @@
     "location": "Associated with Door 11",
     "door_id": "DOOR-011",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 11 Strike - Associated with Door 11",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-012",
@@ -105,7 +138,10 @@
     "location": "Associated with Door 12",
     "door_id": "DOOR-012",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 12 LED - Associated with Door 12",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-013",
@@ -114,7 +150,10 @@
     "location": "Associated with Door 13",
     "door_id": "DOOR-013",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 13 Relay - Associated with Door 13",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-014",
@@ -123,7 +162,10 @@
     "location": "Associated with Door 14",
     "door_id": "DOOR-014",
     "controller_id": "CTRL-002",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 14 Strike - Associated with Door 14",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-015",
@@ -132,7 +174,10 @@
     "location": "Associated with Door 15",
     "door_id": "DOOR-015",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 15 Strike - Associated with Door 15",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-016",
@@ -141,7 +186,10 @@
     "location": "Associated with Door 16",
     "door_id": "DOOR-016",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 16 Relay - Associated with Door 16",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-017",
@@ -150,7 +198,10 @@
     "location": "Associated with Door 17",
     "door_id": "DOOR-017",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 17 Alarm - Associated with Door 17",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-018",
@@ -159,7 +210,10 @@
     "location": "Associated with Door 18",
     "door_id": "DOOR-018",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 18 Relay - Associated with Door 18",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-019",
@@ -168,7 +222,10 @@
     "location": "Associated with Door 19",
     "door_id": "DOOR-019",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 19 Strike - Associated with Door 19",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-020",
@@ -177,7 +234,10 @@
     "location": "Associated with Door 20",
     "door_id": "DOOR-020",
     "controller_id": "CTRL-003",
-    "state": "active"
+    "state": "active",
+    "description": "Door 20 Relay - Associated with Door 20",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-021",
@@ -186,7 +246,10 @@
     "location": "Associated with Door 21",
     "door_id": "DOOR-021",
     "controller_id": "CTRL-003",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 21 LED - Associated with Door 21",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-022",
@@ -195,7 +258,10 @@
     "location": "Associated with Door 22",
     "door_id": "DOOR-022",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 22 Strike - Associated with Door 22",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-023",
@@ -204,7 +270,10 @@
     "location": "Associated with Door 23",
     "door_id": "DOOR-023",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 23 LED - Associated with Door 23",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-024",
@@ -213,7 +282,10 @@
     "location": "Associated with Door 24",
     "door_id": "DOOR-024",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 24 Strike - Associated with Door 24",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-025",
@@ -222,7 +294,10 @@
     "location": "Associated with Door 25",
     "door_id": "DOOR-025",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 25 LED - Associated with Door 25",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-026",
@@ -231,7 +306,10 @@
     "location": "Associated with Door 26",
     "door_id": "DOOR-026",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 26 Relay - Associated with Door 26",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-027",
@@ -240,7 +318,10 @@
     "location": "Associated with Door 27",
     "door_id": "DOOR-027",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 27 Relay - Associated with Door 27",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-028",
@@ -249,7 +330,10 @@
     "location": "Associated with Door 28",
     "door_id": "DOOR-028",
     "controller_id": "CTRL-004",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 28 Alarm - Associated with Door 28",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-029",
@@ -258,7 +342,10 @@
     "location": "Associated with Door 29",
     "door_id": "DOOR-029",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 29 Relay - Associated with Door 29",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-030",
@@ -267,7 +354,10 @@
     "location": "Associated with Door 30",
     "door_id": "DOOR-030",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 30 LED - Associated with Door 30",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-031",
@@ -276,7 +366,10 @@
     "location": "Associated with Door 31",
     "door_id": "DOOR-031",
     "controller_id": "CTRL-005",
-    "state": "active"
+    "state": "active",
+    "description": "Door 31 Strike - Associated with Door 31",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-032",
@@ -285,7 +378,10 @@
     "location": "Associated with Door 32",
     "door_id": "DOOR-032",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 32 LED - Associated with Door 32",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-033",
@@ -294,7 +390,10 @@
     "location": "Associated with Door 33",
     "door_id": "DOOR-033",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 33 Strike - Associated with Door 33",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-034",
@@ -303,7 +402,10 @@
     "location": "Associated with Door 34",
     "door_id": "DOOR-034",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 34 LED - Associated with Door 34",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-035",
@@ -312,7 +414,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 LED - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-036",
@@ -321,7 +426,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "active"
+    "state": "active",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-037",
@@ -330,7 +438,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Relay - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-038",
@@ -339,7 +450,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "active"
+    "state": "active",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-039",
@@ -348,7 +462,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-040",
@@ -357,7 +474,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Relay - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-041",
@@ -366,7 +486,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-042",
@@ -375,7 +498,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 LED - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-043",
@@ -384,7 +510,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 LED - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-044",
@@ -393,7 +522,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-045",
@@ -402,7 +534,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 LED - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-046",
@@ -411,7 +546,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "active"
+    "state": "active",
+    "description": "Door 35 Strike - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-047",
@@ -420,7 +558,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 LED - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-048",
@@ -429,7 +570,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "active"
+    "state": "active",
+    "description": "Door 35 Relay - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-049",
@@ -438,7 +582,10 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   },
   {
     "id": "OUTPUT-050",
@@ -447,6 +594,9 @@
     "location": "Associated with Door 35",
     "door_id": "DOOR-035",
     "controller_id": "CTRL-005",
-    "state": "inactive"
+    "state": "inactive",
+    "description": "Door 35 Alarm - Associated with Door 35",
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-12-01T10:30:00.000Z"
   }
 ]

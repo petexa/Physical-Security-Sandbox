@@ -10,7 +10,11 @@
       "DOOR-005",
       "DOOR-010"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-MAIN-BUILDING",
@@ -24,7 +28,11 @@
       "DOOR-004",
       "DOOR-005"
     ],
-    "schedule": "Mon-Fri 6am-8pm"
+    "schedule": "Mon-Fri 6am-8pm",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-ENGINEERING",
@@ -36,7 +44,11 @@
       "DOOR-007",
       "DOOR-015"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-EXECUTIVE",
@@ -47,7 +59,11 @@
       "DOOR-008",
       "DOOR-009"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-SERVER-ROOM",
@@ -58,7 +74,11 @@
       "DOOR-020",
       "DOOR-021"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-SECURITY",
@@ -70,7 +90,11 @@
       "DOOR-012",
       "DOOR-020"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-HR",
@@ -80,7 +104,11 @@
     "doors": [
       "DOOR-013"
     ],
-    "schedule": "Mon-Fri 7am-6pm"
+    "schedule": "Mon-Fri 7am-6pm",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-FINANCE",
@@ -90,7 +118,11 @@
     "doors": [
       "DOOR-014"
     ],
-    "schedule": "Mon-Fri 7am-7pm"
+    "schedule": "Mon-Fri 7am-7pm",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-IT",
@@ -102,7 +134,11 @@
       "DOOR-020",
       "DOOR-021"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-OPERATIONS",
@@ -114,7 +150,11 @@
       "DOOR-017",
       "DOOR-018"
     ],
-    "schedule": "Mon-Sat 5am-11pm"
+    "schedule": "Mon-Sat 5am-11pm",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-FACILITIES",
@@ -126,7 +166,11 @@
       "DOOR-022",
       "DOOR-023"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-RESEARCH",
@@ -137,7 +181,11 @@
       "DOOR-024",
       "DOOR-025"
     ],
-    "schedule": "24/7"
+    "schedule": "24/7",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   },
   {
     "id": "AG-LAB",
@@ -149,6 +197,10 @@
       "DOOR-025",
       "DOOR-026"
     ],
-    "schedule": "Mon-Fri 6am-10pm"
+    "schedule": "Mon-Fri 6am-10pm",
+    "parent_id": null,
+    "parent_name": null,
+    "created": "2022-01-15T00:00:00.000Z",
+    "modified": "2024-10-05T11:15:00.000Z"
   }
 ]
