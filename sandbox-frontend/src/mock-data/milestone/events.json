@@ -1,0 +1,90 @@
+[
+  {
+    "id": "VMS-EVT-001",
+    "timestamp": "2024-12-15T02:34:15Z",
+    "type": "Motion Detected",
+    "source": {
+      "id": "CAM-003",
+      "name": "Server Room - Entry",
+      "type": "Camera"
+    },
+    "priority": "Medium",
+    "message": "Motion detected in Server Room",
+    "acknowledged": true,
+    "acknowledgedBy": "Security Lead",
+    "acknowledgedAt": "2024-12-15T02:35:00Z"
+  },
+  {
+    "id": "VMS-EVT-002",
+    "timestamp": "2024-12-14T15:30:00Z",
+    "type": "Camera Offline",
+    "source": {
+      "id": "CAM-010",
+      "name": "Parking Lot - North",
+      "type": "Camera"
+    },
+    "priority": "High",
+    "message": "Camera connection lost - check network",
+    "acknowledged": false
+  },
+  {
+    "id": "VMS-EVT-003",
+    "timestamp": "2024-12-14T15:45:00Z",
+    "type": "Camera Online",
+    "source": {
+      "id": "CAM-010",
+      "name": "Parking Lot - North",
+      "type": "Camera"
+    },
+    "priority": "Low",
+    "message": "Camera connection restored",
+    "acknowledged": true,
+    "acknowledgedBy": "IT Manager",
+    "acknowledgedAt": "2024-12-14T15:46:00Z"
+  },
+  {
+    "id": "VMS-EVT-004",
+    "timestamp": "2024-12-10T22:15:00Z",
+    "type": "Recording Started",
+    "source": {
+      "id": "CAM-008",
+      "name": "Loading Dock - Overhead",
+      "type": "Camera"
+    },
+    "priority": "Low",
+    "message": "Recording started on camera",
+    "acknowledged": true,
+    "acknowledgedBy": "System",
+    "acknowledgedAt": "2024-12-10T22:15:01Z"
+  },
+  {
+    "id": "VMS-EVT-005",
+    "timestamp": "2024-12-08T14:20:00Z",
+    "type": "Storage Low",
+    "source": {
+      "id": "RS-001",
+      "name": "Recording Server 1",
+      "type": "RecordingServer"
+    },
+    "priority": "High",
+    "message": "Storage space below 10% on Recording Server 1",
+    "acknowledged": true,
+    "acknowledgedBy": "IT Manager",
+    "acknowledgedAt": "2024-12-08T14:25:00Z"
+  },
+  {
+    "id": "VMS-EVT-006",
+    "timestamp": "2024-11-20T08:05:00Z",
+    "type": "Motion Detected",
+    "source": {
+      "id": "CAM-001",
+      "name": "Main Entrance - Exterior",
+      "type": "Camera"
+    },
+    "priority": "Low",
+    "message": "Motion detected at Main Entrance",
+    "acknowledged": true,
+    "acknowledgedBy": "System",
+    "acknowledgedAt": "2024-11-20T08:05:01Z"
+  }
+]
