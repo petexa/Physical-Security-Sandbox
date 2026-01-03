@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import DataTable from './DataTable';
 import StatusBadge from '../StatusBadge';
 import camerasData from '../../mock-data/milestone/cameras.json';

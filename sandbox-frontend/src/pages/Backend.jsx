@@ -16,6 +16,7 @@ export default function Backend() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function Backend() {
 
   const handleRowClick = (item, type) => {
     setSelectedItem(item);
+    setSelectedType(type);
     setIsModalOpen(true);
   };
 
@@ -238,7 +240,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'cardholders')}
-            type="cardholders"
           />
         )}
 
@@ -249,7 +250,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'access-groups')}
-            type="access-groups"
           />
         )}
 
@@ -260,7 +260,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'doors')}
-            type="doors"
           />
         )}
 
@@ -271,7 +270,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'controllers')}
-            type="controllers"
           />
         )}
 
@@ -282,7 +280,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'operator-groups')}
-            type="operator-groups"
           />
         )}
 
@@ -293,7 +290,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'inputs')}
-            type="inputs"
           />
         )}
 
@@ -304,7 +300,6 @@ export default function Backend() {
             searchable={true}
             pageSize={25}
             onRowClick={(row) => handleRowClick(row, 'outputs')}
-            type="outputs"
           />
         )}
 
@@ -336,7 +331,7 @@ export default function Backend() {
         onClose={() => setIsModalOpen(false)}
         title={selectedItem?.name || selectedItem?.title || 'Details'}
         data={selectedItem}
-        type={activeTab}
+        type={selectedType || activeTab}
       />
     </div>
   );
