@@ -16,6 +16,7 @@ function App() {
           <Route path="/frontend" element={<Frontend />} />
           <Route path="/backend" element={<Backend />} />
           <Route path="/training" element={<Training />} />
+          <Route path="/training/:moduleId" element={<Training />} />
           <Route path="/labs" element={<Labs />} />
           <Route path="/ai" element={<AI />} />
         </Routes>
