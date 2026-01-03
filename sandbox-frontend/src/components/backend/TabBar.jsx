@@ -1,4 +1,4 @@
-import { Users, Shield, DoorOpen, Server, Plug, Radio, Activity } from 'lucide-react';
+import { Users, Shield, DoorOpen, Server, UserCog, Plug, Radio, Activity } from 'lucide-react';
 import './TabBar.css';
 
 const tabs = [
@@ -6,6 +6,7 @@ const tabs = [
   { id: 'access-groups', label: 'Access Groups', icon: Shield },
   { id: 'doors', label: 'Doors', icon: DoorOpen },
   { id: 'controllers', label: 'Controllers', icon: Server },
+  { id: 'operator-groups', label: 'Operator Groups', icon: UserCog },
   { id: 'inputs', label: 'Inputs', icon: Plug },
   { id: 'outputs', label: 'Outputs', icon: Radio },
   { id: 'events', label: 'Events', icon: Activity }

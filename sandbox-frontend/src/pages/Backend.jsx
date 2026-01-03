@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TabBar from '../components/backend/TabBar';
 import DataTable from '../components/backend/DataTable';
 import EventViewer from '../components/backend/EventViewer';
+import DetailModal from '../components/DetailModal';
 import StatusBadge from '../components/StatusBadge';
 import { initializeData } from '../utils/initData';
 import './Backend.css';
@@ -10,6 +11,8 @@ export default function Backend() {
   const [activeTab, setActiveTab] = useState('cardholders');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Initialize data on component mount
@@ -35,9 +38,15 @@ export default function Backend() {
     'access-groups': data.accessGroups.length,
     'doors': data.doors.length,
     'controllers': data.controllers.length,
+    'operator-groups': data.operatorGroups.length,
     'inputs': data.inputs.length,
     'outputs': data.outputs.length,
     'events': data.events.length
+  };
+
+  const handleRowClick = (item, type) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
   };
 
   // Cardholders Table
@@ -174,6 +183,32 @@ export default function Backend() {
     }
   ];
 
+  // Operator Groups Table
+  const operatorGroupsColumns = [
+    { key: 'id', label: 'ID' },
+    { key: 'name', label: 'Name' },
+    { key: 'description', label: 'Description' },
+    {
+      key: 'members',
+      label: 'Members',
+      render: (value) => (
+        <span className="badge">{value.length}</span>
+      )
+    },
+    {
+      key: 'roles',
+      label: 'Roles',
+      render: (value) => (
+        <span className="badge">{value.length}</span>
+      )
+    },
+    {
+      key: 'modified',
+      label: 'Last Modified',
+      render: (value) => new Date(value).toLocaleDateString()
+    }
+  ];
+
   return (
     <div className="backend">
       <div className="backend-header">
@@ -194,6 +229,8 @@ export default function Backend() {
             data={data.cardholders}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'cardholders')}
+            type="cardholders"
           />
         )}
 
@@ -203,6 +240,8 @@ export default function Backend() {
             data={data.accessGroups}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'access-groups')}
+            type="access-groups"
           />
         )}
 
@@ -212,6 +251,8 @@ export default function Backend() {
             data={data.doors}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'doors')}
+            type="doors"
           />
         )}
 
@@ -221,6 +262,19 @@ export default function Backend() {
             data={data.controllers}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'controllers')}
+            type="controllers"
+          />
+        )}
+
+        {activeTab === 'operator-groups' && (
+          <DataTable
+            columns={operatorGroupsColumns}
+            data={data.operatorGroups}
+            searchable={true}
+            pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'operator-groups')}
+            type="operator-groups"
           />
         )}
 
@@ -230,6 +284,8 @@ export default function Backend() {
             data={data.inputs}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'inputs')}
+            type="inputs"
           />
         )}
 
@@ -239,6 +295,8 @@ export default function Backend() {
             data={data.outputs}
             searchable={true}
             pageSize={25}
+            onRowClick={(row) => handleRowClick(row, 'outputs')}
+            type="outputs"
           />
         )}
 
@@ -248,6 +306,14 @@ export default function Backend() {
           />
         )}
       </div>
+
+      <DetailModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={selectedItem?.name || selectedItem?.title || 'Details'}
+        data={selectedItem}
+        type={activeTab}
+      />
     </div>
   );
 }

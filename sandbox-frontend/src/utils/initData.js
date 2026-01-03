@@ -7,6 +7,7 @@ import controllersData from '../mock-data/controllers.json';
 import inputsData from '../mock-data/inputs.json';
 import outputsData from '../mock-data/outputs.json';
 import camerasData from '../mock-data/cameras.json';
+import operatorGroupsData from '../mock-data/operator-groups.json';
 import { generateEvents } from './eventGenerator.js';
 
 // Initialize all data
@@ -61,6 +62,7 @@ export function initializeData() {
     inputs: inputsData,
     outputs: outputsData,
     cameras: camerasData,
+    operatorGroups: operatorGroupsData,
     events: events
   };
 }

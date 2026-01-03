@@ -36,6 +36,16 @@
   color: var(--color-text-secondary);
 }
 
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--color-primary-light);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .backend-header {

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "OG-001",
+    "name": "System Administrators",
+    "description": "Full system access for IT administrators",
+    "serverDisplayName": "System Administrators",
+    "members": [
+      {
+        "id": "OP-001",
+        "name": "Admin User",
+        "email": "admin@acmecorp.com"
+      },
+      {
+        "id": "OP-002",
+        "name": "IT Manager",
+        "email": "it.manager@acmecorp.com"
+      }
+    ],
+    "roles": [
+      "Configure System",
+      "Manage Users",
+      "View All Events",
+      "Modify Access Control"
+    ],
+    "created": "2022-01-15T08:00:00Z",
+    "modified": "2024-11-20T14:30:00Z"
+  },
+  {
+    "id": "OG-002",
+    "name": "Security Operators",
+    "description": "Day-to-day security monitoring and response",
+    "serverDisplayName": "Security Operators",
+    "members": [
+      {
+        "id": "OP-003",
+        "name": "Security Lead",
+        "email": "security.lead@acmecorp.com"
+      },
+      {
+        "id": "OP-004",
+        "name": "Security Officer 1",
+        "email": "officer1@acmecorp.com"
+      },
+      {
+        "id": "OP-005",
+        "name": "Security Officer 2",
+        "email": "officer2@acmecorp.com"
+      }
+    ],
+    "roles": [
+      "Monitor Events",
+      "Respond to Alarms",
+      "Create Incidents",
+      "View Cardholder Details"
+    ],
+    "created": "2022-01-15T08:00:00Z",
+    "modified": "2024-10-05T11:15:00Z"
+  },
+  {
+    "id": "OG-003",
+    "name": "Reception",
+    "description": "Front desk staff with limited access",
+    "serverDisplayName": "Reception",
+    "members": [
+      {
+        "id": "OP-006",
+        "name": "Receptionist",
+        "email": "reception@acmecorp.com"
+      }
+    ],
+    "roles": [
+      "Create Visitors",
+      "Issue Temporary Cards",
+      "View Lobby Cameras"
+    ],
+    "created": "2022-02-01T09:00:00Z",
+    "modified": "2024-09-12T13:20:00Z"
+  },
+  {
+    "id": "OG-004",
+    "name": "HR Administrators",
+    "description": "HR team managing employee access",
+    "serverDisplayName": "HR Administrators",
+    "members": [
+      {
+        "id": "OP-007",
+        "name": "HR Manager",
+        "email": "hr.manager@acmecorp.com"
+      },
+      {
+        "id": "OP-008",
+        "name": "HR Coordinator",
+        "email": "hr.coord@acmecorp.com"
+      }
+    ],
+    "roles": [
+      "Manage Cardholders",
+      "Assign Access Groups",
+      "Deactivate Employees"
+    ],
+    "created": "2022-01-15T08:00:00Z",
+    "modified": "2024-11-01T10:45:00Z"
+  },
+  {
+    "id": "OG-005",
+    "name": "Maintenance",
+    "description": "Facilities and maintenance staff",
+    "serverDisplayName": "Maintenance",
+    "members": [
+      {
+        "id": "OP-009",
+        "name": "Facilities Manager",
+        "email": "facilities@acmecorp.com"
+      }
+    ],
+    "roles": [
+      "View Door Status",
+      "Acknowledge Faults",
+      "View Maintenance Zones"
+    ],
+    "created": "2022-03-10T07:30:00Z",
+    "modified": "2024-08-22T16:00:00Z"
+  }
+]
