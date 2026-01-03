@@ -1,0 +1,27 @@
+/* Desktop */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+/* iPad Portrait */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Stack layouts */
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+}
