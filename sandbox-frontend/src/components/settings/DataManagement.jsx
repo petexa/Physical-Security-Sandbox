@@ -24,7 +24,8 @@ export default function DataManagement() {
   });
 
   useEffect(() => {
-    loadStats();
+    setDataStats(getDataStats());
+    setEntityStats(getEntityStats());
   }, []);
 
   const loadStats = () => {
