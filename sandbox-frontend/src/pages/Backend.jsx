@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import TabBar from '../components/backend/TabBar';
 import DataTable from '../components/backend/DataTable';
 import EventViewer from '../components/backend/EventViewer';
@@ -8,16 +8,19 @@ import './Backend.css';
 
 export default function Backend() {
   const [activeTab, setActiveTab] = useState('cardholders');
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Use useMemo to initialize data once
-  const data = useMemo(() => {
-    if (loading) {
-      setTimeout(() => setLoading(false), 0);
-      return initializeData();
-    }
-    return null;
-  }, [loading]);
+  useEffect(() => {
+    // Initialize data on component mount
+    const loadData = async () => {
+      const loadedData = initializeData();
+      setData(loadedData);
+      setLoading(false);
+    };
+    
+    loadData();
+  }, []);
 
   if (loading || !data) {
     return (
