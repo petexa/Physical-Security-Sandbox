@@ -1,0 +1,220 @@
+[
+  {
+    "id": "CAM-001",
+    "name": "Main Entrance - Exterior",
+    "location": "Main Entrance - Exterior",
+    "ip_address": "192.168.2.100",
+    "status": "online",
+    "manufacturer": "Hikvision",
+    "model": "DS-2CD2385G1",
+    "resolution": "1920x1080",
+    "recording": false,
+    "linked_doors": [
+      "DOOR-001"
+    ]
+  },
+  {
+    "id": "CAM-002",
+    "name": "Main Entrance - Interior",
+    "location": "Main Entrance - Interior",
+    "ip_address": "192.168.2.101",
+    "status": "offline",
+    "manufacturer": "Axis",
+    "model": "Q6155-E",
+    "resolution": "3840x2160",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-001"
+    ]
+  },
+  {
+    "id": "CAM-003",
+    "name": "South Entrance",
+    "location": "South Entrance",
+    "ip_address": "192.168.2.102",
+    "status": "online",
+    "manufacturer": "Axis",
+    "model": "M3065-V",
+    "resolution": "1920x1080",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-002"
+    ]
+  },
+  {
+    "id": "CAM-004",
+    "name": "North Entrance",
+    "location": "North Entrance",
+    "ip_address": "192.168.2.103",
+    "status": "online",
+    "manufacturer": "Hanwha",
+    "model": "XNO-8080R",
+    "resolution": "3840x2160",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-003"
+    ]
+  },
+  {
+    "id": "CAM-005",
+    "name": "Reception Area",
+    "location": "Reception Area",
+    "ip_address": "192.168.2.104",
+    "status": "online",
+    "manufacturer": "Hikvision",
+    "model": "DS-2DE4425IW",
+    "resolution": "1920x1080",
+    "recording": false,
+    "linked_doors": [
+      "DOOR-005"
+    ]
+  },
+  {
+    "id": "CAM-006",
+    "name": "Executive Suite Hallway",
+    "location": "Executive Suite Hallway",
+    "ip_address": "192.168.2.105",
+    "status": "online",
+    "manufacturer": "Hanwha",
+    "model": "XNO-8080R",
+    "resolution": "2560x1440",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-008"
+    ]
+  },
+  {
+    "id": "CAM-007",
+    "name": "Server Room Entrance",
+    "location": "Server Room Entrance",
+    "ip_address": "192.168.2.106",
+    "status": "online",
+    "manufacturer": "Bosch",
+    "model": "AUTODOME IP 5000i",
+    "resolution": "2560x1440",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-020"
+    ]
+  },
+  {
+    "id": "CAM-008",
+    "name": "Warehouse Overview",
+    "location": "Warehouse Overview",
+    "ip_address": "192.168.2.107",
+    "status": "online",
+    "manufacturer": "Hikvision",
+    "model": "DS-2CD2385G1",
+    "resolution": "2560x1440",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-017"
+    ]
+  },
+  {
+    "id": "CAM-009",
+    "name": "Loading Dock",
+    "location": "Loading Dock",
+    "ip_address": "192.168.2.108",
+    "status": "offline",
+    "manufacturer": "Hanwha",
+    "model": "QNO-8080R",
+    "resolution": "1920x1080",
+    "recording": false,
+    "linked_doors": [
+      "DOOR-018"
+    ]
+  },
+  {
+    "id": "CAM-010",
+    "name": "Parking Garage Level 1",
+    "location": "Parking Garage Level 1",
+    "ip_address": "192.168.2.109",
+    "status": "online",
+    "manufacturer": "Hanwha",
+    "model": "XNO-8080R",
+    "resolution": "1920x1080",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-029"
+    ]
+  },
+  {
+    "id": "CAM-011",
+    "name": "Parking Garage Level 2",
+    "location": "Parking Garage Level 2",
+    "ip_address": "192.168.2.110",
+    "status": "online",
+    "manufacturer": "Hanwha",
+    "model": "QNO-8080R",
+    "resolution": "2560x1440",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-029"
+    ]
+  },
+  {
+    "id": "CAM-012",
+    "name": "Security Office",
+    "location": "Security Office",
+    "ip_address": "192.168.2.111",
+    "status": "online",
+    "manufacturer": "Axis",
+    "model": "P3265-LVE",
+    "resolution": "1920x1080",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-011"
+    ]
+  },
+  {
+    "id": "CAM-013",
+    "name": "Cafeteria",
+    "location": "Cafeteria",
+    "ip_address": "192.168.2.112",
+    "status": "offline",
+    "manufacturer": "Axis",
+    "model": "P3245-LVE",
+    "resolution": "3840x2160",
+    "recording": true,
+    "linked_doors": [
+      "DOOR-010"
+    ]
+  },
+  {
+    "id": "CAM-014",
+    "name": "Building A Perimeter - North",
+    "location": "Building A Perimeter - North",
+    "ip_address": "192.168.2.113",
+    "status": "offline",
+    "manufacturer": "Hanwha",
+    "model": "XNO-8080R",
+    "resolution": "2560x1440",
+    "recording": true,
+    "linked_doors": []
+  },
+  {
+    "id": "CAM-015",
+    "name": "Building A Perimeter - South",
+    "location": "Building A Perimeter - South",
+    "ip_address": "192.168.2.114",
+    "status": "online",
+    "manufacturer": "Bosch",
+    "model": "FLEXIDOME IP 3000i",
+    "resolution": "3840x2160",
+    "recording": true,
+    "linked_doors": []
+  },
+  {
+    "id": "CAM-016",
+    "name": "Building B Perimeter - East",
+    "location": "Building B Perimeter - East",
+    "ip_address": "192.168.2.115",
+    "status": "online",
+    "manufacturer": "Hikvision",
+    "model": "DS-2DE4425IW",
+    "resolution": "1920x1080",
+    "recording": true,
+    "linked_doors": []
+  }
+]
