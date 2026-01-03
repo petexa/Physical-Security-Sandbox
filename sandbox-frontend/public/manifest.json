@@ -1,0 +1,17 @@
+{
+  "name": "Physical Security Sandbox",
+  "short_name": "PSS",
+  "description": "A professional training platform for PACS and VMS integration",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#1e3a8a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
