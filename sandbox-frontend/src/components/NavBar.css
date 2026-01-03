@@ -56,6 +56,7 @@
   min-height: 44px;
   display: flex;
   align-items: center;
+  gap: var(--spacing-xs);
 }
 
 .navbar-link:hover {
