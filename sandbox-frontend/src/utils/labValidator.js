@@ -33,15 +33,22 @@ export function validateLabStep(step, userResponse) {
   
   // Validate response body contains expected fields
   if (userResponse.responseBody && expectedResult.bodyContains) {
-    const bodyStr = JSON.stringify(userResponse.responseBody).toLowerCase();
-    const missingFields = expectedResult.bodyContains.filter(
-      field => !bodyStr.includes(field.toLowerCase())
-    );
-    
-    if (missingFields.length > 0) {
+    try {
+      const bodyStr = JSON.stringify(userResponse.responseBody).toLowerCase();
+      const missingFields = expectedResult.bodyContains.filter(
+        field => !bodyStr.includes(field.toLowerCase())
+      );
+      
+      if (missingFields.length > 0) {
+        return {
+          success: false,
+          message: `Response is missing expected fields: ${missingFields.join(', ')}`
+        };
+      }
+    } catch {
       return {
         success: false,
-        message: `Response is missing expected fields: ${missingFields.join(', ')}`
+        message: 'Unable to validate response body format'
       };
     }
   }

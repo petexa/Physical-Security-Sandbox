@@ -328,18 +328,22 @@ export function naturalLanguageQuery(query, events) {
 
   // Parse time ranges
   let timeFilter = null;
+  const lastMonthsMatch = queryLower.match(/last (\d+) months?/);
+  const lastWeeksMatch = queryLower.match(/last (\d+) weeks?/);
+  const lastDaysMatch = queryLower.match(/last (\d+) days?/);
+  
   if (queryLower.includes('last month')) {
     timeFilter = { value: 1, unit: 'months' };
   } else if (queryLower.includes('last week')) {
     timeFilter = { value: 1, unit: 'weeks' };
-  } else if (queryLower.match(/last (\d+) months?/)) {
-    const months = parseInt(queryLower.match(/last (\d+) months?/)[1]);
+  } else if (lastMonthsMatch) {
+    const months = parseInt(lastMonthsMatch[1]);
     timeFilter = { value: months, unit: 'months' };
-  } else if (queryLower.match(/last (\d+) weeks?/)) {
-    const weeks = parseInt(queryLower.match(/last (\d+) weeks?/)[1]);
+  } else if (lastWeeksMatch) {
+    const weeks = parseInt(lastWeeksMatch[1]);
     timeFilter = { value: weeks, unit: 'weeks' };
-  } else if (queryLower.match(/last (\d+) days?/)) {
-    const days = parseInt(queryLower.match(/last (\d+) days?/)[1]);
+  } else if (lastDaysMatch) {
+    const days = parseInt(lastDaysMatch[1]);
     timeFilter = { value: days, unit: 'days' };
   }
 
@@ -580,22 +584,27 @@ export function correlateEvents(pacsEvents, vmsEvents, options = {}) {
   pacsEvents.forEach(pacsEvent => {
     const pacsTime = new Date(pacsEvent.timestamp);
     
-    // Find matching VMS events
-    const matchingVMS = vmsEvents.filter(vmsEvent => {
+    // Find matching VMS events and calculate time differences
+    const matchingVMS = [];
+    const timeDifferences = [];
+    
+    vmsEvents.forEach(vmsEvent => {
       const vmsTime = new Date(vmsEvent.timestamp);
       const timeDiff = Math.abs(vmsTime - pacsTime) / 1000; // difference in seconds
       
       // Time correlation
-      if (timeDiff > timeWindowSeconds) return false;
+      if (timeDiff > timeWindowSeconds) return;
       
       // Location correlation (optional)
       if (matchByLocation) {
-        return vmsEvent.location === pacsEvent.location ||
+        const locationMatch = vmsEvent.location === pacsEvent.location ||
                vmsEvent.camera_name?.includes(pacsEvent.door_name) ||
                pacsEvent.door_name?.includes(vmsEvent.camera_name);
+        if (!locationMatch) return;
       }
       
-      return true;
+      matchingVMS.push(vmsEvent);
+      timeDifferences.push(timeDiff);
     });
 
     if (matchingVMS.length > 0) {
@@ -603,10 +612,7 @@ export function correlateEvents(pacsEvents, vmsEvents, options = {}) {
         pacsEvent: pacsEvent,
         vmsEvents: matchingVMS,
         correlationType: matchByLocation ? 'time_and_location' : 'time_only',
-        timeDifference: matchingVMS.map(vms => {
-          const vmsTime = new Date(vms.timestamp);
-          return Math.abs(vmsTime - pacsTime) / 1000;
-        })
+        timeDifference: timeDifferences
       });
     }
   });
