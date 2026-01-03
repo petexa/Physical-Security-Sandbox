@@ -307,3 +307,315 @@ export function getCategoryOptions(events) {
   events.forEach(e => categories.add(e.category));
   return Array.from(categories).sort();
 }
+
+// Advanced Event Querying Functions
+
+/**
+ * Natural language query parsing for events
+ * Parses queries like:
+ * - "How many times has the Server Room door faulted in the last 6 months?"
+ * - "Show all access denials for Building A last month"
+ */
+export function naturalLanguageQuery(query, events) {
+  const queryLower = query.toLowerCase();
+  let filtered = [...events];
+  const summary = {
+    query: query,
+    matched: 0,
+    summary: '',
+    events: []
+  };
+
+  // Parse time ranges
+  let timeFilter = null;
+  if (queryLower.includes('last month')) {
+    timeFilter = { value: 1, unit: 'months' };
+  } else if (queryLower.includes('last week')) {
+    timeFilter = { value: 1, unit: 'weeks' };
+  } else if (queryLower.match(/last (\d+) months?/)) {
+    const months = parseInt(queryLower.match(/last (\d+) months?/)[1]);
+    timeFilter = { value: months, unit: 'months' };
+  } else if (queryLower.match(/last (\d+) weeks?/)) {
+    const weeks = parseInt(queryLower.match(/last (\d+) weeks?/)[1]);
+    timeFilter = { value: weeks, unit: 'weeks' };
+  } else if (queryLower.match(/last (\d+) days?/)) {
+    const days = parseInt(queryLower.match(/last (\d+) days?/)[1]);
+    timeFilter = { value: days, unit: 'days' };
+  }
+
+  if (timeFilter) {
+    filtered = getRecentEvents(filtered, timeFilter.value, timeFilter.unit);
+  }
+
+  // Parse event types
+  if (queryLower.includes('fault') || queryLower.includes('faulted')) {
+    filtered = filtered.filter(e => e.category === 'fault');
+  } else if (queryLower.includes('denial') || queryLower.includes('denied')) {
+    filtered = filtered.filter(e => e.event_type === 'access_denied');
+  } else if (queryLower.includes('alarm')) {
+    filtered = filtered.filter(e => e.category === 'alarm');
+  } else if (queryLower.includes('access granted') || queryLower.includes('successful access')) {
+    filtered = filtered.filter(e => e.event_type === 'access_granted');
+  }
+
+  // Parse location/door
+  const doorMatch = queryLower.match(/(?:door|room)\s+(?:named\s+)?["']?([^"']+)["']?/);
+  if (doorMatch) {
+    const doorName = doorMatch[1].trim();
+    filtered = filtered.filter(e => 
+      e.door_name && e.door_name.toLowerCase().includes(doorName)
+    );
+  }
+
+  // Parse building
+  const buildingMatch = queryLower.match(/building\s+([a-z])/i);
+  if (buildingMatch) {
+    const building = buildingMatch[1].toUpperCase();
+    filtered = filtered.filter(e => 
+      e.location && e.location.includes(`Building ${building}`)
+    );
+  }
+
+  summary.matched = filtered.length;
+  summary.events = filtered;
+
+  // Generate summary text
+  if (queryLower.includes('how many')) {
+    summary.summary = `Found ${filtered.length} matching events.`;
+  } else if (queryLower.includes('show') || queryLower.includes('list')) {
+    summary.summary = `Displaying ${filtered.length} matching events.`;
+  } else {
+    summary.summary = `Query returned ${filtered.length} events.`;
+  }
+
+  return summary;
+}
+
+/**
+ * Get event timeline grouped by time period
+ * Returns timeline data for visualization
+ */
+export function getEventTimeline(events, options = {}) {
+  const {
+    period = 'hour', // hour, day, week, month
+    eventTypes = null, // filter by specific event types
+    startDate = null,
+    endDate = null
+  } = options;
+
+  let filtered = [...events];
+
+  // Apply date filters
+  if (startDate) {
+    const start = new Date(startDate);
+    filtered = filtered.filter(e => new Date(e.timestamp) >= start);
+  }
+  if (endDate) {
+    const end = new Date(endDate);
+    filtered = filtered.filter(e => new Date(e.timestamp) <= end);
+  }
+
+  // Apply event type filter
+  if (eventTypes && eventTypes.length > 0) {
+    filtered = filtered.filter(e => eventTypes.includes(e.event_type));
+  }
+
+  // Group by time period
+  const timeline = aggregateByTimePeriod(filtered, period);
+
+  // Convert to array format for visualization
+  const timelineArray = Object.entries(timeline).map(([time, events]) => ({
+    time,
+    count: events.length,
+    events: events,
+    byType: countEvents(events, 'event_type'),
+    byCategory: countEvents(events, 'category')
+  })).sort((a, b) => a.time.localeCompare(b.time));
+
+  return timelineArray;
+}
+
+/**
+ * Detect patterns in events
+ * Identifies repeated issues, anomalies, and trends
+ */
+export function getEventPatterns(events) {
+  const patterns = {
+    repeatedFaults: [],
+    repeatedDenials: [],
+    unusualActivity: [],
+    peakTimes: [],
+    problemDoors: [],
+    problemCardholders: []
+  };
+
+  // Find repeated faults (same door, multiple faults)
+  const faultEvents = events.filter(e => e.category === 'fault');
+  const faultsByDoor = {};
+  faultEvents.forEach(event => {
+    const doorId = event.door_id;
+    if (!faultsByDoor[doorId]) {
+      faultsByDoor[doorId] = [];
+    }
+    faultsByDoor[doorId].push(event);
+  });
+
+  Object.entries(faultsByDoor).forEach(([doorId, doorFaults]) => {
+    if (doorFaults.length >= 3) {
+      patterns.repeatedFaults.push({
+        door_id: doorId,
+        door_name: doorFaults[0].door_name,
+        count: doorFaults.length,
+        events: doorFaults
+      });
+    }
+  });
+
+  // Find repeated denials (same cardholder, multiple denials)
+  const denialEvents = events.filter(e => e.event_type === 'access_denied' && e.cardholder_id);
+  const denialsByCardholder = {};
+  denialEvents.forEach(event => {
+    const cardholderId = event.cardholder_id;
+    if (!denialsByCardholder[cardholderId]) {
+      denialsByCardholder[cardholderId] = [];
+    }
+    denialsByCardholder[cardholderId].push(event);
+  });
+
+  Object.entries(denialsByCardholder).forEach(([cardholderId, denials]) => {
+    if (denials.length >= 3) {
+      patterns.repeatedDenials.push({
+        cardholder_id: cardholderId,
+        cardholder_name: denials[0].cardholder_name,
+        count: denials.length,
+        events: denials
+      });
+    }
+  });
+
+  // Identify unusual activity times (events outside 7 AM - 7 PM)
+  events.forEach(event => {
+    const hour = new Date(event.timestamp).getHours();
+    if (hour < 7 || hour >= 19) {
+      patterns.unusualActivity.push(event);
+    }
+  });
+
+  // Find peak activity times
+  const hourCounts = {};
+  events.forEach(event => {
+    const hour = new Date(event.timestamp).getHours();
+    hourCounts[hour] = (hourCounts[hour] || 0) + 1;
+  });
+
+  const sortedHours = Object.entries(hourCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3);
+
+  patterns.peakTimes = sortedHours.map(([hour, count]) => ({
+    hour: parseInt(hour),
+    count: count,
+    timeRange: `${hour}:00 - ${hour}:59`
+  }));
+
+  // Identify problem doors (high fault/alarm rate)
+  const doorEvents = {};
+  events.forEach(event => {
+    if (!doorEvents[event.door_id]) {
+      doorEvents[event.door_id] = {
+        door_id: event.door_id,
+        door_name: event.door_name,
+        total: 0,
+        faults: 0,
+        alarms: 0
+      };
+    }
+    doorEvents[event.door_id].total++;
+    if (event.category === 'fault') doorEvents[event.door_id].faults++;
+    if (event.category === 'alarm') doorEvents[event.door_id].alarms++;
+  });
+
+  patterns.problemDoors = Object.values(doorEvents)
+    .filter(door => door.faults + door.alarms >= 5)
+    .sort((a, b) => (b.faults + b.alarms) - (a.faults + a.alarms))
+    .slice(0, 5);
+
+  // Identify problem cardholders (high denial rate)
+  const cardholderStats = {};
+  events.filter(e => e.cardholder_id).forEach(event => {
+    if (!cardholderStats[event.cardholder_id]) {
+      cardholderStats[event.cardholder_id] = {
+        cardholder_id: event.cardholder_id,
+        cardholder_name: event.cardholder_name,
+        total: 0,
+        denials: 0
+      };
+    }
+    cardholderStats[event.cardholder_id].total++;
+    if (event.event_type === 'access_denied') {
+      cardholderStats[event.cardholder_id].denials++;
+    }
+  });
+
+  patterns.problemCardholders = Object.values(cardholderStats)
+    .filter(ch => ch.denials >= 3)
+    .sort((a, b) => b.denials - a.denials)
+    .slice(0, 5);
+
+  return patterns;
+}
+
+/**
+ * Correlate PACS and VMS events by timestamp and location
+ * Returns combined timeline
+ */
+export function correlateEvents(pacsEvents, vmsEvents, options = {}) {
+  const {
+    timeWindowSeconds = 30, // events within this window are considered related
+    matchByLocation = true
+  } = options;
+
+  const correlatedEvents = [];
+
+  pacsEvents.forEach(pacsEvent => {
+    const pacsTime = new Date(pacsEvent.timestamp);
+    
+    // Find matching VMS events
+    const matchingVMS = vmsEvents.filter(vmsEvent => {
+      const vmsTime = new Date(vmsEvent.timestamp);
+      const timeDiff = Math.abs(vmsTime - pacsTime) / 1000; // difference in seconds
+      
+      // Time correlation
+      if (timeDiff > timeWindowSeconds) return false;
+      
+      // Location correlation (optional)
+      if (matchByLocation) {
+        return vmsEvent.location === pacsEvent.location ||
+               vmsEvent.camera_name?.includes(pacsEvent.door_name) ||
+               pacsEvent.door_name?.includes(vmsEvent.camera_name);
+      }
+      
+      return true;
+    });
+
+    if (matchingVMS.length > 0) {
+      correlatedEvents.push({
+        pacsEvent: pacsEvent,
+        vmsEvents: matchingVMS,
+        correlationType: matchByLocation ? 'time_and_location' : 'time_only',
+        timeDifference: matchingVMS.map(vms => {
+          const vmsTime = new Date(vms.timestamp);
+          return Math.abs(vmsTime - pacsTime) / 1000;
+        })
+      });
+    }
+  });
+
+  // Sort by timestamp
+  correlatedEvents.sort((a, b) => 
+    new Date(a.pacsEvent.timestamp) - new Date(b.pacsEvent.timestamp)
+  );
+
+  return correlatedEvents;
+}
+
