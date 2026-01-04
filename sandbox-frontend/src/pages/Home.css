@@ -42,7 +42,7 @@
 }
 
 .section-alt {
-  background-color: white;
+  background-color: var(--color-background);
 }
 
 .section-title {
@@ -107,7 +107,7 @@
 .quick-start-step {
   text-align: center;
   padding: var(--spacing-xl);
-  background-color: white;
+  background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);

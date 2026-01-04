@@ -65,7 +65,7 @@
 .module-card.locked {
   opacity: 0.6;
   cursor: not-allowed;
-  background: #fafafa;
+  background: var(--color-background);
 }
 
 .module-card.locked:hover {
@@ -76,7 +76,6 @@
 
 .module-card.completed {
   border-color: var(--color-success);
-  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
 }
 
 .module-card-header {

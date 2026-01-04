@@ -96,3 +96,18 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
 }
+
+/* Additional light colors for better contrast */
+:root {
+  --color-success-light: #d1fae5;
+  --color-warning-light: #fef3c7;
+  --color-error-light: #fee2e2;
+  --color-info-light: #dbeafe;
+}
+
+[data-theme="dark"] {
+  --color-success-light: rgba(16, 185, 129, 0.15);
+  --color-warning-light: rgba(245, 158, 11, 0.15);
+  --color-error-light: rgba(239, 68, 68, 0.15);
+  --color-info-light: rgba(59, 130, 246, 0.15);
+}

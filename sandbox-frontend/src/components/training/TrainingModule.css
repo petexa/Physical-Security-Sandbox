@@ -151,7 +151,7 @@
 }
 
 .section-nav-item.active .section-number {
-  background: white;
+  background: var(--color-surface);
   color: var(--color-primary);
 }
 
@@ -162,7 +162,7 @@
 }
 
 .section-nav-item.active .section-nav-title-text {
-  color: white;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 

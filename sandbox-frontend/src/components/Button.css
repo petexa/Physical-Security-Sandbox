@@ -47,7 +47,7 @@
 }
 
 .btn-secondary {
-  background-color: white;
+  background-color: var(--color-surface);
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
