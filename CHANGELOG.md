@@ -13,6 +13,153 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.16] - 2026-01-04
+
+### Added - Backend Best Practices (PR#16)
+- **HATEOAS API Discovery Endpoint** - GET /api
+  - Self-documenting API with hypermedia links to all resources
+  - Service version, timestamp, and documentation URL
+  - Complete resource catalog with methods and authentication details
+- **DTO Helper Functions** - Response optimization
+  - 10 DTO transformation functions for cardholders, doors, access groups, cameras, events
+  - Summary DTOs reduce payload size by 60-70% for list endpoints
+  - Detail DTOs include hypermedia _links for resource navigation
+- **Centralized Exception Handling Middleware**
+  - APIException base class with consistent error response format
+  - NotFoundException (404), UnauthorizedException (401), ValidationException (400)
+  - ConflictException (409), InternalServerException (500)
+  - All errors include timestamp, path, and helpful error messages
+
+### Changed - Backend Best Practices (PR#16)
+- server.js - Integrated errorHandler middleware as last middleware
+- Auth middleware - Updated to throw UnauthorizedException for consistency
+- Production deployment to /opt/physical-security-sandbox/mock-apis/
+- Zero downtime deployment with PM2 restart
+
+---
+
+## [1.0.15] - 2026-01-04
+
+### Added - Performance & Reliability (PR#15)
+- **API Response Caching** - apiCache.js utility
+  - localStorage-based caching with configurable TTL (5 minutes default)
+  - Automatic cache expiration and cleanup
+  - Key-based caching (url + method + body)
+- **Retry Logic with Exponential Backoff**
+  - Automatic retry on network failures
+  - Configurable retry attempts and backoff timing
+  - Integrated into API client
+- **Offline Mode Indicator**
+  - Yellow banner displays when network disconnects
+  - Auto-dismisses when connection restored
+  - Online/offline event listeners
+- **Entity Comparison Page** - /compare
+  - Side-by-side entity comparison with diff highlighting
+  - Color-coded differences: green (added), red (removed), orange (changed)
+  - Support for cardholders, doors, cameras, and other entities
+
+### Changed - Performance & Reliability (PR#15)
+- App.jsx - Added offline detection with useState and useEffect
+- NavBar.jsx - Added Compare page navigation link
+
+---
+
+## [1.0.14] - 2026-01-04
+
+### Added - Operational Polish & UX (PR#14)
+- **EmptyState Component** (597B)
+  - Reusable component for data-less views
+  - Customizable emoji, title, message, and action button
+  - Dark mode support with responsive design
+- **SkeletonLoader Component** (2.9KB)
+  - 6 skeleton loading types: Table, Card, Text, Stats, Detail, List
+  - Shimmer animations for visual feedback
+  - Theme-aware with CSS variables
+- **HTTPS Security Warning Banner**
+  - Sticky banner for non-secure connections
+  - Excludes localhost and 127.0.0.1
+  - Dismissible with localStorage persistence
+- **PM2 Log Rotation Documentation**
+  - Complete deployment guide (PM2-DEPLOYMENT.md)
+  - Configuration instructions for 10MB max size, 7 day retention, compression
+
+### Changed - Operational Polish & UX (PR#14)
+- App.jsx - Added HTTPS warning detection with useState/useEffect
+- styles/global.css - Added .https-warning styles (52 lines)
+
+### Dependencies
+- Added react-loading-skeleton ^3.5.0
+
+---
+
+## [1.0.12] - 2026-01-04
+
+### Added - Workflows, Console, Dashboard, Docs & Settings (PR#12 - Items 7-12)
+- **Guided Workflows** - /workflows (Item 7)
+  - WorkflowsPage.jsx with 4 interactive tutorials
+  - Employee Onboarding, Employee Termination, Access Group Management, Security Investigation
+  - Step-by-step visualization with progress tracking
+  - GuidedWorkflow.jsx component with reusable workflow engine
+
+- **API Testing Console Enhancements** (Item 8)
+  - ApiTester.jsx upgraded with syntax highlighting (react-syntax-highlighter)
+  - Request history with localStorage persistence
+  - Favorites functionality for frequent API calls
+  - Method selector (GET/POST/PUT/DELETE/PATCH)
+  - JSON body editor with formatting
+
+- **Backend Dashboard with Vendor Split** (Item 9)
+  - BackendDashboard.jsx - System health monitoring hub
+  - System health cards for Gallagher and Milestone
+  - Server stats panel with progress bars (CPU, RAM, storage)
+  - Recent activity feed (last 10 events from both systems)
+  - Quick stats cards with entity counts
+  - BackendVendor.jsx - Vendor-specific tab pages
+  - Restructured routes: /backend (dashboard), /backend/gallagher, /backend/milestone
+
+- **API Documentation Wiki** - /docs (Item 10)
+  - ApiDocs.jsx (17.4KB) - Comprehensive API reference
+  - Searchable endpoints with live filtering (debounced 300ms)
+  - Collapsible Gallagher and Milestone sections
+  - "Try it" buttons that open API Console with pre-filled requests
+  - Code snippets in curl, JavaScript, and Python with copy buttons
+  - Sticky sidebar navigation with scroll tracking
+  - 20+ documented endpoints with parameters, examples, and response schemas
+
+- **Editable Entity Details** (Item 11)
+  - Edit buttons on all entity detail views
+  - Modal forms with pre-filled values and validation
+  - PUT request integration with optimistic UI updates
+  - Error handling with inline messages and retry capability
+  - Editable fields: cardholders, doors, access groups, cameras, recording servers, bookmarks
+
+- **Settings Page Enhancements** (Item 12)
+  - Connection testing with "Test Connection" button
+  - Real-time connection status panel (last sync, quality, error count)
+  - Export settings to JSON file (all localStorage data)
+  - Import settings from JSON file with preview and confirmation
+  - Auto-test on page load with 30-second refresh interval
+
+### Changed - Workflows, Console, Dashboard, Docs & Settings (PR#12)
+- App.jsx - Added routes for /workflows, /api-console, /backend, /docs
+- NavBar.jsx - Added navigation links for all new pages
+- Backend.jsx - Refactored for vendor split routing
+- All entity components - Updated with edit modal integration
+
+### Dependencies
+- Added react-syntax-highlighter ^16.1.0
+
+**Note:** PR#13 was skipped in numbering sequence. Items 9-12 were implemented in PR#12.
+
+---
+
+
+### In Progress
+- API/Backend consistency audit
+- Additional testing and validation
+
+---
+
 ## [1.0.11] - 2026-01-04
 
 ### Added
