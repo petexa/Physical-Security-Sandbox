@@ -72,6 +72,20 @@ export default function AIRoadmap() {
             ai: 'Parse policy rules as constraints. Cross-reference cardholder roles and access groups against policies. Flag violations in real-time.',
             servicenow: 'Create HIGH/CRITICAL incident based on policy severity. Auto-assign to compliance officer. Link to access event evidence.'
           }
+        },
+        {
+          id: 'chinese-wall-breach',
+          title: 'Chinese Wall Breach Detection',
+          description: 'Alert when individuals without proper clearance attempt to access restricted areas, protecting information barriers between conflicting functions.',
+          status: 'proposed',
+          priority: 'high',
+          examples: ['Investment banker accessing trading floor data', 'Uncleared employee near restricted research area', 'Cross-function restricted area access'],
+          implementation: {
+            database: 'Store cardholder clearance levels and information barrier rules. Map restricted areas to required clearances. Track all access attempts (allowed and denied).',
+            api: 'Create GET /api/areas/{id}/clearance-required endpoint. POST /api/walls/breach-check to validate cardholder clearance before granting access.',
+            ai: 'Cross-reference cardholder clearance level against area access requirements. Flag attempts from uncleared personnel. Pattern analysis for systematic violations.',
+            servicenow: 'Create CRITICAL incident for any breach attempt. Auto-assign to compliance and security teams. Document as potential insider threat indicator.'
+          }
         }
       ]
     },
@@ -167,6 +181,20 @@ export default function AIRoadmap() {
             api: 'Create GET /api/doors/{id}/crowding endpoint. Return real-time access rate, baseline, anomaly flags.',
             ai: 'Detect rate spikes (> 2σ from baseline = unusual). Identify tailgating (sequential same-direction accesses without physical separation). Fire evacuation signatures.',
             servicenow: 'Create operational alert for unusual crowding. Auto-escalate tailgating to security team. Incident for evacuation detection.'
+          }
+        },
+        {
+          id: 'monthly-compliance',
+          title: 'Monthly Compliance Reports',
+          description: 'Automated monthly reports documenting who has accessed restricted areas with compliance audit trails and evidence.',
+          status: 'proposed',
+          priority: 'medium',
+          examples: ['Access audit for restricted lab facilities', 'Quarterly compliance for secure areas', 'Executive restricted area usage'],
+          implementation: {
+            database: 'Query access logs for restricted areas with cardholder identity, timestamp, purpose/badge type, and approval status. Store report snapshots.',
+            api: 'Create GET /api/compliance/restricted-area-access?period=month&area={id} endpoint. Return full access report with cardholder details and evidence.',
+            ai: 'Aggregate monthly access events by area and cardholder. Validate all accesses against approval records. Flag unauthorized or unapproved access.',
+            servicenow: 'Generate compliance report artifact. Auto-attach evidence to compliance ticket. Notify area manager for sign-off. Archive for audit purposes.'
           }
         }
       ]
