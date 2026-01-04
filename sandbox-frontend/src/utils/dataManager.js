@@ -1,7 +1,7 @@
 // Data Manager - Utilities for data regeneration, import/export, and statistics
 
 import { generateEvents } from './eventGenerator';
-import { validateEventCount, getStorageUsage, getRecommendedMaxEvents } from './storageHelper';
+import { validateEventCount, getStorageUsage as getStorageUsageRaw, getRecommendedMaxEvents } from './storageHelper';
 import cardholdersData from '../mock-data/cardholders.json';
 import accessGroupsData from '../mock-data/access-groups.json';
 import doorsData from '../mock-data/doors.json';
@@ -61,7 +61,7 @@ export function getDataStats() {
   const config = JSON.parse(localStorage.getItem('events-config') || '{}');
   
   // Get storage usage from storageHelper
-  const storageUsage = getStorageUsage();
+  const storageUsage = getStorageUsageRaw();
   
   // Calculate storage size
   const eventsSize = new Blob([JSON.stringify(events)]).size;
@@ -224,21 +224,15 @@ export function resetToDefaults() {
   });
 }
 
+// Wrapper function that formats storageHelper output for UI consumption
 export function getStorageUsage() {
-  let totalSize = 0;
-  
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key)) {
-      totalSize += localStorage[key].length + key.length;
-    }
-  }
-  
+  const raw = getStorageUsageRaw();
   return {
-    used: formatBytes(totalSize),
-    usedBytes: totalSize,
-    limit: formatBytes(5 * 1024 * 1024), // Typical 5MB limit
-    limitBytes: 5 * 1024 * 1024,
-    percentage: Math.round((totalSize / (5 * 1024 * 1024)) * 100)
+    used: formatBytes(raw.used),
+    usedBytes: raw.used,
+    limit: formatBytes(raw.capacity),
+    limitBytes: raw.capacity,
+    percentage: Math.round(parseFloat(raw.percentUsed))
   };
 }
 
