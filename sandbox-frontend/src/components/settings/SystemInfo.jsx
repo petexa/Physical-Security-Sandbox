@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getStorageUsage, clearCache } from '../../utils/dataManager';
+import { get } from '../../utils/apiClient';
 import { VERSION_INFO } from '../../config/version';
 import './SystemInfo.css';
 
@@ -11,10 +12,66 @@ export default function SystemInfo() {
     apiLogging: false
   });
   const [clearingCache, setClearingCache] = useState(false);
+  const [backendUrl, setBackendUrl] = useState('');
+  const [apiKey, setApiKey] = useState('');
+  const [editingConfig, setEditingConfig] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState(null);
+  const [testingConnection, setTestingConnection] = useState(false);
 
   useEffect(() => {
     loadStorageInfo();
+    loadBackendConfig();
   }, []);
+
+  const loadBackendConfig = () => {
+    const url = localStorage.getItem('backend-url') || 'https://sandbox.petefox.co.uk/api';
+    const key = localStorage.getItem('api-key') || 'sandbox-gallagher-key-12345';
+    setBackendUrl(url);
+    setApiKey(key);
+  };
+
+  const saveBackendConfig = () => {
+    localStorage.setItem('backend-url', backendUrl);
+    localStorage.setItem('api-key', apiKey);
+    setEditingConfig(false);
+    alert('Backend configuration saved!');
+  };
+
+  const testConnection = async () => {
+    setTestingConnection(true);
+    const startTime = performance.now();
+    
+    try {
+      const response = await get('/api/health');
+      const endTime = performance.now();
+      const responseTime = Math.round(endTime - startTime);
+      
+      if (response.status === 200) {
+        setConnectionStatus({
+          status: 'success',
+          message: 'Connection successful',
+          responseTime: `${responseTime}ms`,
+          version: response.data.version,
+          timestamp: new Date().toLocaleString()
+        });
+      } else {
+        setConnectionStatus({
+          status: 'error',
+          message: 'Connection failed',
+          responseTime: `${responseTime}ms`,
+          timestamp: new Date().toLocaleString()
+        });
+      }
+    } catch (error) {
+      setConnectionStatus({
+        status: 'error',
+        message: error.message || 'Connection failed',
+        timestamp: new Date().toLocaleString()
+      });
+    } finally {
+      setTestingConnection(false);
+    }
+  };
 
   const loadStorageInfo = () => {
     const storageInfo = getStorageUsage();
@@ -145,6 +202,103 @@ export default function SystemInfo() {
             Run Performance Test
           </button>
         </div>
+      </div>
+
+      <div className="settings-section">
+        <h2>Backend Configuration</h2>
+        <p className="section-description">
+          Configure connection to the backend API (simulated in this training environment)
+        </p>
+        
+        {!editingConfig ? (
+          <>
+            <div className="config-display">
+              <div className="config-item">
+                <strong>Backend URL:</strong>
+                <span>{backendUrl}</span>
+              </div>
+              <div className="config-item">
+                <strong>API Key:</strong>
+                <span>{apiKey.substring(0, 20)}...</span>
+              </div>
+            </div>
+            <div className="config-actions">
+              <button 
+                className="btn btn-secondary"
+                onClick={() => setEditingConfig(true)}
+              >
+                Edit Configuration
+              </button>
+              <button 
+                className="btn btn-primary"
+                onClick={testConnection}
+                disabled={testingConnection}
+              >
+                {testingConnection ? 'Testing...' : 'Test Connection'}
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="config-editor">
+              <div className="form-group">
+                <label>Backend URL</label>
+                <input
+                  type="text"
+                  value={backendUrl}
+                  onChange={(e) => setBackendUrl(e.target.value)}
+                  placeholder="https://sandbox.petefox.co.uk/api"
+                />
+              </div>
+              <div className="form-group">
+                <label>API Key</label>
+                <input
+                  type="text"
+                  value={apiKey}
+                  onChange={(e) => setApiKey(e.target.value)}
+                  placeholder="sandbox-gallagher-key-12345"
+                />
+              </div>
+            </div>
+            <div className="config-actions">
+              <button 
+                className="btn btn-primary"
+                onClick={saveBackendConfig}
+              >
+                Save
+              </button>
+              <button 
+                className="btn btn-secondary"
+                onClick={() => {
+                  loadBackendConfig();
+                  setEditingConfig(false);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </>
+        )}
+        
+        {connectionStatus && (
+          <div className={`connection-status ${connectionStatus.status}`}>
+            <div className="status-indicator">
+              {connectionStatus.status === 'success' ? '✓' : '✗'}
+            </div>
+            <div className="status-details">
+              <strong>{connectionStatus.message}</strong>
+              {connectionStatus.responseTime && (
+                <div>Response Time: {connectionStatus.responseTime}</div>
+              )}
+              {connectionStatus.version && (
+                <div>API Version: {connectionStatus.version}</div>
+              )}
+              <div className="status-timestamp">
+                Last checked: {connectionStatus.timestamp}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="settings-section">
