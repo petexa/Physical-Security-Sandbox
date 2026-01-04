@@ -8,11 +8,14 @@ import Training from './pages/Training';
 import Labs from './pages/Labs';
 import AI from './pages/AI';
 import Settings from './pages/Settings';
+import AuditLog from './pages/AuditLog';
 import { initTheme } from './utils/theme';
+import { initAPILogger } from './utils/apiLogger';
 
 function App() {
   useEffect(() => {
     initTheme();
+    initAPILogger();
   }, []);
 
   return (
@@ -27,6 +30,7 @@ function App() {
           <Route path="/labs" element={<Labs />} />
           <Route path="/ai" element={<AI />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/audit" element={<AuditLog />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -10,6 +10,7 @@ import camerasData from '../mock-data/cameras.json';
 import operatorGroupsData from '../mock-data/operator-groups.json';
 import * as gallagherMapper from './gallagherMapper.js';
 import { getStorageUsage as getStorageUsageRaw } from './storageHelper.js';
+import { logAPICall } from './apiLogger.js';
 
 // Simulate network delay
 function delay(ms = 300) {
@@ -28,8 +29,33 @@ function parseQueryParams(paramString) {
   return params;
 }
 
+// Log API call helper
+function logCall(method, endpoint, response, responseTime) {
+  try {
+    const request = {
+      method,
+      url: endpoint,
+      headers: {},
+      body: null
+    };
+    
+    const responseData = {
+      status: response.status,
+      statusText: response.status >= 200 && response.status < 300 ? 'OK' : 'Error',
+      headers: response.headers || {},
+      body: JSON.stringify(response.data || response),
+      preview: JSON.stringify(response.data || response).substring(0, 200)
+    };
+    
+    logAPICall(request, responseData, responseTime);
+  } catch (error) {
+    console.error('[apiClient] Failed to log API call:', error);
+  }
+}
+
 // Mock GET request
 export async function get(endpoint, params = {}) {
+  const startTime = performance.now();
   await delay(300);
   
   const [path, queryString] = endpoint.split('?');
@@ -42,7 +68,7 @@ export async function get(endpoint, params = {}) {
     // Use storageHelper for consistent storage reporting
     const storage = getStorageUsageRaw();
     
-    return {
+    const response = {
       status: 200,
       data: {
         status: 'online',
@@ -74,6 +100,11 @@ export async function get(endpoint, params = {}) {
         }
       }
     };
+    
+    const endTime = performance.now();
+    logCall('GET', endpoint, response, Math.round(endTime - startTime));
+    
+    return response;
   }
   
   // Cardholders
@@ -83,11 +114,16 @@ export async function get(endpoint, params = {}) {
     const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
     const paginated = gallagherMapper.createPaginatedResponse(mapped, '/cardholders', top, skip);
     
-    return {
+    const response = {
       status: 200,
       data: paginated,
       headers: { 'content-type': 'application/json' }
     };
+    
+    const endTime = performance.now();
+    logCall('GET', endpoint, response, Math.round(endTime - startTime));
+    
+    return response;
   }
   
   if (path.match(/^\/api\/cardholders\/[^/]+$/)) {
@@ -418,15 +454,21 @@ export async function get(endpoint, params = {}) {
   }
   
   // Default 404
-  return {
+  const response = {
     status: 404,
     error: 'Endpoint not found',
     message: `No mock data available for ${endpoint}`
   };
+  
+  const endTime = performance.now();
+  logCall('GET', endpoint, response, Math.round(endTime - startTime));
+  
+  return response;
 }
 
 // Mock POST request
 export async function post(endpoint, body = {}) {
+  const startTime = performance.now();
   await delay(500);
   
   const [path] = endpoint.split('?');
@@ -539,10 +581,15 @@ export async function post(endpoint, body = {}) {
     };
   }
   
-  return {
+  const response = {
     status: 201,
     data: { message: 'Created successfully', body }
   };
+  
+  const endTime = performance.now();
+  logCall('POST', endpoint, response, Math.round(endTime - startTime));
+  
+  return response;
 }
 
 // Mock PATCH request
