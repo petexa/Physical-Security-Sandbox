@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Integrated into Natural Language Query interface (ChatInterface)
   - Helps users understand how AI processes work behind the scenes
 
-### Fixed
+### Identified
 
 #### Bug Tracking and Prioritization
 - Identified and documented 6 critical bugs affecting platform usability:
@@ -310,7 +310,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Real-time event simulation (live event feed)
 - User authentication and roles
 - Multi-language support
-- **Bug Fixes**:
+- **Planned Bug Fixes**:
   - LocalStorage quota management and optimization
   - Dark mode table selection visibility improvements
   - API PATCH method functionality
