@@ -354,4 +354,41 @@
   .button-group {
     justify-content: flex-start;
   }
+  
+  /* iPad: Enhance touch scrolling in textarea */
+  .textarea-group textarea {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* iPad Portrait */
+@media (max-width: 768px) {
+  .log-analyzer {
+    min-height: auto;
+  }
+  
+  .analyzer-header {
+    padding: var(--spacing-sm);
+  }
+  
+  .analyzer-content {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .textarea-group textarea {
+    min-height: 200px;
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+  }
+  
+  .control-group select {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+  }
+  
+  .analysis-placeholder {
+    padding: var(--spacing-xl);
+    min-height: 300px;
+  }
 }

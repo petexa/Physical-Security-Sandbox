@@ -24,11 +24,13 @@
   border-radius: var(--radius-lg);
   max-width: 800px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-lg);
   animation: slideUp 0.3s ease-out;
+  /* iPad: Ensure safe area insets are respected */
+  max-height: calc(85vh - env(safe-area-inset-bottom));
 }
 
 @keyframes slideUp {
@@ -80,6 +82,10 @@
   flex: 1;
   overflow-y: auto;
   padding: var(--spacing-lg);
+  /* iPad: Enhanced touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent momentum scroll from going behind modal */
+  overscroll-behavior: contain;
 }
 
 .modal-footer {
@@ -179,7 +185,21 @@
   margin-right: var(--spacing-xs);
 }
 
-/* Responsive */
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) and (orientation: landscape) {
+  .modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    /* Account for Safari UI bars on iPad */
+    max-height: calc(80vh - env(safe-area-inset-bottom));
+  }
+  
+  .modal-overlay {
+    padding: var(--spacing-md);
+  }
+}
+
+/* iPad Portrait and Mobile */
 @media (max-width: 767px) {
   .detail-row {
     grid-template-columns: 1fr;
@@ -188,11 +208,24 @@
   
   .modal-content {
     max-width: 100%;
-    max-height: 100vh;
-    border-radius: 0;
+    max-height: 95vh;
+    /* Account for iOS keyboard and Safari UI */
+    max-height: calc(95vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   
   .modal-overlay {
     padding: 0;
+    align-items: flex-end;
+  }
+  
+  .modal-header {
+    /* Ensure close button is easily tappable */
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .modal-footer {
+    /* Ensure buttons don't get cut off by notch */
+    padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
   }
 }

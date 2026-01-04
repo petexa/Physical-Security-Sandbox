@@ -208,14 +208,19 @@
   line-height: 1.6;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* iPad Landscape (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
   .modules-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
+  }
+  
+  .training-content {
+    padding: var(--spacing-2xl) var(--spacing-lg);
   }
 }
 
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
   .training-header {
     padding: var(--spacing-2xl) var(--spacing-md);

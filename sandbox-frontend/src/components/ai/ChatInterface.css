@@ -67,6 +67,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  /* iPad: Enhanced touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .chat-message {
@@ -296,6 +299,8 @@
   color: var(--color-text);
   transition: border-color 0.2s;
   min-height: 44px;
+  /* iPad: Prevent zoom on focus */
+  font-size: 16px;
 }
 
 .chat-input:focus {
@@ -308,20 +313,30 @@
   cursor: not-allowed;
 }
 
-/* Responsive design for iPad */
-@media (max-width: 1024px) {
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) {
   .chat-interface {
     height: 500px;
+    max-height: 70vh;
   }
   
   .chat-message {
     max-width: 90%;
   }
+  
+  .example-query {
+    /* iPad: Ensure touch targets are sufficient */
+    padding: var(--spacing-md);
+  }
 }
 
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
   .chat-interface {
-    height: 400px;
+    height: 450px;
+    max-height: 65vh;
+    /* iPad: Account for keyboard */
+    max-height: calc(65vh - env(safe-area-inset-bottom));
   }
   
   .chat-header h3 {
@@ -334,5 +349,14 @@
   
   .example-queries {
     gap: var(--spacing-sm);
+  }
+  
+  .chat-examples {
+    padding: var(--spacing-md);
+  }
+  
+  .chat-input-container {
+    /* iPad: Ensure input bar doesn't get hidden by keyboard */
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

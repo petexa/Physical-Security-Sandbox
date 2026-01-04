@@ -7,21 +7,70 @@
   }
 }
 
-/* iPad Landscape */
-@media (max-width: 1024px) and (min-width: 768px) {
+/* iPad Pro Landscape (1024px+) */
+@media (max-width: 1366px) and (min-width: 1025px) {
   .container {
+    max-width: 100%;
     padding: 0 var(--spacing-lg);
   }
 }
 
-/* iPad Portrait */
+/* iPad Landscape (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  /* Optimize grid layouts for iPad landscape */
+  .grid-2col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid-3col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid-4col {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* iPad Portrait (below 768px) */
 @media (max-width: 767px) {
   .container {
     padding: 0 var(--spacing-md);
   }
   
   /* Stack layouts */
-  .grid-2col {
+  .grid-2col,
+  .grid-3col,
+  .grid-4col {
     grid-template-columns: 1fr !important;
+  }
+  
+  /* Ensure touch-friendly spacing */
+  button, a[role="button"], .button {
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* iPad-specific fixes for Safari */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for iOS Safari bottom bar */
+  .layout-main {
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Prevent iOS zoom on input focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }
