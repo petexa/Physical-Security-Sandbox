@@ -9,6 +9,7 @@ import Labs from './pages/Labs';
 import AI from './pages/AI';
 import Settings from './pages/Settings';
 import AuditLog from './pages/AuditLog';
+import WorkflowsPage from './pages/WorkflowsPage';
 import { initTheme } from './utils/theme';
 import { initAPILogger } from './utils/apiLogger';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/frontend" element={<Frontend />} />
           <Route path="/backend" element={<Backend />} />
+          <Route path="/workflows" element={<WorkflowsPage />} />
           <Route path="/training" element={<Training />} />
           <Route path="/training/:moduleId" element={<Training />} />
           <Route path="/labs" element={<Labs />} />
