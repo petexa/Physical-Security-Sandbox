@@ -526,13 +526,35 @@ export async function post(endpoint, body = {}) {
   
   // Create cardholder
   if (path === '/api/cardholders') {
+    // Load existing cardholders
+    const cardholders = JSON.parse(localStorage.getItem('pacs-cardholders') || '[]');
+    
+    // Create new cardholder with properly mapped fields
+    const newCardholder = {
+      id: `CH-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
+      first_name: body.firstName || '',
+      last_name: body.lastName || '',
+      email: body.email || '',
+      phone: body.phone || 'N/A',
+      department: body.department || '',
+      job_title: body.jobTitle || '',
+      division: body.division || 'N/A',
+      status: body.authorised ? 'active' : 'inactive',
+      access_groups: [],
+      hired_date: body.hiredDate || new Date().toISOString().split('T')[0],
+      created: new Date().toISOString(),
+      modified: new Date().toISOString()
+    };
+    
+    // Add to localStorage
+    cardholders.push(newCardholder);
+    localStorage.setItem('pacs-cardholders', JSON.stringify(cardholders));
+    
+    console.log('[API] Created new cardholder:', newCardholder.id);
+    
     return {
       status: 201,
-      data: {
-        id: `CH-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
-        ...body,
-        created_at: new Date().toISOString()
-      }
+      data: newCardholder
     };
   }
   

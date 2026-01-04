@@ -1327,3 +1327,117 @@ Extended the "Inspect Prompt" transparency feature from Natural Language Queries
 ✅ **COMPLETE AND DEPLOYED** - All 6 AI tabs now have "Inspect Prompt" functionality
 
 ---
+
+## Issue #19: New Cardholders Not Persisting to localStorage (Workflow Bug)
+**Date:** January 4, 2026  
+**Severity:** High  
+**Status:** Fixed  
+**Type:** Data Persistence Bug
+
+**Problem:**
+- Creating new cardholders through Employee Onboarding workflow resulted in incomplete data
+- Cardholder appeared in the UI but with missing fields (e.g., "undefined undefined" for name)
+- Access groups assigned in workflow were not saved
+- Data was not persisted to localStorage, so refreshing lost the new cardholder
+
+**Symptoms:**
+- Created CH-919 through workflow showing:
+  - Name: "undefined undefined"
+  - Email: Present
+  - Phone: N/A
+  - Department: Present but other fields missing
+  - Status: ERROR
+  - Access groups: Missing
+- Cardholder existed temporarily but disappeared on page refresh
+- Console showed successful API calls but localStorage remained unchanged
+
+**Root Cause:**
+The `POST /api/cardholders` endpoint in `apiClient.js` was returning the created cardholder data but **never saving it to localStorage**:
+
+```javascript
+// OLD - BROKEN: Data returned but not saved
+if (path === '/api/cardholders') {
+  return {
+    status: 201,
+    data: {
+      id: `CH-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
+      ...body,  // Just spread the body without field mapping
+      created_at: new Date().toISOString()
+    }
+  };
+}
+```
+
+Two problems:
+1. **No localStorage persistence** - Created cardholder was never added to `pacs-cardholders` in localStorage
+2. **Incorrect field mapping** - Used `...body` spread which didn't map `firstName` → `first_name`, `lastName` → `last_name`, etc.
+
+**Fix Applied:**
+Modified `POST /api/cardholders` handler in `src/utils/apiClient.js`:
+
+```javascript
+// NEW - FIXED: Properly save and map fields
+if (path === '/api/cardholders') {
+  // Load existing cardholders
+  const cardholders = JSON.parse(localStorage.getItem('pacs-cardholders') || '[]');
+  
+  // Create new cardholder with properly mapped fields
+  const newCardholder = {
+    id: `CH-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
+    first_name: body.firstName || '',
+    last_name: body.lastName || '',
+    email: body.email || '',
+    phone: body.phone || 'N/A',
+    department: body.department || '',
+    job_title: body.jobTitle || '',
+    division: body.division || 'N/A',
+    status: body.authorised ? 'active' : 'inactive',
+    access_groups: [],
+    hired_date: body.hiredDate || new Date().toISOString().split('T')[0],
+    created: new Date().toISOString(),
+    modified: new Date().toISOString()
+  };
+  
+  // Add to localStorage
+  cardholders.push(newCardholder);
+  localStorage.setItem('pacs-cardholders', JSON.stringify(cardholders));
+  
+  console.log('[API] Created new cardholder:', newCardholder.id);
+  
+  return {
+    status: 201,
+    data: newCardholder
+  };
+}
+```
+
+**Files Modified:**
+- `src/utils/apiClient.js` - Fixed `POST /api/cardholders` endpoint to:
+  - Load existing cardholders from localStorage
+  - Map camelCase fields from request body to snake_case for database consistency
+  - Set default values for optional fields
+  - Save new cardholder to localStorage
+  - Return properly formatted cardholder object
+
+**Result:**
+- ✅ New cardholders created via workflow are properly saved to localStorage
+- ✅ All fields correctly mapped (firstName → first_name, etc.)
+- ✅ Names display correctly in UI ("Hayley Fox" instead of "undefined undefined")
+- ✅ Access groups persist after being assigned in step 2
+- ✅ Cardholder remains in system after page refresh
+- ✅ Status badge shows correct color (green for active, red for inactive)
+
+**Testing:**
+1. Go to /workflows
+2. Start Employee Onboarding workflow
+3. Enter first name, last name, department → Create Cardholder
+4. Select access groups → Assign Groups
+5. Complete workflow
+6. Go to /backend/gallagher and verify new cardholder appears with all fields
+7. Refresh page → Cardholder still present with correct data
+8. Open cardholder detail modal → All fields populated correctly
+
+**Related Issues:**
+- Issue #14: Workflow Data Not Persisting to localStorage (similar persistence problem but for workflow step updates, not creation)
+
+---
