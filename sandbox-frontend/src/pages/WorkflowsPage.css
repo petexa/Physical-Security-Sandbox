@@ -206,8 +206,15 @@
   margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .workflows-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPad Portrait */
+@media (max-width: 768px) and (min-width: 480px) {
   .workflows-container {
     padding: 16px;
   }
@@ -217,7 +224,7 @@
   }
 
   .workflows-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 16px;
   }
 
@@ -226,6 +233,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .workflows-container {
     padding: 12px;

@@ -63,6 +63,7 @@
   background: var(--color-surface);
   color: var(--color-text-primary);
   cursor: pointer;
+  min-height: 44px;
 }
 
 .method-selector:focus {
@@ -79,6 +80,7 @@
   font-size: var(--font-size-sm);
   background: var(--color-background);
   color: var(--color-text-primary);
+  min-height: 44px;
 }
 
 .endpoint-input:focus {
@@ -204,8 +206,8 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* iPad Landscape (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
   .api-tester {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
@@ -217,9 +219,12 @@
     border-left: none;
     border-bottom: 1px solid var(--color-border);
     max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
   .request-line {
     flex-direction: column;
@@ -227,13 +232,37 @@
 
   .method-selector {
     width: 100%;
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+  }
+  
+  .endpoint-input {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
   }
 
   .header-row {
     grid-template-columns: 1fr;
   }
+  
+  .header-input {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+  }
 
   .auth-section {
     flex-direction: column;
+  }
+  
+  .auth-section select,
+  .auth-section input {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+    min-height: 44px;
+  }
+  
+  .body-editor {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
   }
 }

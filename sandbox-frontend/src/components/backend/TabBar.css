@@ -5,6 +5,8 @@
   padding: var(--spacing-md);
   background: var(--color-surface);
   border-bottom: 2px solid var(--color-border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tab-button {
@@ -48,11 +50,27 @@
   opacity: 0.8;
 }
 
-/* Responsive */
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .tab-bar {
+    flex-wrap: nowrap;
+  }
+  
+  .tab-button {
+    flex-shrink: 0;
+  }
+}
+
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
+  .tab-bar {
+    flex-wrap: nowrap;
+  }
+  
   .tab-button {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-size-sm);
+    flex-shrink: 0;
   }
 
   .tab-label {
