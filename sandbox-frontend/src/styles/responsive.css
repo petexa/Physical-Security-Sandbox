@@ -21,7 +21,11 @@
     padding: 0 var(--spacing-lg);
   }
   
-  /* Optimize grid layouts for iPad landscape */
+  /* Optimize grid layouts for iPad landscape
+     Note: !important is necessary here to override inline styles and
+     component-specific grid definitions across multiple pages/components.
+     This ensures consistent 2-column layout on iPad landscape regardless
+     of individual component CSS specificity. */
   .grid-2col {
     grid-template-columns: repeat(2, 1fr) !important;
   }
@@ -41,7 +45,10 @@
     padding: 0 var(--spacing-md);
   }
   
-  /* Stack layouts */
+  /* Stack layouts
+     Note: !important is necessary here to override component-specific
+     grid definitions and ensure single-column layout on iPad portrait
+     across all components regardless of their individual CSS specificity. */
   .grid-2col,
   .grid-3col,
   .grid-4col {
@@ -62,7 +69,10 @@
     min-height: -webkit-fill-available;
   }
   
-  /* Prevent iOS zoom on input focus */
+  /* Prevent iOS zoom on input focus
+     Note: !important is necessary to override component-specific font-size
+     declarations throughout the app. This is a critical iOS Safari requirement
+     to prevent auto-zoom when users tap form inputs. */
   input[type="text"],
   input[type="email"],
   input[type="password"],
