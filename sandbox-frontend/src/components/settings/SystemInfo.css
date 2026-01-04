@@ -6,8 +6,8 @@
 }
 
 .info-section {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 24px;
 }
@@ -16,7 +16,7 @@
   margin: 0 0 20px 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 /* Connection Testing */
@@ -68,8 +68,8 @@
 }
 
 .status-item {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -86,14 +86,14 @@
 }
 
 .status-label {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .status-value {
   margin: 0;
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .status-value.warning {
@@ -101,13 +101,13 @@
 }
 
 .quality-label {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .quality-bar {
   width: 100%;
   height: 8px;
-  background: var(--bg-secondary);
+  background: var(--color-surface);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -123,7 +123,7 @@
   margin: 0;
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .offline-message {
@@ -151,8 +151,8 @@
 
 .export-card,
 .import-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -166,14 +166,14 @@
   margin: 0;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .export-card p,
 .import-card p {
   margin: 0;
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .action-btn {
@@ -225,8 +225,8 @@
 }
 
 .import-modal {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 28px;
   max-width: 400px;
@@ -240,12 +240,12 @@
   margin: 0 0 16px 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .import-preview {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 20px;
@@ -256,11 +256,11 @@
 .import-preview p {
   margin: 8px 0;
   font-size: 13px;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .import-preview strong {
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .import-options {
@@ -300,14 +300,14 @@
 }
 
 .cancel-btn {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
 }
 
 .cancel-btn:hover {
-  background: var(--bg-primary);
-  border-color: var(--primary-color);
+  background: var(--color-background);
+  border-color: var(--color-primary);
 }
 
 /* System Info */
@@ -318,8 +318,8 @@
 }
 
 .info-item {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -330,7 +330,7 @@
 .info-label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -338,7 +338,7 @@
 .info-value {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 /* Responsive */

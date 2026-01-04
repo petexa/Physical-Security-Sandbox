@@ -12,7 +12,6 @@ import AI from './pages/AI';
 import Settings from './pages/Settings';
 import AuditLog from './pages/AuditLog';
 import WorkflowsPage from './pages/WorkflowsPage';
-import Compare from './pages/Compare';
 import { initTheme } from './utils/theme';
 import { initAPILogger } from './utils/apiLogger';
 
@@ -102,7 +101,6 @@ function App() {
           <Route path="/backend/gallagher" element={<BackendVendor />} />
           <Route path="/backend/milestone" element={<BackendVendor />} />
           <Route path="/docs" element={<ApiDocs />} />
-          <Route path="/compare" element={<Compare />} />
           <Route path="/workflows" element={<WorkflowsPage />} />
           <Route path="/training" element={<Training />} />
           <Route path="/training/:moduleId" element={<Training />} />

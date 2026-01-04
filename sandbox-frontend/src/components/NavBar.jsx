@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Shield, Settings, FileText, BookOpen, GitCompare } from 'lucide-react';
+import { Menu, X, Shield, Settings, FileText, BookOpen } from 'lucide-react';
 import './NavBar.css';
 
 export default function NavBar() {
@@ -13,7 +13,6 @@ export default function NavBar() {
     { path: '/backend', label: 'Backend Systems' },
     { path: '/workflows', label: 'Workflows', icon: BookOpen },
     { path: '/docs', label: 'API Docs', icon: FileText },
-    { path: '/compare', label: 'Compare', icon: GitCompare },
     { path: '/training', label: 'Training' },
     { path: '/labs', label: 'Labs' },
     { path: '/ai', label: 'AI Tools' },

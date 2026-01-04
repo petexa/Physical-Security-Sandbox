@@ -16,24 +16,24 @@ export default function BackendDashboard() {
       try {
         // Fetch health data
         const healthData = await apiClient.get('/api/health');
-        setHealth(healthData);
+        setHealth(healthData.data);
 
         // Fetch entity counts
         try {
-          const cardholdersData = await apiClient.get('/api/gallagher/cardholders');
-          const doorsData = await apiClient.get('/api/gallagher/doors');
-          const accessGroupsData = await apiClient.get('/api/gallagher/access-groups');
+          const cardholdersData = await apiClient.get('/api/cardholders');
+          const doorsData = await apiClient.get('/api/doors');
+          const accessGroupsData = await apiClient.get('/api/access_groups');
           
           setStats({
-            cardholders: cardholdersData.results?.length || cardholdersData.length || 0,
-            doors: doorsData.results?.length || doorsData.length || 0,
-            accessGroups: accessGroupsData.results?.length || accessGroupsData.length || 0,
+            cardholders: cardholdersData.data?.results?.length || 0,
+            doors: doorsData.data?.results?.length || 0,
+            accessGroups: accessGroupsData.data?.results?.length || 0,
             cameras: 12 // Milestone placeholder
           });
 
           // Fetch recent events
-          const eventsData = await apiClient.get('/api/gallagher/events?top=10');
-          const eventsList = (eventsData.results || eventsData || []).slice(0, 10).map(event => ({
+          const eventsData = await apiClient.get('/api/events?top=10');
+          const eventsList = (eventsData.data?.results || eventsData.data || []).slice(0, 10).map(event => ({
             ...event,
             system: 'Gallagher',
             icon: 'acl'

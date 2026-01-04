@@ -1,27 +1,29 @@
 import { Users, Shield, DoorOpen, Server, UserCog, Plug, Radio, Activity, Camera, Bookmark, AlertCircle, Database } from 'lucide-react';
 import './TabBar.css';
 
-const tabs = [
-  { id: 'cardholders', label: 'Cardholders', icon: Users },
-  { id: 'access-groups', label: 'Access Groups', icon: Shield },
-  { id: 'doors', label: 'Doors', icon: DoorOpen },
-  { id: 'controllers', label: 'Controllers', icon: Server },
-  { id: 'operator-groups', label: 'Operator Groups', icon: UserCog },
-  { id: 'inputs', label: 'Inputs', icon: Plug },
-  { id: 'outputs', label: 'Outputs', icon: Radio },
-  { id: 'events', label: 'Events', icon: Activity },
-  { id: 'milestone-cameras', label: 'Milestone Cameras', icon: Camera },
-  { id: 'bookmarks', label: 'Bookmarks', icon: Bookmark },
-  { id: 'vms-events', label: 'VMS Events', icon: AlertCircle },
-  { id: 'recording-servers', label: 'Recording Servers', icon: Database }
-];
+// Icon mapping for dynamic lookup
+const iconMap = {
+  'cardholders': Users,
+  'access-groups': Shield,
+  'doors': DoorOpen,
+  'controllers': Server,
+  'operator-groups': UserCog,
+  'inputs': Plug,
+  'outputs': Radio,
+  'events': Activity,
+  'milestone-cameras': Camera,
+  'cameras': Camera,
+  'bookmarks': Bookmark,
+  'vms-events': AlertCircle,
+  'recording-servers': Database
+};
 
-export default function TabBar({ activeTab, onTabChange, counts }) {
+export default function TabBar({ tabs, activeTab, onTabChange, counts }) {
   return (
     <div className="tab-bar">
       {tabs.map((tab) => {
-        const Icon = tab.icon;
-        const count = counts?.[tab.id];
+        const Icon = tab.icon || iconMap[tab.id];
+        const count = counts?.[tab.id] ?? tab.count;
         
         return (
           <button
@@ -29,7 +31,7 @@ export default function TabBar({ activeTab, onTabChange, counts }) {
             className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => onTabChange(tab.id)}
           >
-            <Icon size={20} />
+            {Icon && <Icon size={20} />}
             <span className="tab-label">{tab.label}</span>
             {count !== undefined && (
               <span className="tab-count">({count})</span>

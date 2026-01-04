@@ -18,11 +18,19 @@ const AccessGroupManagement = ({ stepNumber, workflowType, onComplete, onError, 
       try {
         setIsLoading(true);
         const [doorsResponse, cardholdersResponse] = await Promise.all([
-          get('/api/gallagher/doors'),
-          get('/api/gallagher/cardholders')
+          get('/api/doors'),
+          get('/api/cardholders')
         ]);
-        setDoors(doorsResponse || []);
-        setCardholders(cardholdersResponse || []);
+        const doorsList = doorsResponse?.data?.results 
+          || doorsResponse?.data 
+          || doorsResponse?.results 
+          || [];
+        const holdersList = cardholdersResponse?.data?.results 
+          || cardholdersResponse?.data 
+          || cardholdersResponse?.results 
+          || [];
+        setDoors(Array.isArray(doorsList) ? doorsList : []);
+        setCardholders(Array.isArray(holdersList) ? holdersList : []);
       } catch (error) {
         console.error('Failed to fetch data:', error);
         onError('Failed to load doors and cardholders.');
@@ -67,14 +75,15 @@ const AccessGroupManagement = ({ stepNumber, workflowType, onComplete, onError, 
 
     try {
       setIsLoading(true);
-      const response = await post('/api/gallagher/access-groups', {
+      const response = await post('/api/access_groups', {
         name: groupName,
         description: groupDescription
       });
 
-      setCreatedGroupId(response.id);
+      const group = response?.data || response;
+      setCreatedGroupId(group.id);
       onComplete({
-        accessGroup: response
+        accessGroup: group
       });
     } catch (error) {
       console.error('Failed to create access group:', error);
@@ -95,7 +104,7 @@ const AccessGroupManagement = ({ stepNumber, workflowType, onComplete, onError, 
 
       // Add each door to the access group
       for (const doorId of selectedDoors) {
-        await patch(`/api/gallagher/access-groups/${groupId}/doors`, {
+        await patch(`/api/access_groups/${groupId}/doors`, {
           doorId: doorId
         });
       }
@@ -122,7 +131,7 @@ const AccessGroupManagement = ({ stepNumber, workflowType, onComplete, onError, 
 
       // Add each cardholder to the access group
       for (const cardholderId of selectedCardholders) {
-        await post(`/api/gallagher/access-groups/${groupId}/members`, {
+        await post(`/api/access_groups/${groupId}/members`, {
           cardholderId: cardholderId
         });
       }

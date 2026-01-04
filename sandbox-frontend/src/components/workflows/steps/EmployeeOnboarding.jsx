@@ -19,7 +19,11 @@ const EmployeeOnboarding = ({ stepNumber, workflowType, onComplete, onError, set
       try {
         setIsLoading(true);
         const response = await get('/api/access_groups');
-        setAccessGroups(response || []);
+        const groups = response?.data?.results 
+          || response?.data 
+          || response?.results 
+          || [];
+        setAccessGroups(Array.isArray(groups) ? groups : []);
       } catch (error) {
         console.error('Failed to fetch access groups:', error);
         onError('Failed to load access groups. Please try again.');

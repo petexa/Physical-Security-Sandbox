@@ -16,8 +16,8 @@
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid var(--bg-secondary);
-  border-top: 4px solid var(--primary-color);
+  border: 4px solid var(--color-surface);
+  border-top: 4px solid var(--color-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -34,20 +34,20 @@
   align-items: center;
   margin-bottom: 32px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .dashboard-header h1 {
   margin: 0;
   font-size: 28px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .dashboard-refresh {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   font-size: 13px;
 }
 
@@ -60,8 +60,8 @@
 }
 
 .health-card {
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
   border-radius: 12px;
   padding: 20px;
   transition: all 0.3s ease;
@@ -83,13 +83,13 @@
   align-items: center;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .card-header h3 {
   margin: 0;
   font-size: 18px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .status-indicator {
@@ -123,20 +123,20 @@
 }
 
 .stat-row span {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .stat-row code {
-  background: var(--bg-primary);
+  background: var(--color-background);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 11px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
 .card-link {
-  color: var(--primary-color);
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
@@ -158,8 +158,8 @@
 }
 
 .stat-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 16px;
   display: flex;
@@ -170,7 +170,7 @@
 }
 
 .stat-card:hover {
-  border-color: var(--primary-color);
+  border-color: var(--color-primary);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
@@ -198,7 +198,7 @@
 .stat-content h4 {
   margin: 0 0 8px 0;
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   font-weight: 600;
 }
 
@@ -206,13 +206,13 @@
   margin: 0;
   font-size: 24px;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--color-primary);
 }
 
 /* Server Stats Panel */
 .server-stats-panel {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 32px;
@@ -221,7 +221,7 @@
 .server-stats-panel h2 {
   margin: 0 0 20px 0;
   font-size: 18px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .stats-grid {
@@ -239,13 +239,13 @@
 .stat-label {
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .progress-bar {
   width: 100%;
   height: 24px;
-  background: var(--bg-primary);
+  background: var(--color-background);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -259,13 +259,13 @@
 .stat-value {
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 /* Activity Feed */
 .activity-feed {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 24px;
 }
@@ -273,12 +273,12 @@
 .activity-feed h2 {
   margin: 0 0 20px 0;
   font-size: 18px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .activity-empty {
   text-align: center;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   padding: 32px 16px;
 }
 
@@ -293,16 +293,16 @@
   grid-template-columns: 80px 100px 100px 1fr;
   gap: 16px;
   padding: 12px;
-  background: var(--bg-primary);
+  background: var(--color-background);
   border-radius: 8px;
   align-items: center;
-  border-left: 3px solid var(--primary-color);
+  border-left: 3px solid var(--color-primary);
 }
 
 .activity-time {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   font-family: monospace;
 }
 
@@ -341,14 +341,14 @@
   border-radius: 4px;
   font-size: 11px;
   font-weight: 600;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
   white-space: nowrap;
 }
 
 .activity-summary {
   font-size: 13px;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

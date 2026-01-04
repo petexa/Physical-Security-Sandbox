@@ -13,8 +13,12 @@ const SecurityInvestigation = ({ stepNumber, workflowType, onComplete, onError, 
     const fetchEvents = async () => {
       try {
         setIsLoading(true);
-        const response = await get('/api/gallagher/events?limit=50');
-        setEvents(response || []);
+        const response = await get('/api/events?limit=50');
+        const eventsList = response?.data?.results 
+          || response?.data 
+          || response?.results 
+          || [];
+        setEvents(Array.isArray(eventsList) ? eventsList : []);
       } catch (error) {
         console.error('Failed to fetch events:', error);
         onError('Failed to load events. Please try again.');
@@ -46,10 +50,11 @@ const SecurityInvestigation = ({ stepNumber, workflowType, onComplete, onError, 
 
     try {
       setIsLoading(true);
-      const response = await get(`/api/gallagher/doors/${selectedEvent.doorId}`);
-      setDoorDetails(response);
+      const response = await get(`/api/doors/${selectedEvent.doorId}`);
+      const door = response?.data || response;
+      setDoorDetails(door);
       onComplete({
-        door: response
+        door: door
       });
     } catch (error) {
       console.error('Failed to fetch door details:', error);
@@ -67,10 +72,15 @@ const SecurityInvestigation = ({ stepNumber, workflowType, onComplete, onError, 
 
     try {
       setIsLoading(true);
-      const response = await get(`/api/gallagher/cardholders/${selectedEvent.cardholderId}/access-groups`);
-      setCardholderPermissions(response);
+      const response = await get(`/api/cardholders/${selectedEvent.cardholderId}/access-groups`);
+      const perms = response?.data?.results 
+        || response?.data 
+        || response?.results 
+        || response
+        || [];
+      setCardholderPermissions(perms);
       onComplete({
-        permissions: response
+        permissions: perms
       });
     } catch (error) {
       console.error('Failed to fetch cardholder permissions:', error);
