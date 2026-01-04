@@ -13,8 +13,12 @@ const EmployeeTermination = ({ stepNumber, workflowType, onComplete, onError, se
     const fetchCardholders = async () => {
       try {
         setIsLoading(true);
-        const response = await get('/api/gallagher/cardholders');
-        setCardholders(response || []);
+        const response = await get('/api/cardholders');
+        const holders = response?.data?.results 
+          || response?.data 
+          || response?.results 
+          || [];
+        setCardholders(Array.isArray(holders) ? holders : []);
       } catch (error) {
         console.error('Failed to fetch cardholders:', error);
         onError('Failed to load cardholders. Please try again.');
@@ -35,11 +39,19 @@ const EmployeeTermination = ({ stepNumber, workflowType, onComplete, onError, se
       try {
         setIsLoading(true);
         const [credResponse, groupResponse] = await Promise.all([
-          get(`/api/gallagher/cardholders/${selectedCardholder.id}/credentials`),
-          get(`/api/gallagher/cardholders/${selectedCardholder.id}/access-groups`)
+          get(`/api/cardholders/${selectedCardholder.id}/credentials`),
+          get(`/api/cardholders/${selectedCardholder.id}/access-groups`)
         ]);
-        setCredentials(credResponse || []);
-        setAccessGroups(groupResponse || []);
+        const creds = credResponse?.data?.results 
+          || credResponse?.data 
+          || credResponse?.results 
+          || [];
+        const groups = groupResponse?.data?.results 
+          || groupResponse?.data 
+          || groupResponse?.results 
+          || [];
+        setCredentials(Array.isArray(creds) ? creds : []);
+        setAccessGroups(Array.isArray(groups) ? groups : []);
       } catch (error) {
         console.error('Failed to fetch cardholder details:', error);
         onError('Failed to load cardholder details.');

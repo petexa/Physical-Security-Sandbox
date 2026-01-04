@@ -139,6 +139,9 @@ export default function BackendVendor() {
       { id: 'access-groups', label: 'Access Groups', count: tabCounts['access-groups'] },
       { id: 'doors', label: 'Doors', count: tabCounts.doors },
       { id: 'controllers', label: 'Controllers', count: tabCounts.controllers },
+      { id: 'operator-groups', label: 'Operator Groups', count: tabCounts['operator-groups'] },
+      { id: 'inputs', label: 'Inputs', count: tabCounts.inputs },
+      { id: 'outputs', label: 'Outputs', count: tabCounts.outputs },
       { id: 'events', label: 'Events', count: tabCounts.events }
     ];
 
@@ -167,6 +170,45 @@ export default function BackendVendor() {
             data={data.doors}
             columns={doorsColumns}
             onRowClick={(item) => handleRowClick(item, 'door')}
+          />
+        );
+        break;
+      case 'operator-groups':
+        content = (
+          <DataTable
+            data={data.operatorGroups || []}
+            columns={[
+              { key: 'id', label: 'ID' },
+              { key: 'name', label: 'Name' },
+              { key: 'description', label: 'Description' }
+            ]}
+            onRowClick={(item) => handleRowClick(item, 'operator-group')}
+          />
+        );
+        break;
+      case 'inputs':
+        content = (
+          <DataTable
+            data={data.inputs || []}
+            columns={[
+              { key: 'id', label: 'ID' },
+              { key: 'name', label: 'Name' },
+              { key: 'type', label: 'Type' }
+            ]}
+            onRowClick={(item) => handleRowClick(item, 'input')}
+          />
+        );
+        break;
+      case 'outputs':
+        content = (
+          <DataTable
+            data={data.outputs || []}
+            columns={[
+              { key: 'id', label: 'ID' },
+              { key: 'name', label: 'Name' },
+              { key: 'type', label: 'Type' }
+            ]}
+            onRowClick={(item) => handleRowClick(item, 'output')}
           />
         );
         break;

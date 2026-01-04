@@ -135,6 +135,57 @@ export async function get(endpoint, params = {}) {
     return { status: 404, error: 'Cardholder not found' };
   }
   
+  // Get cardholder credentials
+  if (path.match(/^\/api\/cardholders\/[^/]+\/credentials$/)) {
+    const id = path.split('/')[3];
+    const cardholder = cardholdersData.find(c => c.id === id);
+    if (!cardholder) {
+      return { status: 404, error: 'Cardholder not found' };
+    }
+    
+    // Return cardholder's credentials (mock data)
+    const credentials = cardholder.credentials || [
+      {
+        id: `CRED-${id}-001`,
+        type: 'Card',
+        cardNumber: cardholder.cardNumber || '12345',
+        status: 'Active',
+        issueDate: cardholder.created_at || new Date().toISOString()
+      }
+    ];
+    
+    return {
+      status: 200,
+      data: {
+        results: credentials,
+        href: `/api/cardholders/${id}/credentials`
+      }
+    };
+  }
+  
+  // Get cardholder access groups
+  if (path.match(/^\/api\/cardholders\/[^/]+\/access-groups$/)) {
+    const id = path.split('/')[3];
+    const cardholder = cardholdersData.find(c => c.id === id);
+    if (!cardholder) {
+      return { status: 404, error: 'Cardholder not found' };
+    }
+    
+    // Return cardholder's access groups (mock data from cardholder.accessGroups)
+    const groups = (cardholder.accessGroups || []).map(groupName => {
+      const group = accessGroupsData.find(g => g.name === groupName);
+      return group ? gallagherMapper.mapAccessGroup(group) : { name: groupName };
+    });
+    
+    return {
+      status: 200,
+      data: {
+        results: groups,
+        href: `/api/cardholders/${id}/access-groups`
+      }
+    };
+  }
+  
   // Access Groups
   if (path === '/api/access_groups') {
     const mapped = accessGroupsData.map(gallagherMapper.mapAccessGroup);
@@ -553,6 +604,55 @@ export async function post(endpoint, body = {}) {
     };
   }
   
+  // Add member to access group
+  if (path.match(/^\/api\/access_groups\/[^/]+\/members$/)) {
+    const id = path.split('/')[3];
+    const { cardholderId } = body;
+    
+    const accessGroups = JSON.parse(localStorage.getItem('pacs-access-groups') || '[]');
+    const group = accessGroups.find(g => g.id === id);
+    
+    if (!group) {
+      return {
+        status: 404,
+        error: 'AccessGroupNotFoundException',
+        message: `Access group with ID ${id} not found`
+      };
+    }
+    
+    // Add member
+    if (!group.members) {
+      group.members = [];
+    }
+    
+    if (group.members.includes(cardholderId)) {
+      return {
+        status: 409,
+        error: 'DuplicateMemberException',
+        message: `Cardholder ${cardholderId} is already a member`
+      };
+    }
+    
+    group.members.push(cardholderId);
+    group.modified = new Date().toISOString();
+    
+    const index = accessGroups.findIndex(g => g.id === id);
+    accessGroups[index] = group;
+    localStorage.setItem('pacs-access-groups', JSON.stringify(accessGroups));
+    
+    return {
+      status: 200,
+      data: {
+        message: `Successfully added member to access group`,
+        group: {
+          id: group.id,
+          name: group.name,
+          members: group.members
+        }
+      }
+    };
+  }
+  
   // Create bookmark
   if (path === '/api/bookmarks') {
     return {
@@ -712,6 +812,53 @@ export async function patch(endpoint, body = {}) {
     };
   }
   
+  // PATCH access group doors
+  if (path.match(/^\/api\/access_groups\/[^/]+\/doors$/)) {
+    const id = path.split('/')[3];
+    
+    const accessGroups = JSON.parse(localStorage.getItem('pacs-access-groups') || '[]');
+    const existing = accessGroups.find(g => g.id === id);
+    
+    if (!existing) {
+      return { 
+        status: 404, 
+        data: { message: 'Access group not found' } 
+      };
+    }
+    
+    // Update doors
+    existing.doors = body.doors || body;
+    existing.modified = new Date().toISOString();
+    
+    const index = accessGroups.findIndex(g => g.id === id);
+    accessGroups[index] = existing;
+    localStorage.setItem('pacs-access-groups', JSON.stringify(accessGroups));
+    
+    return {
+      status: 200,
+      data: {
+        ...existing,
+        href: `https://sandbox.petefox.co.uk/api/access_groups/${id}`
+      }
+    };
+  }
+  
+  // PATCH credential
+  if (path.match(/^\/api\/credentials\/[^/]+$/)) {
+    const id = path.split('/').pop();
+    
+    // Mock credential update - in real app would update in database
+    return {
+      status: 200,
+      data: {
+        id,
+        ...body,
+        modified: new Date().toISOString(),
+        href: `https://sandbox.petefox.co.uk/api/credentials/${id}`
+      }
+    };
+  }
+  
   return {
     status: 200,
     data: { message: 'Updated successfully', body }
@@ -765,6 +912,46 @@ export async function del(endpoint) {
       status: 204,
       data: null,
       message: 'Access group removed successfully'
+    };
+  }
+  
+  // Remove member from access group
+  if (path.match(/^\/api\/access_groups\/[^/]+\/members\/[^/]+$/)) {
+    const parts = path.split('/');
+    const groupId = parts[3];
+    const memberId = parts[5];
+    
+    const accessGroups = JSON.parse(localStorage.getItem('pacs-access-groups') || '[]');
+    const group = accessGroups.find(g => g.id === groupId);
+    
+    if (!group) {
+      return {
+        status: 404,
+        error: 'AccessGroupNotFoundException',
+        message: `Access group with ID ${groupId} not found`
+      };
+    }
+    
+    if (!group.members || !group.members.includes(memberId)) {
+      return {
+        status: 404,
+        error: 'MemberNotFoundException',
+        message: `Member ${memberId} not found in access group`
+      };
+    }
+    
+    // Remove the member
+    group.members = group.members.filter(m => m !== memberId);
+    group.modified = new Date().toISOString();
+    
+    const index = accessGroups.findIndex(g => g.id === groupId);
+    accessGroups[index] = group;
+    localStorage.setItem('pacs-access-groups', JSON.stringify(accessGroups));
+    
+    return {
+      status: 204,
+      data: null,
+      message: 'Member removed successfully'
     };
   }
   
