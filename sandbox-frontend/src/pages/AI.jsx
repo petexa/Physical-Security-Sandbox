@@ -37,27 +37,36 @@ export default function AI() {
     // Initialize and load data
     const data = initializeData();
     
-    // Load events from localStorage
-    const storedEvents = localStorage.getItem('pacs_events');
+    // Load events from localStorage (use correct key with hyphen)
+    const storedEvents = localStorage.getItem('pacs-events');
     if (storedEvents) {
       const allEvents = JSON.parse(storedEvents);
       setEvents(allEvents);
+      console.log(`[AI] Loaded ${allEvents.length} events from localStorage`);
+    } else {
+      console.log('[AI] No events found in localStorage');
     }
     
     // Load other data
-    const storedDoors = localStorage.getItem('pacs_doors');
+    const storedDoors = localStorage.getItem('pacs-doors');
     if (storedDoors) {
-      setDoors(JSON.parse(storedDoors));
+      const doorsData = JSON.parse(storedDoors);
+      setDoors(doorsData);
+      console.log(`[AI] Loaded ${doorsData.length} doors`);
     }
     
-    const storedCardholders = localStorage.getItem('pacs_cardholders');
+    const storedCardholders = localStorage.getItem('pacs-cardholders');
     if (storedCardholders) {
-      setCardholders(JSON.parse(storedCardholders));
+      const cardholdersData = JSON.parse(storedCardholders);
+      setCardholders(cardholdersData);
+      console.log(`[AI] Loaded ${cardholdersData.length} cardholders`);
     }
     
-    const storedCameras = localStorage.getItem('pacs_cameras');
+    const storedCameras = localStorage.getItem('pacs-cameras');
     if (storedCameras) {
-      setCameras(JSON.parse(storedCameras));
+      const camerasData = JSON.parse(storedCameras);
+      setCameras(camerasData);
+      console.log(`[AI] Loaded ${camerasData.length} cameras`);
     }
   }, []);
   

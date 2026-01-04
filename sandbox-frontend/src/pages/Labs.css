@@ -75,7 +75,6 @@
 
 .lab-card.completed {
   border-color: var(--color-success);
-  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
 }
 
 .lab-card-header {
@@ -216,8 +215,8 @@
 }
 
 .info-card {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border: 2px solid #fed7aa;
+  background: var(--color-surface);
+  border: 2px solid var(--color-warning);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
 }

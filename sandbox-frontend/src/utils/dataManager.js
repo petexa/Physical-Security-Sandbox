@@ -1,6 +1,7 @@
 // Data Manager - Utilities for data regeneration, import/export, and statistics
 
 import { generateEvents } from './eventGenerator';
+import { validateEventCount, getStorageUsage, getRecommendedMaxEvents } from './storageHelper';
 import cardholdersData from '../mock-data/cardholders.json';
 import accessGroupsData from '../mock-data/access-groups.json';
 import doorsData from '../mock-data/doors.json';
@@ -18,15 +19,21 @@ export function regenerateEvents(options) {
     distribution
   } = options;
   
-  // Calculate event count based on volume
+  // Calculate event count based on volume (with reduced limits)
   const volumeMap = {
-    light: 5000,
-    medium: 25000,
-    heavy: 50000,
-    extreme: 100000
+    light: 2000,
+    medium: 5000,
+    heavy: 7000,
+    extreme: 8000  // Maximum safe limit
   };
   
   const totalEvents = volumeMap[volume];
+  
+  // Validate before generating
+  const validation = validateEventCount(totalEvents);
+  if (!validation.valid) {
+    throw new Error(validation.message);
+  }
   
   // Generate events with custom distribution
   const events = generateEvents({
@@ -53,6 +60,9 @@ export function getDataStats() {
   const generatedAt = localStorage.getItem('events-generated-at');
   const config = JSON.parse(localStorage.getItem('events-config') || '{}');
   
+  // Get storage usage from storageHelper
+  const storageUsage = getStorageUsage();
+  
   // Calculate storage size
   const eventsSize = new Blob([JSON.stringify(events)]).size;
   const cacheSize = estimateCacheSize();
@@ -74,7 +84,9 @@ export function getDataStats() {
     totalSize: formatBytes(eventsSize + cacheSize),
     generatedAt,
     dateRange,
-    config
+    config,
+    storageUsage,  // Add storage usage info
+    recommendedMaxEvents: getRecommendedMaxEvents()
   };
 }
 

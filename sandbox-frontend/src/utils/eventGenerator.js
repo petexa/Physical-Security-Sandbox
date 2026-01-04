@@ -1,5 +1,7 @@
 // Event Generator - Creates realistic PACS events over 6 months
 
+import { validateEventCount } from './storageHelper.js';
+
 // Event type distribution weights
 const EVENT_TYPES = {
   ACCESS_GRANTED: { weight: 60, type: 'access_granted', category: 'access' },
@@ -235,8 +237,14 @@ export function generateEvents(options = {}) {
     cardholders = [],
     doors = [],
     controllers = [],
-    targetCount = 25000
+    targetCount = 5000  // Reduced default from 25000 to 5000
   } = options;
+  
+  // Validate event count before generating
+  const validation = validateEventCount(targetCount);
+  if (!validation.valid) {
+    throw new Error(validation.message);
+  }
   
   console.log(`Generating ${targetCount} events from ${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}...`);
   

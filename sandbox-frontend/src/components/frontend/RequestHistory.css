@@ -168,3 +168,24 @@
     opacity: 1;
   }
 }
+
+/* Dark mode adjustments */
+[data-theme="dark"] .method-get {
+  background: rgba(33, 150, 243, 0.2);
+  color: #90caf9;
+}
+
+[data-theme="dark"] .method-post {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+}
+
+[data-theme="dark"] .method-patch {
+  background: rgba(255, 152, 0, 0.2);
+  color: #ffb74d;
+}
+
+[data-theme="dark"] .method-delete {
+  background: rgba(244, 67, 54, 0.2);
+  color: #e57373;
+}

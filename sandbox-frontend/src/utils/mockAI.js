@@ -26,6 +26,18 @@ async function simulateAIDelay(minMs = 1000, maxMs = 2500) {
 export async function processNaturalLanguageQuery(query, events, doors, cardholders) {
   await simulateAIDelay(1500, 2500);
   
+  console.log(`[AI] Processing query: "${query}"`);
+  console.log(`[AI] Available data: ${events.length} events, ${doors.length} doors, ${cardholders.length} cardholders`);
+  
+  // Check if we have data
+  if (!events || events.length === 0) {
+    return {
+      answer: `⚠️ No event data is currently loaded. Please generate events first by going to Settings > Data Management, then regenerate events. Once events are generated, come back here and try your query again.`,
+      supportingData: [],
+      totalCount: 0
+    };
+  }
+  
   const lowerQuery = query.toLowerCase();
   let filtered = [...events];
   
@@ -65,10 +77,12 @@ export async function processNaturalLanguageQuery(query, events, doors, cardhold
     });
   }
   
+  console.log(`[AI] Filtered to ${filtered.length} events`);
+  
   // Generate response based on query intent
   if (lowerQuery.includes('how many')) {
     const count = filtered.length;
-    let answer = `Based on the available data, `;
+    let answer = `Based on the available data (${events.length} total events), `;
     
     if (doorName) {
       answer += `the ${doorName} has `;

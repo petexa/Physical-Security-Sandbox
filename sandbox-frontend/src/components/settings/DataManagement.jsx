@@ -94,10 +94,10 @@ export default function DataManagement() {
   };
 
   const volumeOptions = [
-    { value: 'light', label: 'Light', count: '~5,000 events' },
-    { value: 'medium', label: 'Medium', count: '~25,000 events' },
-    { value: 'heavy', label: 'Heavy', count: '~50,000 events' },
-    { value: 'extreme', label: 'Extreme', count: '~100,000 events' }
+    { value: 'light', label: 'Light', count: '~2,000 events' },
+    { value: 'medium', label: 'Medium', count: '~5,000 events' },
+    { value: 'heavy', label: 'Heavy', count: '~7,000 events' },
+    { value: 'extreme', label: 'Extreme', count: '~8,000 events (max)' }
   ];
 
   const entityCards = [
@@ -213,6 +213,39 @@ export default function DataManagement() {
                 <strong>{dataStats.eventsSize}</strong>
               </div>
             </div>
+            
+            {dataStats.storageUsage && (
+              <div className="storage-usage-info">
+                <h4>LocalStorage Usage</h4>
+                <div className="storage-meter">
+                  <div className="storage-bar">
+                    <div 
+                      className={`storage-fill ${
+                        parseFloat(dataStats.storageUsage.percentUsed) >= 90 ? 'storage-critical' :
+                        parseFloat(dataStats.storageUsage.percentUsed) >= 75 ? 'storage-warning' :
+                        'storage-safe'
+                      }`}
+                      style={{ width: `${dataStats.storageUsage.percentUsed}%` }}
+                    />
+                  </div>
+                  <div className="storage-text">
+                    {dataStats.storageUsage.usedMB}MB / {dataStats.storageUsage.capacityMB}MB 
+                    ({dataStats.storageUsage.percentUsed}% used)
+                  </div>
+                </div>
+                {dataStats.recommendedMaxEvents && (
+                  <div className="storage-recommendation">
+                    💡 Recommended max events: {dataStats.recommendedMaxEvents.toLocaleString()}
+                  </div>
+                )}
+                {parseFloat(dataStats.storageUsage.percentUsed) >= 75 && (
+                  <div className="storage-warning-message">
+                    ⚠️ Storage is {parseFloat(dataStats.storageUsage.percentUsed) >= 90 ? 'critically' : 'nearly'} full. 
+                    Consider reducing event count or clearing old data.
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         )}
 
