@@ -12,12 +12,14 @@ import AI from './pages/AI';
 import Settings from './pages/Settings';
 import AuditLog from './pages/AuditLog';
 import WorkflowsPage from './pages/WorkflowsPage';
+import Compare from './pages/Compare';
 import { initTheme } from './utils/theme';
 import { initAPILogger } from './utils/apiLogger';
 
 function App() {
   const [showHttpsWarning, setShowHttpsWarning] = useState(false);
-
+  const [isOffline, setIsOffline] = useState(false);
+  
   useEffect(() => {
     initTheme();
     initAPILogger();
@@ -30,6 +32,35 @@ function App() {
     ) {
       setShowHttpsWarning(true);
     }
+  }, []);
+
+  // Offline detection - check API health every 30 seconds
+  useEffect(() => {
+    const checkConnection = async () => {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        
+        await fetch('/api/health', { 
+          signal: controller.signal,
+          headers: { 'X-API-Key': 'sandbox-gallagher-key-12345' }
+        });
+        
+        clearTimeout(timeout);
+        setIsOffline(false);
+      } catch (error) {
+        console.warn('[Offline] API unreachable:', error.message);
+        setIsOffline(true);
+      }
+    };
+    
+    // Check immediately on mount
+    checkConnection();
+    
+    // Check every 30 seconds
+    const interval = setInterval(checkConnection, 30000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -50,6 +81,19 @@ function App() {
           </button>
         </div>
       )}
+      {isOffline && (
+        <div className="offline-banner">
+          <span>
+            ⚠️ Backend API offline. Using cached data. Retrying every 30 seconds...
+          </span>
+          <button 
+            onClick={() => setIsOffline(false)}
+            className="offline-banner-close"
+          >
+            ✕
+          </button>
+        </div>
+      )}
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -58,6 +102,7 @@ function App() {
           <Route path="/backend/gallagher" element={<BackendVendor />} />
           <Route path="/backend/milestone" element={<BackendVendor />} />
           <Route path="/docs" element={<ApiDocs />} />
+          <Route path="/compare" element={<Compare />} />
           <Route path="/workflows" element={<WorkflowsPage />} />
           <Route path="/training" element={<Training />} />
           <Route path="/training/:moduleId" element={<Training />} />

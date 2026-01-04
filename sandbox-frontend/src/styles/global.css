@@ -87,3 +87,60 @@ a {
 .https-warning-close:hover {
   opacity: 0.8;
 }
+
+/* Offline Mode Banner */
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #ff5722;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.offline-banner span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.offline-banner-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 8px;
+  min-width: auto;
+  min-height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.offline-banner-close:hover {
+  opacity: 0.8;
+}
+
+/* Adjust https warning position if offline banner is shown */
+.offline-banner ~ * .https-warning {
+  top: 48px;
+}
