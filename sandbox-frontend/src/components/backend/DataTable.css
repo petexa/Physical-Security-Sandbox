@@ -97,6 +97,12 @@
   background: #f0f9ff;
 }
 
+/* Dark mode fixes */
+[data-theme="dark"] .data-table tbody tr.clickable:hover {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
 .select-column {
   width: 40px;
   text-align: center;

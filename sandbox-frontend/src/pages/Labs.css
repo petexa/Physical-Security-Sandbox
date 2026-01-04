@@ -294,3 +294,24 @@
     gap: var(--spacing-sm);
   }
 }
+
+/* Dark mode specific fixes */
+[data-theme="dark"] .lab-card {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .lab-card.locked {
+  background: var(--color-background);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .lab-card-title,
+[data-theme="dark"] .lab-card-description {
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .lab-card.locked .lab-card-title,
+[data-theme="dark"] .lab-card.locked .lab-card-description {
+  color: var(--color-text-secondary);
+}

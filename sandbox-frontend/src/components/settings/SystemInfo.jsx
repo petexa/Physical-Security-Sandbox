@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getStorageUsage, clearCache } from '../../utils/dataManager';
+import { VERSION_INFO } from '../../config/version';
 import './SystemInfo.css';
 
 export default function SystemInfo() {
@@ -53,12 +54,12 @@ export default function SystemInfo() {
         <div className="info-grid">
           <div className="info-item">
             <div className="info-label">Platform Version</div>
-            <div className="info-value">v1.0.0</div>
+            <div className="info-value">v{VERSION_INFO.version}</div>
           </div>
           
           <div className="info-item">
             <div className="info-label">Build</div>
-            <div className="info-value">2025.01.03</div>
+            <div className="info-value">{VERSION_INFO.date}</div>
           </div>
           
           <div className="info-item">
