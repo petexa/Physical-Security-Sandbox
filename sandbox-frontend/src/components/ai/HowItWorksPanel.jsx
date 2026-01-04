@@ -61,6 +61,12 @@ function WorkflowStep({ step, index, isLast }) {
         
         <p className="step-description">{step.description}</p>
         
+        {step.details && (
+          <div className="step-details">
+            <em>{step.details}</em>
+          </div>
+        )}
+        
         {step.dataSource && (
           <div className="data-source">
             <strong>Data Source:</strong> {step.dataSource}

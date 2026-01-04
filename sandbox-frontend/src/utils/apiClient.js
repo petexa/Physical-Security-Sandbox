@@ -9,6 +9,8 @@ import outputsData from '../mock-data/outputs.json';
 import camerasData from '../mock-data/cameras.json';
 import operatorGroupsData from '../mock-data/operator-groups.json';
 import * as gallagherMapper from './gallagherMapper.js';
+import { getStorageUsage as getStorageUsageRaw } from './storageHelper.js';
+import { logAPICall } from './apiLogger.js';
 
 // Simulate network delay
 function delay(ms = 300) {
@@ -27,12 +29,83 @@ function parseQueryParams(paramString) {
   return params;
 }
 
+// Log API call helper
+function logCall(method, endpoint, response, responseTime) {
+  try {
+    const request = {
+      method,
+      url: endpoint,
+      headers: {},
+      body: null
+    };
+    
+    const responseData = {
+      status: response.status,
+      statusText: response.status >= 200 && response.status < 300 ? 'OK' : 'Error',
+      headers: response.headers || {},
+      body: JSON.stringify(response.data || response),
+      preview: JSON.stringify(response.data || response).substring(0, 200)
+    };
+    
+    logAPICall(request, responseData, responseTime);
+  } catch (error) {
+    console.error('[apiClient] Failed to log API call:', error);
+  }
+}
+
 // Mock GET request
 export async function get(endpoint, params = {}) {
+  const startTime = performance.now();
   await delay(300);
   
   const [path, queryString] = endpoint.split('?');
   const queryParams = { ...params, ...parseQueryParams(queryString) };
+  
+  // Health check endpoint
+  if (path === '/api/health') {
+    const events = JSON.parse(localStorage.getItem('pacs-events') || '[]');
+    
+    // Use storageHelper for consistent storage reporting
+    const storage = getStorageUsageRaw();
+    
+    const response = {
+      status: 200,
+      data: {
+        status: 'online',
+        version: '1.0.11',
+        uptime: Math.floor(performance.now() / 1000), // seconds since page load
+        timestamp: new Date().toISOString(),
+        services: {
+          gallagher: { 
+            status: 'online', 
+            responseTime: 2,
+            endpoints: 7
+          },
+          milestone: { 
+            status: 'online', 
+            responseTime: 5,
+            cameras: camerasData.length
+          },
+          database: { 
+            status: 'online', 
+            connections: 1,
+            events: events.length
+          }
+        },
+        stats: {
+          requestsPerMinute: Math.floor(Math.random() * 50) + 100,
+          cpuUsage: `${Math.floor(Math.random() * 20) + 10}%`,
+          memoryUsage: `${(Math.random() * 2 + 3).toFixed(1)} GB / 16 GB`,
+          storageUsage: `${storage.usedMB} MB (${storage.percentUsed}%)`
+        }
+      }
+    };
+    
+    const endTime = performance.now();
+    logCall('GET', endpoint, response, Math.round(endTime - startTime));
+    
+    return response;
+  }
   
   // Cardholders
   if (path === '/api/cardholders') {
@@ -41,11 +114,16 @@ export async function get(endpoint, params = {}) {
     const skip = queryParams.skip ? parseInt(queryParams.skip) : 0;
     const paginated = gallagherMapper.createPaginatedResponse(mapped, '/cardholders', top, skip);
     
-    return {
+    const response = {
       status: 200,
       data: paginated,
       headers: { 'content-type': 'application/json' }
     };
+    
+    const endTime = performance.now();
+    logCall('GET', endpoint, response, Math.round(endTime - startTime));
+    
+    return response;
   }
   
   if (path.match(/^\/api\/cardholders\/[^/]+$/)) {
@@ -376,15 +454,21 @@ export async function get(endpoint, params = {}) {
   }
   
   // Default 404
-  return {
+  const response = {
     status: 404,
     error: 'Endpoint not found',
     message: `No mock data available for ${endpoint}`
   };
+  
+  const endTime = performance.now();
+  logCall('GET', endpoint, response, Math.round(endTime - startTime));
+  
+  return response;
 }
 
 // Mock POST request
 export async function post(endpoint, body = {}) {
+  const startTime = performance.now();
   await delay(500);
   
   const [path] = endpoint.split('?');
@@ -397,6 +481,74 @@ export async function post(endpoint, body = {}) {
         id: `CH-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
         ...body,
         created_at: new Date().toISOString()
+      }
+    };
+  }
+  
+  // Add access group to cardholder
+  if (path.match(/^\/api\/cardholders\/[^/]+\/access-groups$/)) {
+    const id = path.split('/')[3]; // Extract cardholder ID
+    const { accessGroupName } = body;
+    
+    // Load cardholders from localStorage
+    const cardholders = JSON.parse(localStorage.getItem('pacs-cardholders') || JSON.stringify(cardholdersData));
+    const cardholder = cardholders.find(c => c.id === id);
+    
+    if (!cardholder) {
+      return {
+        status: 404,
+        error: 'CardholderNotFoundException',
+        message: `Cardholder with ID ${id} not found`
+      };
+    }
+    
+    // Validate access group exists by fetching from actual data
+    const accessGroups = JSON.parse(localStorage.getItem('pacs-access-groups') || JSON.stringify(accessGroupsData));
+    const validGroup = accessGroups.find(g => g.name === accessGroupName);
+    
+    if (!validGroup) {
+      const validGroupNames = accessGroups.map(g => g.name);
+      return {
+        status: 400,
+        error: 'InvalidAccessGroupException',
+        message: `Access group '${accessGroupName}' does not exist. Valid groups: ${validGroupNames.join(', ')}`
+      };
+    }
+    
+    // Check if already has the group
+    if (!cardholder.access_groups) {
+      cardholder.access_groups = [];
+    }
+    
+    if (cardholder.access_groups.includes(validGroup.id)) {
+      return {
+        status: 409,
+        error: 'DuplicateAccessGroupException',
+        message: `Cardholder already has access group '${accessGroupName}'`
+      };
+    }
+    
+    // Add the access group
+    cardholder.access_groups.push(validGroup.id);
+    cardholder.modified = new Date().toISOString();
+    
+    // Save back to localStorage
+    const index = cardholders.findIndex(c => c.id === id);
+    cardholders[index] = cardholder;
+    localStorage.setItem('pacs-cardholders', JSON.stringify(cardholders));
+    
+    console.log(`[API] Added access group '${accessGroupName}' to cardholder ${id}`);
+    
+    return {
+      status: 200,
+      data: {
+        message: `Successfully added access group '${accessGroupName}' to cardholder`,
+        cardholder: {
+          id: cardholder.id,
+          firstName: cardholder.first_name,
+          lastName: cardholder.last_name,
+          accessGroups: cardholder.access_groups
+        }
       }
     };
   }
@@ -429,10 +581,15 @@ export async function post(endpoint, body = {}) {
     };
   }
   
-  return {
+  const response = {
     status: 201,
     data: { message: 'Created successfully', body }
   };
+  
+  const endTime = performance.now();
+  logCall('POST', endpoint, response, Math.round(endTime - startTime));
+  
+  return response;
 }
 
 // Mock PATCH request
@@ -562,8 +719,54 @@ export async function patch(endpoint, body = {}) {
 }
 
 // Mock DELETE request
-export async function del() {
+export async function del(endpoint) {
   await delay(500);
+  
+  const [path] = endpoint.split('?');
+  
+  // Remove access group from cardholder
+  if (path.match(/^\/api\/cardholders\/[^/]+\/access-groups\/[^/]+$/)) {
+    const parts = path.split('/');
+    const cardholderId = parts[3];
+    const accessGroupId = parts[5];
+    
+    // Load cardholders from localStorage
+    const cardholders = JSON.parse(localStorage.getItem('pacs-cardholders') || JSON.stringify(cardholdersData));
+    const cardholder = cardholders.find(c => c.id === cardholderId);
+    
+    if (!cardholder) {
+      return {
+        status: 404,
+        error: 'CardholderNotFoundException',
+        message: `Cardholder with ID ${cardholderId} not found`
+      };
+    }
+    
+    if (!cardholder.access_groups || !cardholder.access_groups.includes(accessGroupId)) {
+      return {
+        status: 404,
+        error: 'AccessGroupNotFoundException',
+        message: `Cardholder does not have access group ${accessGroupId}`
+      };
+    }
+    
+    // Remove the access group
+    cardholder.access_groups = cardholder.access_groups.filter(g => g !== accessGroupId);
+    cardholder.modified = new Date().toISOString();
+    
+    // Save back to localStorage
+    const index = cardholders.findIndex(c => c.id === cardholderId);
+    cardholders[index] = cardholder;
+    localStorage.setItem('pacs-cardholders', JSON.stringify(cardholders));
+    
+    console.log(`[API] Removed access group ${accessGroupId} from cardholder ${cardholderId}`);
+    
+    return {
+      status: 204,
+      data: null,
+      message: 'Access group removed successfully'
+    };
+  }
   
   return {
     status: 204,

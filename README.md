@@ -150,4 +150,4 @@ Built with inspiration from industry-leading physical security platforms includi
 
 ---
 
-© 2026 Physical Security Sandbox. Version 2.0.0
+© 2026 Physical Security Sandbox. Version 1.0.11

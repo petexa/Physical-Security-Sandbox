@@ -99,7 +99,11 @@ export default function DataTable({
   if (data.length === 0) {
     return (
       <div className="data-table-empty">
-        <p>No data found</p>
+        <div className="empty-state-icon">📭</div>
+        <h3 className="empty-state-title">No items found</h3>
+        <p className="empty-state-description">
+          {searchable ? 'Try adjusting your search or filters' : 'Select an item from the list to view details'}
+        </p>
       </div>
     );
   }

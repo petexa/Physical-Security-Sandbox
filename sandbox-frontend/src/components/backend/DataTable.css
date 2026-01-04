@@ -97,6 +97,12 @@
   background: #f0f9ff;
 }
 
+/* Dark mode fixes */
+[data-theme="dark"] .data-table tbody tr.clickable:hover {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
 .select-column {
   width: 40px;
   text-align: center;
@@ -110,17 +116,34 @@
 
 .data-table-empty {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3xl);
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
+  text-align: center;
 }
 
-.data-table-empty p {
-  font-size: var(--font-size-lg);
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.empty-state-description {
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 400px;
 }
 
 .data-table-footer {

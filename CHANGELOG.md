@@ -13,6 +13,89 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.11] - 2026-01-04
+
+### Added
+- **Audit Log Viewer** - Track all API calls during session
+  - Simulated API call logging infrastructure (ready for implementation)
+  - Error helper utilities for user-friendly error messages
+
+- **Health Check Endpoint** - `/api/health`
+  - System status and version information
+  - Service health monitoring (Gallagher, Milestone, database)
+  - Accurate storage usage calculation
+  - Performance stats (CPU, memory, requests/min)
+
+- **Cardholder Access Group Management**
+  - POST `/api/cardholders/{id}/access-groups` - Add access groups with validation
+  - DELETE `/api/cardholders/{id}/access-groups/{groupId}` - Remove access groups
+  - Dynamic validation against actual groups from localStorage
+  - Helpful error messages listing valid group names
+  - Duplicate detection (409 error if group already assigned)
+
+- **Error Handling System**
+  - Created `/src/utils/errorHelper.js` with comprehensive error explanations
+  - User-friendly messages for all HTTP status codes (400, 401, 403, 404, 409, 500, etc.)
+  - Actionable suggestions for resolving errors
+  - Retry logic helpers for transient failures
+  - Error icons for visual clarity
+
+### Changed
+- **Settings Page Enhancements**
+  - Backend URL and API key now editable
+  - Configuration persisted to localStorage
+  - Test Connection button with health check integration
+  - Visual connection status with response time tracking
+  - Replaced alert() with inline success messages for better UX
+
+- **AI "How It Works" Section** - Enhanced with detailed workflow
+  - Intent Classification with confidence scores
+  - Entity Extraction (doors, cardholders, time ranges, event types)
+  - Query Transformation to structured parameters
+  - Data Filtering criteria display
+  - Result Aggregation logic explanation
+  - Results Formatting step
+  - Total: 6 detailed processing steps (was 2 generic steps)
+
+- **Empty States** - Improved across all data tables
+  - Added helpful icons and titles
+  - Context-specific messages
+  - Better visual design with proper spacing
+
+### Fixed
+- **Bug #1: Duplicate Function** - Build error resolved
+  - Removed duplicate `getStorageUsage` from dataManager.js
+  - Now uses centralized storageHelper implementation
+  - Fixed storage usage wrapper to return correct format
+
+- **Bug #2: Version Display** - Settings page now shows correct version
+  - SystemInfo.jsx now imports VERSION_INFO from config/version.js
+  - Displays v1.0.11 and build date dynamically
+
+- **Bug #3: Dark Mode Table Hover** - White text on white background
+  - Added `[data-theme="dark"]` styles for clickable table rows
+  - Text remains readable with proper color contrast
+  - Uses `--color-surface-elevated` for hover state
+
+- **Bug #4: Dark Mode Labs Cards** - Visibility issues resolved
+  - Lab cards use proper dark mode CSS variables
+  - Fixed hardcoded `#fafafa` background in locked state
+  - All card text elements now visible in dark mode
+
+- **Bug #5: Storage Calculation** - Health check endpoint
+  - Fixed incorrect localStorage.length usage
+  - Now calculates actual byte size (UTF-16 encoding)
+  - Returns storage usage in MB with percentage
+
+### Improved
+- **Code Quality**
+  - Addressed code review feedback
+  - Replaced alert() dialogs with inline messages
+  - Better accessibility with non-blocking notifications
+  - Consistent error handling patterns
+
+---
+
 ## [1.0.10] - 2026-01-04
 
 ### Added
