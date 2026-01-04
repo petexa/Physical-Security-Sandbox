@@ -1,10 +1,16 @@
 import { useState } from 'react';
-import { CheckCircle2, Circle, AlertCircle, TrendingUp, Shield, Zap } from 'lucide-react';
+import { CheckCircle2, Circle, AlertCircle, TrendingUp, Shield, Zap, Plus, Trash2, Check } from 'lucide-react';
 import './AIRoadmap.css';
 
 export default function AIRoadmap() {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [expandedFeature, setExpandedFeature] = useState(null);
+  const [suggestions, setSuggestions] = useState(() => {
+    const saved = localStorage.getItem('ai-roadmap-suggestions');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [newSuggestion, setNewSuggestion] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const features = [
     {
@@ -195,6 +201,36 @@ export default function AIRoadmap() {
     }
   };
 
+  const addSuggestion = () => {
+    if (!newSuggestion.trim()) return;
+    
+    const suggestion = {
+      id: Date.now(),
+      text: newSuggestion,
+      date: new Date().toLocaleDateString(),
+      completed: false
+    };
+    
+    const updated = [...suggestions, suggestion];
+    setSuggestions(updated);
+    localStorage.setItem('ai-roadmap-suggestions', JSON.stringify(updated));
+    setNewSuggestion('');
+  };
+
+  const deleteSuggestion = (id) => {
+    const updated = suggestions.filter(s => s.id !== id);
+    setSuggestions(updated);
+    localStorage.setItem('ai-roadmap-suggestions', JSON.stringify(updated));
+  };
+
+  const toggleSuggestion = (id) => {
+    const updated = suggestions.map(s => 
+      s.id === id ? { ...s, completed: !s.completed } : s
+    );
+    setSuggestions(updated);
+    localStorage.setItem('ai-roadmap-suggestions', JSON.stringify(updated));
+  };
+
   return (
     <div className="ai-roadmap">
       <div className="roadmap-intro">
@@ -314,6 +350,83 @@ export default function AIRoadmap() {
       <div className="roadmap-info">
         <h3>Feature Request</h3>
         <p>Have a feature idea? The above roadmap can be customized based on your security requirements and use cases.</p>
+      </div>
+
+      <div className="suggestions-section">
+        <button 
+          className="suggestions-toggle"
+          onClick={() => setShowSuggestions(!showSuggestions)}
+        >
+          <span className="toggle-icon">{showSuggestions ? '▼' : '▶'}</span>
+          💡 Suggestions & Notes ({suggestions.length})
+        </button>
+
+        {showSuggestions && (
+          <div className="suggestions-panel">
+            <div className="suggestions-input">
+              <textarea
+                value={newSuggestion}
+                onChange={(e) => setNewSuggestion(e.target.value)}
+                placeholder="Add a suggestion, idea, or note for later..."
+                className="suggestion-textarea"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && e.ctrlKey) {
+                    addSuggestion();
+                  }
+                }}
+              />
+              <div className="input-actions">
+                <button 
+                  className="add-btn"
+                  onClick={addSuggestion}
+                  disabled={!newSuggestion.trim()}
+                >
+                  <Plus size={16} />
+                  Add Suggestion
+                </button>
+                <span className="input-hint">Ctrl+Enter to add</span>
+              </div>
+            </div>
+
+            {suggestions.length > 0 ? (
+              <div className="suggestions-list">
+                {suggestions.map((suggestion) => (
+                  <div 
+                    key={suggestion.id} 
+                    className={`suggestion-item ${suggestion.completed ? 'completed' : ''}`}
+                  >
+                    <button
+                      className="suggestion-checkbox"
+                      onClick={() => toggleSuggestion(suggestion.id)}
+                      title={suggestion.completed ? 'Mark as pending' : 'Mark as done'}
+                    >
+                      {suggestion.completed ? (
+                        <Check size={18} />
+                      ) : (
+                        <Circle size={18} />
+                      )}
+                    </button>
+                    <div className="suggestion-content">
+                      <p className="suggestion-text">{suggestion.text}</p>
+                      <span className="suggestion-date">{suggestion.date}</span>
+                    </div>
+                    <button
+                      className="delete-btn"
+                      onClick={() => deleteSuggestion(suggestion.id)}
+                      title="Delete suggestion"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="no-suggestions">
+                <p>No suggestions yet. Add one to get started!</p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
