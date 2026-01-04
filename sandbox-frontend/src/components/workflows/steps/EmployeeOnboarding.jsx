@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
-import { get, post, put } from '../../../utils/apiClient';
+import { get, post, patch } from '../../../utils/apiClient';
 
 const EmployeeOnboarding = ({ stepNumber, workflowType, onComplete, onError, setIsLoading, data }) => {
   const [formData, setFormData] = useState({

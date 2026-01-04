@@ -10,7 +10,7 @@ export default function NavBar() {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/frontend', label: 'Frontend' },
-    { path: '/backend', label: 'Backend' },
+    { path: '/backend', label: 'Backend Systems' },
     { path: '/workflows', label: 'Workflows', icon: BookOpen },
     { path: '/training', label: 'Training' },
     { path: '/labs', label: 'Labs' },
