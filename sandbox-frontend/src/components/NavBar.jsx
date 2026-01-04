@@ -12,6 +12,7 @@ export default function NavBar() {
     { path: '/frontend', label: 'Frontend' },
     { path: '/backend', label: 'Backend Systems' },
     { path: '/workflows', label: 'Workflows', icon: BookOpen },
+    { path: '/docs', label: 'API Docs', icon: FileText },
     { path: '/training', label: 'Training' },
     { path: '/labs', label: 'Labs' },
     { path: '/ai', label: 'AI Tools' },

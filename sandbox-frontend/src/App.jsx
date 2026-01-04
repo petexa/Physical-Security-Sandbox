@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Frontend from './pages/Frontend';
 import BackendVendor from './pages/BackendVendor';
 import BackendDashboard from './pages/BackendDashboard';
+import ApiDocs from './pages/ApiDocs';
 import Training from './pages/Training';
 import Labs from './pages/Labs';
 import AI from './pages/AI';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/backend" element={<BackendDashboard />} />
           <Route path="/backend/gallagher" element={<BackendVendor />} />
           <Route path="/backend/milestone" element={<BackendVendor />} />
+          <Route path="/docs" element={<ApiDocs />} />
           <Route path="/workflows" element={<WorkflowsPage />} />
           <Route path="/training" element={<Training />} />
           <Route path="/training/:moduleId" element={<Training />} />
