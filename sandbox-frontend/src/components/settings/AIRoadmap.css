@@ -238,6 +238,69 @@
   line-height: 1.4;
 }
 
+.feature-implementation {
+  margin-top: var(--spacing-sm);
+}
+
+.implementation-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.implementation-toggle:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.implementation-toggle.expanded .toggle-icon {
+  transform: rotate(90deg);
+}
+
+.implementation-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-primary);
+  animation: slideDown 0.3s ease-out;
+}
+
+.impl-section h5 {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.impl-section p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
 .roadmap-info {
   padding: var(--spacing-lg);
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
@@ -280,5 +343,9 @@
 
   .category-count {
     margin-left: auto;
+  }
+
+  .implementation-details {
+    grid-template-columns: 1fr;
   }
 }
