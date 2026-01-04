@@ -35,3 +35,55 @@ a {
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
 }
+
+/* HTTPS Warning Banner */
+.https-warning {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ff9800;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.https-warning span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.https-warning a {
+  color: white;
+  text-decoration: underline;
+  margin-left: 4px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.https-warning a:hover {
+  opacity: 0.8;
+}
+
+.https-warning-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 8px;
+  min-width: auto;
+  min-height: auto;
+  transition: opacity 0.2s ease;
+}
+
+.https-warning-close:hover {
+  opacity: 0.8;
+}
