@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Database, Palette, Server, Info } from 'lucide-react';
+import { Database, Palette, Server, Info, Sparkles } from 'lucide-react';
 import DataManagement from '../components/settings/DataManagement';
 import AppearanceSettings from '../components/settings/AppearanceSettings';
 import SystemInfo from '../components/settings/SystemInfo';
 import AboutPanel from '../components/settings/AboutPanel';
+import AIRoadmap from '../components/settings/AIRoadmap';
 import './Settings.css';
 
 export default function Settings() {
@@ -13,6 +14,7 @@ export default function Settings() {
     { id: 'data', label: 'Data Management', icon: Database },
     { id: 'appearance', label: 'Appearance', icon: Palette },
     { id: 'system', label: 'System', icon: Server },
+    { id: 'ai', label: 'AI Features', icon: Sparkles },
     { id: 'about', label: 'About', icon: Info }
   ];
 
@@ -43,6 +45,7 @@ export default function Settings() {
         {activeTab === 'data' && <DataManagement />}
         {activeTab === 'appearance' && <AppearanceSettings />}
         {activeTab === 'system' && <SystemInfo />}
+        {activeTab === 'ai' && <AIRoadmap />}
         {activeTab === 'about' && <AboutPanel />}
       </div>
     </div>
