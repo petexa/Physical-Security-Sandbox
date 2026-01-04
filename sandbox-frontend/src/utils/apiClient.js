@@ -37,6 +37,17 @@ export async function get(endpoint, params = {}) {
   // Health check endpoint
   if (path === '/api/health') {
     const events = JSON.parse(localStorage.getItem('pacs-events') || '[]');
+    
+    // Calculate actual storage usage
+    let storageSize = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      storageSize += (key.length + value.length) * 2; // UTF-16 uses 2 bytes per char
+    }
+    const storageMB = (storageSize / (1024 * 1024)).toFixed(2);
+    const storagePercent = ((storageSize / (5 * 1024 * 1024)) * 100).toFixed(1);
+    
     return {
       status: 200,
       data: {
@@ -65,7 +76,7 @@ export async function get(endpoint, params = {}) {
           requestsPerMinute: Math.floor(Math.random() * 50) + 100,
           cpuUsage: `${Math.floor(Math.random() * 20) + 10}%`,
           memoryUsage: `${(Math.random() * 2 + 3).toFixed(1)} GB / 16 GB`,
-          storageUsage: localStorage ? `${(localStorage.length / 100).toFixed(1)}%` : '0%'
+          storageUsage: `${storageMB} MB (${storagePercent}%)`
         }
       }
     };

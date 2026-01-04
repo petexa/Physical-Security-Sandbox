@@ -17,6 +17,7 @@ export default function SystemInfo() {
   const [editingConfig, setEditingConfig] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState(null);
   const [testingConnection, setTestingConnection] = useState(false);
+  const [configSaved, setConfigSaved] = useState(false);
 
   useEffect(() => {
     loadStorageInfo();
@@ -34,7 +35,8 @@ export default function SystemInfo() {
     localStorage.setItem('backend-url', backendUrl);
     localStorage.setItem('api-key', apiKey);
     setEditingConfig(false);
-    alert('Backend configuration saved!');
+    setConfigSaved(true);
+    setTimeout(() => setConfigSaved(false), 3000);
   };
 
   const testConnection = async () => {
@@ -209,6 +211,12 @@ export default function SystemInfo() {
         <p className="section-description">
           Configure connection to the backend API (simulated in this training environment)
         </p>
+        
+        {configSaved && (
+          <div className="config-success-message">
+            ✓ Configuration saved successfully
+          </div>
+        )}
         
         {!editingConfig ? (
           <>

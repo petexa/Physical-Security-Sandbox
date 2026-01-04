@@ -329,3 +329,25 @@
   color: var(--color-text-secondary);
   margin-top: var(--spacing-xs);
 }
+
+.config-success-message {
+  padding: var(--spacing-md);
+  background: var(--color-success-light);
+  border: 2px solid var(--color-success);
+  border-radius: var(--radius-md);
+  color: var(--color-success);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
