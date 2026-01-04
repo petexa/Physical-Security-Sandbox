@@ -229,22 +229,25 @@ export async function get(endpoint, params = {}) {
   if (path === '/api/events') {
     const events = JSON.parse(localStorage.getItem('pacs-events') || '[]');
     
-    // Apply filters from query params
-    let filtered = events;
+    console.log(`[API] Total events in storage: ${events.length}`);
     
-    if (queryParams.start_date) {
-      const startDate = new Date(queryParams.start_date);
+    // Apply filters (don't mutate original array)
+    let filtered = [...events];
+    
+    if (queryParams.start_time || queryParams.start_date) {
+      const startDate = new Date(queryParams.start_time || queryParams.start_date);
       filtered = filtered.filter(e => new Date(e.timestamp) >= startDate);
     }
     
-    if (queryParams.end_date) {
-      const endDate = new Date(queryParams.end_date);
+    if (queryParams.end_time || queryParams.end_date) {
+      const endDate = new Date(queryParams.end_time || queryParams.end_date);
       endDate.setHours(23, 59, 59, 999);
       filtered = filtered.filter(e => new Date(e.timestamp) <= endDate);
     }
     
-    if (queryParams.type) {
-      filtered = filtered.filter(e => e.event_type === queryParams.type);
+    if (queryParams.type || queryParams.event_type) {
+      const eventType = queryParams.type || queryParams.event_type;
+      filtered = filtered.filter(e => e.event_type === eventType);
     }
     
     if (queryParams.door_id) {
@@ -255,13 +258,32 @@ export async function get(endpoint, params = {}) {
       filtered = filtered.filter(e => e.cardholder_id === queryParams.cardholder_id);
     }
     
-    // Apply limit
-    const limit = parseInt(queryParams.limit) || filtered.length;
-    filtered = filtered.slice(0, limit);
+    console.log(`[API] Filtered to: ${filtered.length} events`);
+    
+    // Sort by timestamp descending (newest first)
+    filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    
+    // Apply pagination
+    const top = parseInt(queryParams.top) || parseInt(queryParams.limit) || 100;
+    const skip = parseInt(queryParams.skip) || 0;
+    const paginated = filtered.slice(skip, skip + top);
+    
+    // Map to Gallagher format with hrefs
+    const mapped = paginated.map(event => ({
+      ...event,
+      href: `https://sandbox.petefox.co.uk/api/events/${event.id}`
+    }));
     
     return {
       status: 200,
-      data: filtered,
+      data: {
+        results: mapped,
+        next: skip + top < filtered.length ? {
+          href: `https://sandbox.petefox.co.uk/api/events?skip=${skip + top}&top=${top}`
+        } : null,
+        href: 'https://sandbox.petefox.co.uk/api/events',
+        totalResults: filtered.length
+      },
       headers: { 'content-type': 'application/json' }
     };
   }
@@ -419,26 +441,116 @@ export async function patch(endpoint, body = {}) {
   
   const [path] = endpoint.split('?');
   
+  // PATCH cardholder - persist to localStorage
   if (path.match(/^\/api\/cardholders\/[^/]+$/)) {
     const id = path.split('/').pop();
+    
+    // Load existing cardholders from localStorage
+    const cardholders = JSON.parse(localStorage.getItem('pacs-cardholders') || '[]');
+    const existing = cardholders.find(c => c.id === id);
+    
+    if (!existing) {
+      return { 
+        status: 404, 
+        data: { message: 'Cardholder not found' } 
+      };
+    }
+    
+    // Merge updates with existing data
+    const updated = { 
+      ...existing, 
+      ...body, 
+      modified: new Date().toISOString() 
+    };
+    
+    // Update in storage
+    const index = cardholders.findIndex(c => c.id === id);
+    cardholders[index] = updated;
+    localStorage.setItem('pacs-cardholders', JSON.stringify(cardholders));
+    
+    console.log(`[API] PATCH cardholder ${id} - updated and persisted to localStorage`);
+    
     return {
       status: 200,
       data: {
-        id: id,
-        ...body,
-        updated_at: new Date().toISOString()
+        ...updated,
+        href: `https://sandbox.petefox.co.uk/api/cardholders/${id}`
       }
     };
   }
   
+  // PATCH door - persist to localStorage
   if (path.match(/^\/api\/doors\/[^/]+$/)) {
     const id = path.split('/').pop();
+    
+    // Load existing doors from localStorage
+    const doors = JSON.parse(localStorage.getItem('pacs-doors') || '[]');
+    const existing = doors.find(d => d.id === id);
+    
+    if (!existing) {
+      return { 
+        status: 404, 
+        data: { message: 'Door not found' } 
+      };
+    }
+    
+    // Merge updates with existing data
+    const updated = { 
+      ...existing, 
+      ...body, 
+      modified: new Date().toISOString() 
+    };
+    
+    // Update in storage
+    const index = doors.findIndex(d => d.id === id);
+    doors[index] = updated;
+    localStorage.setItem('pacs-doors', JSON.stringify(doors));
+    
+    console.log(`[API] PATCH door ${id} - updated and persisted to localStorage`);
+    
     return {
       status: 200,
       data: {
-        id: id,
-        ...body,
-        updated_at: new Date().toISOString()
+        ...updated,
+        href: `https://sandbox.petefox.co.uk/api/doors/${id}`
+      }
+    };
+  }
+  
+  // PATCH access group - persist to localStorage
+  if (path.match(/^\/api\/access_groups\/[^/]+$/)) {
+    const id = path.split('/').pop();
+    
+    // Load existing access groups from localStorage
+    const accessGroups = JSON.parse(localStorage.getItem('pacs-access-groups') || '[]');
+    const existing = accessGroups.find(g => g.id === id);
+    
+    if (!existing) {
+      return { 
+        status: 404, 
+        data: { message: 'Access group not found' } 
+      };
+    }
+    
+    // Merge updates with existing data
+    const updated = { 
+      ...existing, 
+      ...body, 
+      modified: new Date().toISOString() 
+    };
+    
+    // Update in storage
+    const index = accessGroups.findIndex(g => g.id === id);
+    accessGroups[index] = updated;
+    localStorage.setItem('pacs-access-groups', JSON.stringify(accessGroups));
+    
+    console.log(`[API] PATCH access group ${id} - updated and persisted to localStorage`);
+    
+    return {
+      status: 200,
+      data: {
+        ...updated,
+        href: `https://sandbox.petefox.co.uk/api/access_groups/${id}`
       }
     };
   }
