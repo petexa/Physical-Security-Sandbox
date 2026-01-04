@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ClipboardList, Search, Download, Mail, Loader } from 'lucide-react';
+import { ClipboardList, Search, Download, Loader, Code } from 'lucide-react';
 import Button from '../Button.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './IncidentReportGenerator.css';
 
 export default function IncidentReportGenerator({ events = [], doors = [], cardholders = [], cameras = [], onGenerate }) {
@@ -9,6 +10,7 @@ export default function IncidentReportGenerator({ events = [], doors = [], cardh
   const [selectedCameras, setSelectedCameras] = useState([]);
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState(null);
+  const [showInspector, setShowInspector] = useState(false);
   
   const filteredEvents = events.filter(e =>
     e.door_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -287,6 +289,10 @@ export default function IncidentReportGenerator({ events = [], doors = [], cardh
             </div>
             
             <div className="report-actions">
+              <Button onClick={() => setShowInspector(true)} variant="secondary">
+                <Code size={16} />
+                Inspect Prompt
+              </Button>
               <Button onClick={() => setReport(null)} variant="secondary">
                 New Report
               </Button>
@@ -298,6 +304,17 @@ export default function IncidentReportGenerator({ events = [], doors = [], cardh
           </div>
         </div>
       )}
+      
+      <PromptInspector
+        promptType="incidentReport"
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        selectedEvents={selectedEvents}
+        isOpen={showInspector}
+        onClose={() => setShowInspector(false)}
+      />
     </div>
   );
 }

@@ -8,4 +8,7 @@
   flex: 1;
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-2xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

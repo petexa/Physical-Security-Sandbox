@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { FileText, AlertTriangle, AlertCircle, Upload } from 'lucide-react';
+import { FileText, AlertTriangle, AlertCircle, Upload, Code } from 'lucide-react';
 import Button from '../Button.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './LogAnalyzer.css';
 
-export default function LogAnalyzer({ onAnalyze }) {
+export default function LogAnalyzer({ events = [], doors = [], cardholders = [], cameras = [], onAnalyze }) {
   const [logs, setLogs] = useState('');
   const [logFormat, setLogFormat] = useState('generic');
   const [loading, setLoading] = useState(false);
   const [analysis, setAnalysis] = useState(null);
+  const [showInspector, setShowInspector] = useState(false);
+  const [lastLogs, setLastLogs] = useState('');
   
   const logFormats = ['Generic', 'Gallagher', 'Milestone'];
   
@@ -25,6 +28,8 @@ export default function LogAnalyzer({ onAnalyze }) {
     if (!logs.trim()) return;
     
     setLoading(true);
+    setLastLogs(logs);
+    
     try {
       if (onAnalyze) {
         const result = await onAnalyze(logs, logFormat.toLowerCase());
@@ -213,6 +218,10 @@ export default function LogAnalyzer({ onAnalyze }) {
             )}
             
             <div className="analysis-footer">
+              <Button onClick={() => setShowInspector(true)} variant="secondary">
+                <Code size={16} />
+                Inspect Prompt
+              </Button>
               <Button onClick={() => setAnalysis(null)} variant="secondary">
                 New Analysis
               </Button>
@@ -230,6 +239,17 @@ export default function LogAnalyzer({ onAnalyze }) {
           </div>
         )}
       </div>
+      
+      <PromptInspector
+        promptType="logAnalysis"
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        logs={lastLogs || logs}
+        isOpen={showInspector}
+        onClose={() => setShowInspector(false)}
+      />
     </div>
   );
 }

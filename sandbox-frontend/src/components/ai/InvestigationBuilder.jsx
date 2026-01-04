@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { Search, CheckSquare, FileText } from 'lucide-react';
+import { Search, CheckSquare, FileText, Code } from 'lucide-react';
 import Button from '../Button.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './InvestigationBuilder.css';
 
-export default function InvestigationBuilder({ events = [], onBuild }) {
+export default function InvestigationBuilder({ events = [], doors = [], cardholders = [], cameras = [], onBuild }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [investigation, setInvestigation] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showInspector, setShowInspector] = useState(false);
   
   const filteredEvents = events.filter(e =>
     (e.category === 'alarm' || e.category === 'fault') &&
@@ -207,6 +209,10 @@ export default function InvestigationBuilder({ events = [], onBuild }) {
           </div>
           
           <div className="investigation-footer">
+            <Button onClick={() => setShowInspector(true)} variant="secondary">
+              <Code size={16} />
+              Inspect Prompt
+            </Button>
             <Button onClick={() => setInvestigation(null)} variant="secondary">
               New Investigation
             </Button>
@@ -216,6 +222,17 @@ export default function InvestigationBuilder({ events = [], onBuild }) {
           </div>
         </div>
       )}
+      
+      <PromptInspector
+        promptType="investigationBuilder"
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        selectedEvents={selectedEvent ? [selectedEvent] : []}
+        isOpen={showInspector}
+        onClose={() => setShowInspector(false)}
+      />
     </div>
   );
 }

@@ -74,9 +74,9 @@ const EmployeeOnboarding = ({ stepNumber, workflowType, onComplete, onError, set
         email: `${formData.firstName.toLowerCase()}.${formData.lastName.toLowerCase()}@company.com`
       });
 
-      setCreatedCardholderId(response.id);
+      setCreatedCardholderId(response.data?.id || response.id);
       onComplete({
-        cardholder: response,
+        cardholder: response.data || response,
         createdAt: new Date().toISOString()
       });
     } catch (error) {
@@ -94,7 +94,23 @@ const EmployeeOnboarding = ({ stepNumber, workflowType, onComplete, onError, set
 
     try {
       setIsLoading(true);
-      // For this mock, we'll just complete the step
+      const cardholderId = data?.cardholder?.id || createdCardholderId;
+
+      if (!cardholderId) {
+        onError('Cardholder ID not found. Please complete step 1 first.');
+        return;
+      }
+
+      // Add each selected access group to the cardholder
+      for (const groupId of formData.selectedAccessGroups) {
+        const group = accessGroups.find(g => g.id === groupId);
+        if (group) {
+          await post(`/api/cardholders/${cardholderId}/access-groups`, {
+            accessGroupName: group.name
+          });
+        }
+      }
+
       onComplete({
         accessGroups: formData.selectedAccessGroups
       });

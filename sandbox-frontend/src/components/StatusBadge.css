@@ -10,21 +10,21 @@
 }
 
 .status-badge-success {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
 }
 
 .status-badge-error {
-  background-color: #fee2e2;
-  color: #991b1b;
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
 }
 
 .status-badge-warning {
-  background-color: #fef3c7;
-  color: #92400e;
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
 }
 
 .status-badge-info {
-  background-color: #dbeafe;
-  color: #1e40af;
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
 }

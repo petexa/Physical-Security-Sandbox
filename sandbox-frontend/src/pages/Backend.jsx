@@ -28,6 +28,28 @@ export default function Backend() {
     };
     
     loadData();
+    
+    // Listen for localStorage changes (from workflows or other tabs)
+    const handleStorageChange = (e) => {
+      if (e.key && e.key.startsWith('pacs-')) {
+        console.log('Detected localStorage change, refreshing data...');
+        loadData();
+      }
+    };
+    
+    // Also refresh when window gains focus
+    const handleFocus = () => {
+      console.log('Window focused, refreshing data...');
+      loadData();
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('focus', handleFocus);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('focus', handleFocus);
+    };
   }, []);
 
   if (loading || !data) {
@@ -76,7 +98,7 @@ export default function Backend() {
       label: 'Status',
       render: (value) => (
         <StatusBadge
-          status={value === 'active' ? 'success' : 'error'}
+          status={value?.toLowerCase() === 'active' ? 'success' : 'error'}
           text={value}
           showIcon={false}
         />
@@ -222,8 +244,20 @@ export default function Backend() {
   return (
     <div className="backend">
       <div className="backend-header">
-        <h1>PACS Backend Browser</h1>
-        <p>Explore Gallagher PACS and Milestone XProtect data</p>
+        <div>
+          <h1>PACS Backend Browser</h1>
+          <p>Explore Gallagher PACS and Milestone XProtect data</p>
+        </div>
+        <button 
+          className="btn btn-primary"
+          onClick={() => {
+            const loadedData = initializeData();
+            setData(loadedData);
+          }}
+          style={{ marginLeft: 'auto' }}
+        >
+          Refresh Data
+        </button>
       </div>
 
       <TabBar

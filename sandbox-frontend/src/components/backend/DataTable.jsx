@@ -73,7 +73,9 @@ export default function DataTable({
   };
 
   const handleRowClick = (row) => {
+    console.log('DataTable row clicked:', row);
     if (onRowClick) {
+      console.log('Calling onRowClick callback');
       onRowClick(row);
     }
   };

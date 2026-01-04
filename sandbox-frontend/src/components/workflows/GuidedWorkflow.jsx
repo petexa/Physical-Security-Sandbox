@@ -4,14 +4,25 @@ import EmployeeOnboarding from './steps/EmployeeOnboarding';
 import EmployeeTermination from './steps/EmployeeTermination';
 import SecurityInvestigation from './steps/SecurityInvestigation';
 import AccessGroupManagement from './steps/AccessGroupManagement';
+import WorkflowSummary from './WorkflowSummary';
+import { initializeWorkflowTracker, getTrackedApiCalls } from '../../utils/workflowApiTracker';
 import './GuidedWorkflow.css';
+import './steps/WorkflowSteps.css';
 
 const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
+  const COMPLETED_KEY = 'workflows-completed';
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
   const [workflowData, setWorkflowData] = useState({});
+  const [trackedApiCalls, setTrackedApiCalls] = useState([]);
+
+  // Initialize API call tracker when workflow mounts
+  useEffect(() => {
+    initializeWorkflowTracker(workflowId);
+  }, [workflowId]);
 
   // Workflow definitions with their steps
   const workflows = {
@@ -93,7 +104,7 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
         }
       ]
     },
-    access_group: {
+    'access-group': {
       name: 'Access Group Management',
       description: 'Create and manage access groups',
       steps: [
@@ -120,6 +131,11 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
   };
 
   const workflow = workflows[workflowId];
+
+  if (!workflow) {
+    return null;
+  }
+
   const totalSteps = workflow.steps.length;
   const stepProgress = ((currentStep + 1) / totalSteps) * 100;
   const CurrentStepComponent = workflow.steps[currentStep].component;
@@ -162,6 +178,7 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
     } else {
       setShowSuccess(true);
       setTimeout(() => {
+        setShowSuccess(false);
         handleWorkflowComplete();
       }, 2000);
     }
@@ -195,19 +212,28 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
 
   const handleWorkflowComplete = () => {
     // Mark as completed in localStorage
-    const completed = JSON.parse(localStorage.getItem('completedWorkflows') || '[]');
+    const completed = JSON.parse(localStorage.getItem(COMPLETED_KEY) || '[]');
     if (!completed.includes(workflowId)) {
       completed.push(workflowId);
-      localStorage.setItem('completedWorkflows', JSON.stringify(completed));
+      localStorage.setItem(COMPLETED_KEY, JSON.stringify(completed));
     }
     
     // Clear session state
     sessionStorage.removeItem(`workflow-${workflowId}-state`);
     
+    // Get tracked API calls
+    const calls = getTrackedApiCalls();
+    setTrackedApiCalls(calls);
+    
+    // Show summary instead of closing immediately
+    setShowSummary(true);
+  };
+
+  const handleCloseSummary = () => {
+    // Call onComplete when actually closing the modal
     if (onComplete) {
       onComplete(workflowId, workflowData);
     }
-    
     onClose();
   };
 
@@ -279,7 +305,14 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
               </div>
             )}
 
-            {showSuccess ? (
+            {showSummary ? (
+              <WorkflowSummary 
+                workflowId={workflowId}
+                workflowName={workflow.name}
+                workflowData={workflowData}
+                trackedApiCalls={trackedApiCalls}
+              />
+            ) : showSuccess ? (
               <div className="success-state">
                 <div className="success-checkmark">✓</div>
                 <h3>Step Complete!</h3>
@@ -307,43 +340,56 @@ const GuidedWorkflow = ({ workflowId, onClose, onComplete }) => {
 
         {/* Footer with Controls */}
         <div className="workflow-footer">
-          <div className="button-group">
-            <button
-              className="btn btn-secondary"
-              onClick={handlePrevious}
-              disabled={currentStep === 0 || isLoading || showSuccess}
-            >
-              <ChevronLeft size={18} />
-              Previous
-            </button>
+          {showSummary ? (
+            <div className="summary-footer">
+              <button
+                className="btn btn-primary"
+                onClick={handleCloseSummary}
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="button-group">
+                <button
+                  className="btn btn-secondary"
+                  onClick={handlePrevious}
+                  disabled={currentStep === 0 || isLoading || showSuccess}
+                >
+                  <ChevronLeft size={18} />
+                  Previous
+                </button>
 
-            <button
-              className="btn btn-secondary"
-              onClick={handleSkip}
-              disabled={isLoading || showSuccess}
-            >
-              <SkipForward size={18} />
-              Skip
-            </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={handleSkip}
+                  disabled={isLoading || showSuccess}
+                >
+                  <SkipForward size={18} />
+                  Skip
+                </button>
 
-            <button
-              className="btn btn-secondary"
-              onClick={handleRestart}
-              disabled={isLoading || showSuccess}
-            >
-              <RotateCcw size={18} />
-              Restart
-            </button>
-          </div>
+                <button
+                  className="btn btn-secondary"
+                  onClick={handleRestart}
+                  disabled={isLoading || showSuccess}
+                >
+                  <RotateCcw size={18} />
+                  Restart
+                </button>
+              </div>
 
-          <button
-            className="btn btn-primary"
-            onClick={handleNext}
-            disabled={currentStep === totalSteps - 1 || isLoading || showSuccess}
-          >
-            Next
-            <ChevronRight size={18} />
-          </button>
+              <button
+                className="btn btn-primary"
+                onClick={handleNext}
+                disabled={currentStep === totalSteps - 1 || isLoading || showSuccess}
+              >
+                Next
+                <ChevronRight size={18} />
+              </button>
+            </>
+          )}
         </div>
 
         {/* Keyboard Hint */}

@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Play, Loader, Copy, Check, Clock, History, Star, Trash2, Code } from 'lucide-react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import atomOneDark from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-dark';
-import atomOneLight from 'react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light';
+import { useState } from 'react';
+import { Play, Loader, Copy, Check } from 'lucide-react';
 import ResponseViewer from './ResponseViewer';
 import EndpointBrowser from './EndpointBrowser';
 import RequestHistory from './RequestHistory';
@@ -12,85 +9,28 @@ import * as apiClient from '../../utils/apiClient';
 export default function ApiTester() {
   const [selectedEndpoint, setSelectedEndpoint] = useState(null);
   const [method, setMethod] = useState('GET');
-  const [url, setUrl] = useState('');
   const [headers, setHeaders] = useState([{ key: 'Content-Type', value: 'application/json', enabled: true }]);
   const [body, setBody] = useState('');
   const [authType, setAuthType] = useState('none');
   const [authValue, setAuthValue] = useState('');
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [responseTiming, setResponseTiming] = useState(null);
-  const [showHistory, setShowHistory] = useState(false);
   const [requestHistory, setRequestHistory] = useState(() => {
     const stored = localStorage.getItem('api-request-history');
     return stored ? JSON.parse(stored) : [];
   });
-  const [favorites, setFavorites] = useState(() => {
-    const stored = localStorage.getItem('api-console-favorites');
-    return stored ? JSON.parse(stored) : [];
-  });
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
-  const [idDropdowns, setIdDropdowns] = useState({});
-  const [showIdDropdown, setShowIdDropdown] = useState(null);
-
-  // Detect theme changes
-  useEffect(() => {
-    const handleThemeChange = () => {
-      setIsDarkMode(localStorage.getItem('theme') === 'dark');
-    };
-    window.addEventListener('storage', handleThemeChange);
-    return () => window.removeEventListener('storage', handleThemeChange);
-  }, []);
-
-  // Parse URL for ID placeholders
-  useEffect(() => {
-    const idMatches = url.match(/\{([a-zA-Z]+)\}/g) || [];
-    const dropdowns = {};
-    
-    idMatches.forEach(match => {
-      const key = match.replace(/[{}]/g, '');
-      const dataKey = key.toLowerCase();
-      
-      if (!dropdowns[key]) {
-        let data = [];
-        try {
-          if (dataKey.includes('cardholder')) {
-            const cardholders = localStorage.getItem('pacs-cardholders');
-            data = cardholders ? JSON.parse(cardholders).map(ch => ({
-              id: ch.id,
-              label: `${ch.firstName} ${ch.lastName}`
-            })) : [];
-          } else if (dataKey.includes('door')) {
-            const doors = localStorage.getItem('pacs-doors');
-            data = doors ? JSON.parse(doors).map(d => ({
-              id: d.id,
-              label: d.name
-            })) : [];
-          } else if (dataKey.includes('group') || dataKey.includes('access')) {
-            const groups = localStorage.getItem('pacs-access-groups');
-            data = groups ? JSON.parse(groups).map(g => ({
-              id: g.id,
-              label: g.name
-            })) : [];
-          }
-        } catch (e) {
-          console.error('Failed to load dropdown data:', e);
-        }
-        dropdowns[key] = data;
-      }
-    });
-    setIdDropdowns(dropdowns);
-  }, [url]);
 
   const handleEndpointSelect = (endpoint) => {
     setSelectedEndpoint(endpoint);
-    setMethod(endpoint.method || 'GET');
-    setUrl(endpoint.path || '');
+    setMethod(endpoint.method);
     setBody(endpoint.exampleBody || '');
-    setHeaders([{ key: 'Content-Type', value: 'application/json', enabled: true }]);
+    
+    // Set default headers based on method
+    if (endpoint.method === 'GET') {
+      setHeaders([{ key: 'Content-Type', value: 'application/json', enabled: true }]);
+    } else {
+      setHeaders([{ key: 'Content-Type', value: 'application/json', enabled: true }]);
+    }
   };
 
   const addHeader = () => {
@@ -107,358 +47,242 @@ export default function ApiTester() {
     setHeaders(headers.filter((_, i) => i !== index));
   };
 
-  // Feature 1: Copy as curl
-  const copyAsCurl = () => {
-    const enabledHeaders = headers.filter(h => h.enabled && h.key);
-    let curlCmd = `curl -X ${method}`;
-    
-    enabledHeaders.forEach(h => {
-      curlCmd += ` -H "${h.key}: ${h.value}"`;
-    });
-    
-    if (body && (method === 'POST' || method === 'PUT' || method === 'PATCH')) {
-      curlCmd += ` -d '${body}'`;
-    }
-    
-    curlCmd += ` "${url}"`;
-    
-    navigator.clipboard.writeText(curlCmd).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  // Feature 3: Add to history
-  const addToHistory = (req, res) => {
-    const entry = {
-      id: Date.now(),
-      method,
-      url,
-      body: body || null,
-      timestamp: new Date().toISOString(),
-      response: res,
-      timing: responseTiming
-    };
-    
-    const updated = [entry, ...requestHistory].slice(0, 20);
-    setRequestHistory(updated);
-    localStorage.setItem('api-request-history', JSON.stringify(updated));
-  };
-
-  // Feature 4: ID dropdown handler
-  const fillIdFromDropdown = (key, id, label) => {
-    setUrl(url.replace(`{${key}}`, id));
-    setShowIdDropdown(null);
-  };
-
   const executeRequest = async () => {
-    if (!url) return;
-    
-    const startTime = performance.now();
+    if (!selectedEndpoint) return;
+
     setLoading(true);
-    
+    const startTime = Date.now();
+
     try {
-      const enabledHeaders = headers.filter(h => h.enabled && h.key);
-      const headerObj = {};
-      enabledHeaders.forEach(h => {
-        headerObj[h.key] = h.value;
+      let result;
+      const endpoint = selectedEndpoint.path;
+      
+      // Build headers object
+      const requestHeaders = {};
+      headers.filter(h => h.enabled && h.key).forEach(h => {
+        requestHeaders[h.key] = h.value;
       });
 
-      let result;
-      
-      if (method === 'GET') {
-        result = await apiClient.get(url);
-      } else if (method === 'POST') {
-        result = await apiClient.post(url, body ? JSON.parse(body) : {});
-      } else if (method === 'PATCH') {
-        result = await apiClient.patch(url, body ? JSON.parse(body) : {});
-      } else if (method === 'DELETE') {
-        result = await apiClient.del(url);
+      // Add auth header if needed
+      if (authType === 'bearer' && authValue) {
+        requestHeaders['Authorization'] = `Bearer ${authValue}`;
+      } else if (authType === 'basic' && authValue) {
+        requestHeaders['Authorization'] = `Basic ${btoa(authValue)}`;
+      } else if (authType === 'apikey' && authValue) {
+        requestHeaders['X-API-Key'] = authValue;
       }
 
-      const endTime = performance.now();
-      const timing = Math.round(endTime - startTime);
-      setResponseTiming(timing);
-      setResponse(result);
-      addToHistory({ method, url, body }, result);
+      // Execute request based on method
+      if (method === 'GET') {
+        result = await apiClient.get(endpoint);
+      } else if (method === 'POST') {
+        const parsedBody = body ? JSON.parse(body) : {};
+        result = await apiClient.post(endpoint, parsedBody);
+      } else if (method === 'PATCH') {
+        const parsedBody = body ? JSON.parse(body) : {};
+        result = await apiClient.patch(endpoint, parsedBody);
+      } else if (method === 'DELETE') {
+        result = await apiClient.del(endpoint);
+      }
+
+      const responseTime = Date.now() - startTime;
+      
+      const responseData = {
+        status: result.status,
+        data: result.data,
+        headers: result.headers || {},
+        responseTime,
+        timestamp: new Date().toISOString()
+      };
+
+      setResponse(responseData);
+
+      // Add to history
+      const historyItem = {
+        id: Date.now(),
+        method,
+        endpoint: endpoint,
+        status: result.status,
+        timestamp: new Date().toISOString(),
+        responseTime
+      };
+      
+      const newHistory = [historyItem, ...requestHistory].slice(0, 20);
+      setRequestHistory(newHistory);
+      localStorage.setItem('api-request-history', JSON.stringify(newHistory));
+
     } catch (error) {
-      const endTime = performance.now();
-      const timing = Math.round(endTime - startTime);
-      setResponseTiming(timing);
-      setResponse({ error: error.message, status: 500 });
+      const responseTime = Date.now() - startTime;
+      setResponse({
+        status: 500,
+        error: error.message,
+        data: null,
+        responseTime,
+        timestamp: new Date().toISOString()
+      });
     } finally {
       setLoading(false);
     }
   };
 
-  // Feature 3: Restore from history
-  const restoreFromHistory = (entry) => {
-    setMethod(entry.method);
-    setUrl(entry.url);
-    setBody(entry.body || '');
-    setShowHistory(false);
-  };
-
-  // Feature 3: Toggle favorite
-  const toggleFavorite = (entry) => {
-    const isFav = favorites.some(f => f.id === entry.id);
-    const updated = isFav 
-      ? favorites.filter(f => f.id !== entry.id)
-      : [...favorites, entry];
-    setFavorites(updated);
-    localStorage.setItem('api-console-favorites', JSON.stringify(updated));
-  };
-
-  const clearHistory = () => {
-    if (confirm('Clear all request history?')) {
-      setRequestHistory([]);
-      localStorage.removeItem('api-request-history');
-    }
-  };
-
-  // Feature 2: Timing color coding
-  const getTimingColor = (ms) => {
-    if (ms < 100) return 'timing-fast';
-    if (ms < 500) return 'timing-medium';
-    return 'timing-slow';
+  const replayRequest = (historyItem) => {
+    // Find the endpoint from history
+    const endpoint = {
+      name: historyItem.endpoint,
+      path: historyItem.endpoint,
+      method: historyItem.method
+    };
+    setSelectedEndpoint(endpoint);
+    setMethod(historyItem.method);
   };
 
   return (
     <div className="api-tester">
-      <div className="api-container">
-        <div className="api-layout">
-          <EndpointBrowser onSelectEndpoint={handleEndpointSelect} />
+      <div className="api-tester-sidebar">
+        <EndpointBrowser onSelect={handleEndpointSelect} />
+      </div>
 
-          <div className="api-main">
-            <div className="api-request-section">
-              <h3>Request Builder</h3>
-              
-              <div className="request-method-url">
-                <select 
-                  value={method} 
-                  onChange={(e) => setMethod(e.target.value)}
-                  className="method-select"
-                >
-                  <option>GET</option>
-                  <option>POST</option>
-                  <option>PATCH</option>
-                  <option>DELETE</option>
-                </select>
+      <div className="api-tester-main">
+        <div className="api-tester-header">
+          <h1>API Testing Console</h1>
+          <p>Test Gallagher, Milestone, Axis, and ONVIF API endpoints</p>
+        </div>
 
-                <div className="url-input-wrapper">
+        {/* Request Configuration */}
+        <div className="request-panel">
+          <div className="request-line">
+            <select 
+              className="method-selector"
+              value={method}
+              onChange={(e) => setMethod(e.target.value)}
+            >
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PATCH">PATCH</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            
+            <input
+              type="text"
+              className="endpoint-input"
+              value={selectedEndpoint?.path || ''}
+              placeholder="Select an endpoint from the sidebar"
+              readOnly
+            />
+            
+            <button
+              className="btn btn-primary try-button"
+              onClick={executeRequest}
+              disabled={!selectedEndpoint || loading}
+            >
+              {loading ? (
+                <>
+                  <Loader size={20} className="spin" />
+                  Running...
+                </>
+              ) : (
+                <>
+                  <Play size={20} />
+                  Try It
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Headers Section */}
+          <div className="request-section">
+            <h3>Headers</h3>
+            <div className="headers-editor">
+              {headers.map((header, index) => (
+                <div key={index} className="header-row">
+                  <input
+                    type="checkbox"
+                    checked={header.enabled}
+                    onChange={(e) => updateHeader(index, 'enabled', e.target.checked)}
+                  />
                   <input
                     type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="/api/cardholders"
-                    className="url-input"
+                    placeholder="Header name"
+                    value={header.key}
+                    onChange={(e) => updateHeader(index, 'key', e.target.value)}
                   />
-                  {Object.entries(idDropdowns).some(([_, data]) => data.length > 0) && (
-                    <div className="id-dropdowns">
-                      {Object.entries(idDropdowns).map(([key, data]) => (
-                        data.length > 0 && (
-                          <div key={key} className="id-dropdown-wrapper">
-                            <button
-                              className="id-dropdown-btn"
-                              onClick={() => setShowIdDropdown(showIdDropdown === key ? null : key)}
-                            >
-                              {key}
-                            </button>
-                            {showIdDropdown === key && (
-                              <div className="id-dropdown-menu">
-                                {data.map(item => (
-                                  <button
-                                    key={item.id}
-                                    className="id-dropdown-item"
-                                    onClick={() => fillIdFromDropdown(key, item.id, item.label)}
-                                  >
-                                    {item.id}: {item.label}
-                                  </button>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        )
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="request-headers">
-                <label>Headers</label>
-                {headers.map((header, index) => (
-                  <div key={index} className="header-row">
-                    <input
-                      type="text"
-                      placeholder="Key"
-                      value={header.key}
-                      onChange={(e) => updateHeader(index, 'key', e.target.value)}
-                      className="header-key"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Value"
-                      value={header.value}
-                      onChange={(e) => updateHeader(index, 'value', e.target.value)}
-                      className="header-value"
-                    />
-                    <input
-                      type="checkbox"
-                      checked={header.enabled}
-                      onChange={(e) => updateHeader(index, 'enabled', e.target.checked)}
-                      className="header-enabled"
-                    />
-                    <button onClick={() => removeHeader(index)} className="header-remove">×</button>
-                  </div>
-                ))}
-                <button onClick={addHeader} className="header-add">+ Add Header</button>
-              </div>
-
-              {['POST', 'PUT', 'PATCH'].includes(method) && (
-                <div className="request-body">
-                  <label>Body (JSON)</label>
-                  <textarea
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    placeholder='{"key": "value"}'
-                    className="body-input"
+                  <input
+                    type="text"
+                    placeholder="Value"
+                    value={header.value}
+                    onChange={(e) => updateHeader(index, 'value', e.target.value)}
                   />
-                </div>
-              )}
-
-              <div className="request-actions">
-                <button 
-                  className="action-btn curl-btn"
-                  onClick={copyAsCurl}
-                  title="Copy as curl command"
-                >
-                  {copied ? <Check size={18} /> : <Copy size={18} />}
-                  {copied ? 'Copied!' : 'Copy Curl'}
-                </button>
-
-                <button 
-                  className="action-btn history-btn"
-                  onClick={() => setShowHistory(!showHistory)}
-                >
-                  <History size={18} />
-                  History ({requestHistory.length})
-                </button>
-
-                <button 
-                  onClick={executeRequest} 
-                  disabled={loading || !url}
-                  className="action-btn submit-btn"
-                >
-                  {loading ? <Loader className="spinner" size={18} /> : <Play size={18} />}
-                  {loading ? 'Sending...' : 'Send Request'}
-                </button>
-              </div>
-            </div>
-
-            {showHistory && (
-              <div className="history-sidebar">
-                <div className="history-header">
-                  <h4>Request History</h4>
-                  <button 
-                    className="history-clear"
-                    onClick={clearHistory}
-                    title="Clear history"
+                  <button
+                    className="btn btn-ghost btn-sm"
+                    onClick={() => removeHeader(index)}
                   >
-                    <Trash2 size={16} />
+                    Remove
                   </button>
                 </div>
-                <div className="history-list">
-                  {requestHistory.length === 0 ? (
-                    <p className="history-empty">No requests yet</p>
-                  ) : (
-                    requestHistory.map(entry => (
-                      <div key={entry.id} className="history-item">
-                        <div className="history-item-header">
-                          <span className="history-method">{entry.method}</span>
-                          <button
-                            className="history-favorite"
-                            onClick={() => toggleFavorite(entry)}
-                            title="Add to favorites"
-                          >
-                            <Star 
-                              size={14} 
-                              fill={favorites.some(f => f.id === entry.id) ? 'currentColor' : 'none'}
-                            />
-                          </button>
-                        </div>
-                        <p className="history-url">{entry.url}</p>
-                        <p className="history-time">{new Date(entry.timestamp).toLocaleTimeString()}</p>
-                        <button
-                          className="history-restore"
-                          onClick={() => restoreFromHistory(entry)}
-                        >
-                          Restore
-                        </button>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            )}
+              ))}
+              <button className="btn btn-ghost btn-sm" onClick={addHeader}>
+                + Add Header
+              </button>
+            </div>
+          </div>
 
-            {response && (
-              <div className="api-response-section">
-                <div className="response-header">
-                  <h3>Response</h3>
-                  {responseTiming && (
-                    <div className={`timing-badge ${getTimingColor(responseTiming)}`}>
-                      <Clock size={16} />
-                      {responseTiming}ms
-                    </div>
-                  )}
-                </div>
+          {/* Body Section (for POST/PATCH) */}
+          {(method === 'POST' || method === 'PATCH') && (
+            <div className="request-section">
+              <h3>Body</h3>
+              <textarea
+                className="body-editor"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                placeholder='{"key": "value"}'
+                rows={10}
+              />
+            </div>
+          )}
 
-                {typeof response === 'object' && response !== null && !response.error && (
-                  <div className="response-highlight">
-                    <SyntaxHighlighter 
-                      language="json" 
-                      style={isDarkMode ? atomOneDark : atomOneLight}
-                      showLineNumbers
-                      lineNumberStyle={{ color: 'var(--text-secondary)', marginRight: '12px' }}
-                      customStyle={{
-                        background: 'var(--bg-secondary)',
-                        padding: '16px',
-                        borderRadius: '8px',
-                        fontSize: '13px',
-                        maxHeight: '400px',
-                        overflow: 'auto'
-                      }}
-                      wrapLines
-                    >
-                      {JSON.stringify(response, null, 2)}
-                    </SyntaxHighlighter>
-                    <button 
-                      className="response-copy"
-                      onClick={() => {
-                        navigator.clipboard.writeText(JSON.stringify(response, null, 2));
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 2000);
-                      }}
-                    >
-                      {copied ? 'Copied!' : 'Copy Response'}
-                    </button>
-                  </div>
-                )}
-
-                {response.error && (
-                  <div className="response-error">
-                    <p className="error-message">{response.error}</p>
-                  </div>
-                )}
-
-                {typeof response !== 'object' && (
-                  <pre className="response-raw">{String(response)}</pre>
-                )}
-              </div>
-            )}
+          {/* Auth Section */}
+          <div className="request-section">
+            <h3>Authentication</h3>
+            <div className="auth-section">
+              <select
+                value={authType}
+                onChange={(e) => setAuthType(e.target.value)}
+              >
+                <option value="none">No Auth</option>
+                <option value="bearer">Bearer Token</option>
+                <option value="basic">Basic Auth</option>
+                <option value="apikey">API Key</option>
+              </select>
+              
+              {authType !== 'none' && (
+                <input
+                  type="text"
+                  placeholder={
+                    authType === 'bearer' ? 'Token' :
+                    authType === 'basic' ? 'username:password' :
+                    'API Key'
+                  }
+                  value={authValue}
+                  onChange={(e) => setAuthValue(e.target.value)}
+                />
+              )}
+            </div>
           </div>
         </div>
+
+        {/* Response Panel */}
+        {response && <ResponseViewer response={response} />}
+      </div>
+
+      <div className="api-tester-history">
+        <RequestHistory 
+          history={requestHistory}
+          onReplay={replayRequest}
+          onClear={() => {
+            setRequestHistory([]);
+            localStorage.removeItem('api-request-history');
+          }}
+        />
       </div>
     </div>
   );

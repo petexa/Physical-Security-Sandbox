@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { FileText, Download, Loader } from 'lucide-react';
+import { FileText, Download, Loader, Code } from 'lucide-react';
 import Button from '../Button.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './SummaryGenerator.css';
 
-export default function SummaryGenerator({ onGenerate }) {
+export default function SummaryGenerator({ events = [], doors = [], cardholders = [], cameras = [], onGenerate }) {
   const [dateRange, setDateRange] = useState('last30days');
   const [eventTypeFilter, setEventTypeFilter] = useState('all');
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState(null);
+  const [showInspector, setShowInspector] = useState(false);
+  const [lastGenerationData, setLastGenerationData] = useState(null);
   
   const dateRangeOptions = [
     { value: 'last7days', label: 'Last 7 Days' },
@@ -23,8 +26,20 @@ export default function SummaryGenerator({ onGenerate }) {
     { value: 'fault', label: 'Faults' }
   ];
   
+  const getDateRangeLabel = (value) => {
+    const option = dateRangeOptions.find(o => o.value === value);
+    return option ? option.label : value;
+  };
+  
   const handleGenerate = async () => {
     setLoading(true);
+    
+    // Store data for prompt inspector
+    setLastGenerationData({
+      dateRange: getDateRangeLabel(dateRange),
+      eventTypeFilter,
+      events: events.slice(0, 50)
+    });
     
     try {
       if (onGenerate) {
@@ -198,6 +213,14 @@ export default function SummaryGenerator({ onGenerate }) {
           <div className="summary-footer">
             <div className="export-buttons">
               <Button
+                onClick={() => setShowInspector(true)}
+                variant="secondary"
+                size="sm"
+              >
+                <Code size={16} />
+                Inspect Prompt
+              </Button>
+              <Button
                 onClick={() => handleExport('json')}
                 variant="secondary"
                 size="sm"
@@ -219,6 +242,18 @@ export default function SummaryGenerator({ onGenerate }) {
           <p>Configure options above and click "Generate Summary" to create a comprehensive event analysis report.</p>
         </div>
       )}
+      
+      <PromptInspector
+        promptType="eventSummarization"
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        selectedEvents={lastGenerationData?.events || events.slice(0, 50)}
+        dateRange={lastGenerationData?.dateRange || 'Last 30 Days'}
+        isOpen={showInspector}
+        onClose={() => setShowInspector(false)}
+      />
     </div>
   );
 }

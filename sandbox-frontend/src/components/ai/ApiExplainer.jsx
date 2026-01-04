@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { Code, Copy, BookOpen } from 'lucide-react';
 import Button from '../Button.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './ApiExplainer.css';
 
-export default function ApiExplainer({ onExplain }) {
+export default function ApiExplainer({ events = [], doors = [], cardholders = [], cameras = [], onExplain }) {
   const [apiResponse, setApiResponse] = useState('');
   const [apiType, setApiType] = useState('Gallagher');
   const [loading, setLoading] = useState(false);
   const [explanation, setExplanation] = useState(null);
+  const [showInspector, setShowInspector] = useState(false);
+  const [lastApiResponse, setLastApiResponse] = useState('');
+  const [lastApiType, setLastApiType] = useState('');
   
   const apiTypes = ['Gallagher', 'Milestone', 'Axis', 'ONVIF', 'Generic'];
   
@@ -23,6 +27,9 @@ export default function ApiExplainer({ onExplain }) {
     if (!apiResponse.trim()) return;
     
     setLoading(true);
+    setLastApiResponse(apiResponse);
+    setLastApiType(apiType);
+    
     try {
       if (onExplain) {
         const result = await onExplain(apiResponse, apiType);
@@ -155,6 +162,13 @@ export default function ApiExplainer({ onExplain }) {
                 </div>
               </div>
             )}
+            
+            <div className="explanation-footer">
+              <Button onClick={() => setShowInspector(true)} variant="secondary" size="sm">
+                <Code size={16} />
+                Inspect Prompt
+              </Button>
+            </div>
           </div>
         )}
         
@@ -165,6 +179,18 @@ export default function ApiExplainer({ onExplain }) {
           </div>
         )}
       </div>
+      
+      <PromptInspector
+        promptType="apiResponseExplainer"
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        apiResponse={lastApiResponse || apiResponse}
+        apiType={lastApiType || apiType}
+        isOpen={showInspector}
+        onClose={() => setShowInspector(false)}
+      />
     </div>
   );
 }

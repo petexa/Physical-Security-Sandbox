@@ -13,9 +13,9 @@
  * - PATCH: PR number (1.0.1, 1.0.2, 1.0.3, etc.)
  */
 
-export const VERSION = '1.0.16';
+export const VERSION = '1.0.17';
 export const VERSION_DATE = '2026-01-04';
-export const BUILD_NUMBER = 16;
+export const BUILD_NUMBER = 17;
 
 export const VERSION_INFO = {
   version: VERSION,

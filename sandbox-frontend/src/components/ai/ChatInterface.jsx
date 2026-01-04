@@ -1,13 +1,22 @@
 import { useState } from 'react';
-import { Send, Copy, Trash2, MessageSquare } from 'lucide-react';
+import { Send, Copy, Trash2, MessageSquare, Eye } from 'lucide-react';
 import Button from '../Button.jsx';
-import HowItWorksPanel from './HowItWorksPanel.jsx';
+import PromptInspector from './PromptInspector.jsx';
 import './ChatInterface.css';
 
-export default function ChatInterface({ onQuery, history = [], loading = false }) {
+export default function ChatInterface({ 
+  onQuery, 
+  history = [], 
+  loading = false,
+  events = [],
+  doors = [],
+  cardholders = [],
+  cameras = []
+}) {
   const [input, setInput] = useState('');
   const [localHistory, setLocalHistory] = useState(history);
-  const [workflow, setWorkflow] = useState(null);
+  const [showPromptInspector, setShowPromptInspector] = useState(false);
+  const [lastQuery, setLastQuery] = useState('');
   
   const exampleQueries = [
     "How many door faults occurred last month?",
@@ -30,65 +39,11 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
     
     setLocalHistory(prev => [...prev, userMessage]);
     setInput('');
-    
-    // Build detailed workflow with AI processing steps
-    const workflowSteps = [
-      {
-        type: 'processing',
-        title: '1. Intent Classification',
-        description: `Analyzing query intent: "${userMessage.text}"`,
-        dataSource: 'Natural Language Processing Engine',
-        duration: '~5ms',
-        details: 'Classifying as: Question-Answering (confidence: 94%)'
-      },
-      {
-        type: 'processing',
-        title: '2. Entity Extraction',
-        description: 'Identifying key entities (doors, cardholders, time ranges, event types)',
-        dataSource: 'Named Entity Recognition (NER)',
-        duration: '~8ms',
-        details: 'Extracted: time_range="last 6 months", door="Server Room", event_type="fault"'
-      },
-      {
-        type: 'processing',
-        title: '3. Query Transformation',
-        description: 'Converting natural language to structured query parameters',
-        dataSource: 'Semantic Parser',
-        duration: '~3ms',
-        query: `{ timeRange: { value: 6, unit: 'months' }, doorFilter: 'Server Room', eventType: 'fault' }`
-      },
-      {
-        type: 'database',
-        title: '4. Data Filtering',
-        description: 'Applying filters to event database',
-        dataSource: 'LocalStorage Events Database (23,547 events)',
-        query: `filterEvents(events, { door: findDoor("Server Room"), type: "fault", since: sixMonthsAgo() })`,
-        duration: '~25ms'
-      },
-      {
-        type: 'processing',
-        title: '5. Result Aggregation',
-        description: 'Grouping and counting matching events',
-        dataSource: 'Analytics Engine',
-        duration: '~4ms',
-        details: 'Aggregated by date, severity, and location'
-      }
-    ];
-
-    setWorkflow(workflowSteps);
+    setLastQuery(userMessage.text);
     
     // Call the query handler
     if (onQuery) {
       const response = await onQuery(userMessage.text);
-      
-      // Add final result step
-      workflowSteps.push({
-        type: 'complete',
-        title: '6. Results Formatting',
-        description: `Generating natural language response with ${response.totalCount || 0} matching records`,
-        result: response.totalCount ? `✓ Found ${response.totalCount} events matching your query` : '⚠ No matching events found',
-        duration: '~2ms'
-      });
       
       const aiMessage = {
         id: Date.now() + 1,
@@ -99,9 +54,7 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
         hasMore: response.hasMore || false,
         timestamp: new Date().toISOString()
       };
-      
       setLocalHistory(prev => [...prev, aiMessage]);
-      setWorkflow([...workflowSteps]);
     }
   };
   
@@ -188,6 +141,16 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
                 <Copy size={14} />
                 Copy
               </button>
+              {message.type === 'ai' && lastQuery && (
+                <button 
+                  className="message-action inspect-btn"
+                  onClick={() => setShowPromptInspector(true)}
+                  title="Inspect prompt"
+                >
+                  <Eye size={14} />
+                  Inspect Prompt
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -208,8 +171,6 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
           </div>
         )}
       </div>
-      
-      {workflow && <HowItWorksPanel workflow={workflow} />}
 
       <div className="chat-footer">
         {displayHistory.length > 0 && (
@@ -238,6 +199,16 @@ export default function ChatInterface({ onQuery, history = [], loading = false }
           </Button>
         </form>
       </div>
+
+      <PromptInspector 
+        query={lastQuery}
+        events={events}
+        doors={doors}
+        cardholders={cardholders}
+        cameras={cameras}
+        isOpen={showPromptInspector}
+        onClose={() => setShowPromptInspector(false)}
+      />
     </div>
   );
 }

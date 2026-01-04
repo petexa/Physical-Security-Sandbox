@@ -39,7 +39,7 @@ export function initializeData() {
       cardholders: cardholdersData,
       doors: doorsData,
       controllers: controllersData,
-      targetCount: 25000 // Generate 25,000 events
+      targetCount: 5000 // Generate 5,000 events (limited by storage)
     });
     
     // Store in localStorage
@@ -55,9 +55,9 @@ export function initializeData() {
   }
   
   return {
-    cardholders: cardholdersData,
-    accessGroups: accessGroupsData,
-    doors: doorsData,
+    cardholders: JSON.parse(localStorage.getItem('pacs-cardholders') || JSON.stringify(cardholdersData)),
+    accessGroups: JSON.parse(localStorage.getItem('pacs-access-groups') || JSON.stringify(accessGroupsData)),
+    doors: JSON.parse(localStorage.getItem('pacs-doors') || JSON.stringify(doorsData)),
     controllers: controllersData,
     inputs: inputsData,
     outputs: outputsData,

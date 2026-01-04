@@ -193,12 +193,19 @@ export default function AI() {
         {activeTab === 'chat' && (
           <ChatInterface
             onQuery={handleQuery}
+            events={events}
+            doors={doors}
+            cardholders={cardholders}
+            cameras={cameras}
             loading={loading}
           />
         )}
         
         {activeTab === 'summary' && (
           <SummaryGenerator
+            doors={doors}
+            cardholders={cardholders}
+            cameras={cameras}
             events={events}
             onGenerate={handleGenerateSummary}
           />
@@ -217,18 +224,29 @@ export default function AI() {
         {activeTab === 'investigation' && (
           <InvestigationBuilder
             events={events}
+            doors={doors}
+            cardholders={cardholders}
+            cameras={cameras}
             onBuild={handleBuildInvestigation}
           />
         )}
         
         {activeTab === 'api' && (
           <ApiExplainer
+            events={events}
+            doors={doors}
+            cardholders={cardholders}
+            cameras={cameras}
             onExplain={handleExplainApi}
           />
         )}
         
         {activeTab === 'logs' && (
           <LogAnalyzer
+            events={events}
+            doors={doors}
+            cardholders={cardholders}
+            cameras={cameras}
             onAnalyze={handleAnalyzeLogs}
           />
         )}

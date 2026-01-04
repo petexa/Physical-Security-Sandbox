@@ -42,17 +42,24 @@ const workflows = [
   }
 ];
 
+const COMPLETED_KEY = 'workflows-completed';
+
 export default function WorkflowsPage() {
   const [activeWorkflow, setActiveWorkflow] = useState(null);
   const [completedWorkflows, setCompletedWorkflows] = useState(() => {
-    const stored = localStorage.getItem('workflows-completed');
-    return stored ? JSON.parse(stored) : [];
+    try {
+      const stored = localStorage.getItem(COMPLETED_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      console.error('Failed to read completed workflows from storage', e);
+      return [];
+    }
   });
 
   const handleWorkflowComplete = (workflowId) => {
-    const updated = [...completedWorkflows, workflowId];
+    const updated = [...new Set([...completedWorkflows, workflowId])];
     setCompletedWorkflows(updated);
-    localStorage.setItem('workflows-completed', JSON.stringify(updated));
+    localStorage.setItem(COMPLETED_KEY, JSON.stringify(updated));
     setActiveWorkflow(null);
   };
 
@@ -60,9 +67,13 @@ export default function WorkflowsPage() {
     <div className="workflows-page">
       <div className="workflows-header">
         <div className="header-content">
-          <BookOpen size={40} />
-          <h1>Guided Workflows</h1>
-          <p>Interactive tutorials to help you master physical security operations</p>
+          <div className="header-icon">
+            <BookOpen size={32} />
+          </div>
+          <div>
+            <h1>Guided Workflows</h1>
+            <p>Interactive tutorials to help you master physical security operations</p>
+          </div>
         </div>
       </div>
 

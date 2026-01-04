@@ -173,11 +173,13 @@ export function filterLogEntries(entries, filters) {
   }
   
   // Filter by status code range
-  if (filters.statusMin !== undefined) {
-    filtered = filtered.filter(e => e.statusCode >= filters.statusMin);
+  if (filters.statusMin !== '' && filters.statusMin !== undefined) {
+    const minStatus = parseInt(filters.statusMin, 10);
+    filtered = filtered.filter(e => e.statusCode >= minStatus);
   }
-  if (filters.statusMax !== undefined) {
-    filtered = filtered.filter(e => e.statusCode <= filters.statusMax);
+  if (filters.statusMax !== '' && filters.statusMax !== undefined) {
+    const maxStatus = parseInt(filters.statusMax, 10);
+    filtered = filtered.filter(e => e.statusCode <= maxStatus);
   }
   
   // Filter by endpoint search
