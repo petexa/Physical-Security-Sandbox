@@ -10,10 +10,9 @@ const ESTIMATED_QUOTA = 5 * 1024 * 1024; // 5MB typical browser limit
  */
 export function getStorageUsage() {
   let total = 0;
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key)) {
-      total += localStorage[key].length + key.length;
-    }
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    total += localStorage.getItem(key).length + key.length;
   }
   return {
     used: total,
@@ -103,8 +102,21 @@ export function getRecommendedMaxEvents() {
   const usage = getStorageUsage();
   const availableSpace = usage.capacity * STORAGE_WARNING_THRESHOLD - usage.used;
   
-  // Estimate bytes per event (from sample)
-  const bytesPerEvent = 250; // Conservative estimate
+  // Calculate bytes per event dynamically from sample
+  const sampleEvent = {
+    id: "EVT-000000",
+    timestamp: "2024-01-01T00:00:00Z",
+    event_type: "access_granted",
+    door_id: "DOOR-001",
+    door_name: "Main Entrance",
+    cardholder_id: "CH-001",
+    cardholder_name: "John Doe",
+    card_number: "1234567890",
+    access_group: "AG-ALL-STAFF",
+    result: "granted",
+    details: "Access granted - valid credential and time zone"
+  };
+  const bytesPerEvent = JSON.stringify(sampleEvent).length;
   const maxFromSpace = Math.floor(availableSpace / bytesPerEvent);
   
   return Math.min(MAX_EVENTS, Math.max(1000, maxFromSpace));
