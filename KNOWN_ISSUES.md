@@ -1441,3 +1441,115 @@ if (path === '/api/cardholders') {
 - Issue #14: Workflow Data Not Persisting to localStorage (similar persistence problem but for workflow step updates, not creation)
 
 ---
+
+## Issue #20: AI Page Not Loading Event Data (Data Initialization Bug)
+**Date:** January 4, 2026  
+**Severity:** High  
+**Status:** Fixed  
+**Type:** Data Loading/Initialization Bug
+
+**Problem:**
+- Natural Language Event Queries tab showed example queries but no actual results/data
+- When users tried to query events, they got a message: "No event data is currently loaded"
+- The `initializeData()` function was being called but its return value was not being used
+- Events were only loaded from localStorage fallback, which might be empty
+
+**Symptoms:**
+- AI page loaded with "Try asking:" examples
+- User clicks on example or types question
+- Response: "⚠️ No event data is currently loaded. Please generate events first..."
+- Even though events should have been generated and stored in localStorage
+- Other pages (Backend, etc.) could load data correctly
+
+**Root Cause:**
+The `AI.jsx` page initialization had a flaw:
+
+```javascript
+// PROBLEM: Calling initializeData() but ignoring return value
+useEffect(() => {
+  const data = initializeData();  // Returns events, doors, etc. but...
+  
+  // ...immediately tries to load from localStorage instead
+  const storedEvents = localStorage.getItem('pacs-events');
+  if (storedEvents) {
+    setEvents(JSON.parse(storedEvents));
+  } else {
+    console.log('[AI] No events found in localStorage');  // Falls back to empty
+  }
+}, []);
+```
+
+The `initializeData()` function returns an object with `events`, `doors`, etc. but the code was:
+1. Calling the function
+2. Discarding its return value
+3. Only looking in localStorage afterwards
+4. If localStorage was empty, states remained empty
+
+This could happen if:
+- User visited AI page before other pages that trigger localStorage initialization
+- Browser localStorage quota was exceeded (silently fails)
+- First visit to the app (localStorage not yet populated)
+
+**Fix Applied:**
+Modified `/opt/physical-security-sandbox/sandbox-frontend/src/pages/AI.jsx` useEffect:
+
+```javascript
+useEffect(() => {
+  // Initialize and load data
+  const data = initializeData();
+  
+  // Use data from initializeData() first, then try localStorage fallback
+  if (data && data.events && data.events.length > 0) {
+    setEvents(data.events);
+    console.log(`[AI] Loaded ${data.events.length} events from initializeData`);
+  } else {
+    // Fallback to localStorage
+    const storedEvents = localStorage.getItem('pacs-events');
+    if (storedEvents) {
+      const allEvents = JSON.parse(storedEvents);
+      setEvents(allEvents);
+      console.log(`[AI] Loaded ${allEvents.length} events from localStorage`);
+    } else {
+      console.log('[AI] No events found');
+    }
+  }
+  
+  // Same pattern for doors, cardholders, cameras
+  // Try initializeData() first, then localStorage fallback
+  if (data && data.doors && data.doors.length > 0) {
+    setDoors(data.doors);
+  } else {
+    // localStorage fallback...
+  }
+  
+  // etc. for cardholders and cameras
+}, []);
+```
+
+**Key Changes:**
+1. Use the return value from `initializeData()` first
+2. Fall back to localStorage only if initializeData() didn't return data
+3. Applied to all four data types (events, doors, cardholders, cameras)
+4. Added logging to show which source was used
+
+**Result:**
+- ✅ AI page now loads events on first visit
+- ✅ Example queries appear with actual data to query against
+- ✅ Users get responses with real event data immediately
+- ✅ No more "No event data" messages for normal usage
+- ✅ Works on first visit before other pages are loaded
+
+**Files Modified:**
+- `src/pages/AI.jsx` - Fixed useEffect to use initializeData() return value
+
+**Testing:**
+1. Open new browser session/incognito window
+2. Go directly to https://sandbox.petefox.co.uk/ai
+3. Try clicking one of the example queries
+4. Get back actual event data (not "No event data" warning)
+5. Verify multiple queries work with loaded events
+
+**Related Issues:**
+- Issue #6: Backend Dashboard showing no data (similar data loading issue)
+
+---

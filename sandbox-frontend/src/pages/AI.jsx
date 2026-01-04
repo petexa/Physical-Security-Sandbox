@@ -37,36 +37,57 @@ export default function AI() {
     // Initialize and load data
     const data = initializeData();
     
-    // Load events from localStorage (use correct key with hyphen)
-    const storedEvents = localStorage.getItem('pacs-events');
-    if (storedEvents) {
-      const allEvents = JSON.parse(storedEvents);
-      setEvents(allEvents);
-      console.log(`[AI] Loaded ${allEvents.length} events from localStorage`);
+    // Use data from initializeData() first, then try localStorage
+    if (data && data.events && data.events.length > 0) {
+      setEvents(data.events);
+      console.log(`[AI] Loaded ${data.events.length} events from initializeData`);
     } else {
-      console.log('[AI] No events found in localStorage');
+      // Fallback to localStorage
+      const storedEvents = localStorage.getItem('pacs-events');
+      if (storedEvents) {
+        const allEvents = JSON.parse(storedEvents);
+        setEvents(allEvents);
+        console.log(`[AI] Loaded ${allEvents.length} events from localStorage`);
+      } else {
+        console.log('[AI] No events found');
+      }
     }
     
-    // Load other data
-    const storedDoors = localStorage.getItem('pacs-doors');
-    if (storedDoors) {
-      const doorsData = JSON.parse(storedDoors);
-      setDoors(doorsData);
-      console.log(`[AI] Loaded ${doorsData.length} doors`);
+    // Load other data from initializeData or localStorage
+    if (data && data.doors && data.doors.length > 0) {
+      setDoors(data.doors);
+      console.log(`[AI] Loaded ${data.doors.length} doors from initializeData`);
+    } else {
+      const storedDoors = localStorage.getItem('pacs-doors');
+      if (storedDoors) {
+        const doorsData = JSON.parse(storedDoors);
+        setDoors(doorsData);
+        console.log(`[AI] Loaded ${doorsData.length} doors`);
+      }
     }
     
-    const storedCardholders = localStorage.getItem('pacs-cardholders');
-    if (storedCardholders) {
-      const cardholdersData = JSON.parse(storedCardholders);
-      setCardholders(cardholdersData);
-      console.log(`[AI] Loaded ${cardholdersData.length} cardholders`);
+    if (data && data.cardholders && data.cardholders.length > 0) {
+      setCardholders(data.cardholders);
+      console.log(`[AI] Loaded ${data.cardholders.length} cardholders from initializeData`);
+    } else {
+      const storedCardholders = localStorage.getItem('pacs-cardholders');
+      if (storedCardholders) {
+        const cardholdersData = JSON.parse(storedCardholders);
+        setCardholders(cardholdersData);
+        console.log(`[AI] Loaded ${cardholdersData.length} cardholders`);
+      }
     }
     
-    const storedCameras = localStorage.getItem('pacs-cameras');
-    if (storedCameras) {
-      const camerasData = JSON.parse(storedCameras);
-      setCameras(camerasData);
-      console.log(`[AI] Loaded ${camerasData.length} cameras`);
+    if (data && data.cameras && data.cameras.length > 0) {
+      setCameras(data.cameras);
+      console.log(`[AI] Loaded ${data.cameras.length} cameras from initializeData`);
+    } else {
+      const storedCameras = localStorage.getItem('pacs-cameras');
+      if (storedCameras) {
+        const camerasData = JSON.parse(storedCameras);
+        setCameras(camerasData);
+        console.log(`[AI] Loaded ${camerasData.length} cameras`);
+      }
     }
   }, []);
   
