@@ -5,6 +5,43 @@ All notable changes to the Physical Security Sandbox project will be documented 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-01-03
+
+### Added
+
+#### AI Tools Enhancements
+- **HowItWorksPanel Component** - Educational workflow visualization for AI tools
+  - Step-by-step process transparency for all AI features
+  - Expandable/collapsible panel interface
+  - Visual indicators for different step types (database, processing, output)
+  - Query details with show/hide toggle
+  - Duration tracking for each step
+  - Integrated into Natural Language Query interface (ChatInterface)
+  - Helps users understand how AI processes work behind the scenes
+
+### Fixed
+
+#### Bug Tracking and Prioritization
+- Identified and documented 6 critical bugs affecting platform usability:
+  1. **LocalStorage Quota Exceeded** - Generating 23,000 events exceeds browser limit (5-10MB)
+  2. **Natural Language Event Queries** - AI chat shows no results when events exist
+  3. **API PATCH Method** - PATCH requests fail in API Testing Console
+  4. **Event API Completeness** - API endpoint returns incomplete/filtered results
+  5. **API/Backend Compliance** - API responses may not match Backend display
+  6. **Dark Mode Table Selection** - Selected/hovered rows invisible (white on white)
+
+#### Documentation
+- Added comprehensive bug list with status, impact, and reproduction steps
+- Documented proposed fixes for dark mode table selection issue
+- Established bug priority order for systematic resolution
+
+### Technical Debt
+- Identified need for localStorage management and quota optimization
+- Documented need for dark mode CSS variable system improvements
+- API endpoint consistency requires audit and validation
+
+---
+
 ## [2.0.0] - 2026-01-03
 
 ### Added - Phase 4: AI Tools & Final Polish
@@ -258,6 +295,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History Summary
 
+- **v2.0.1** - Bug Tracking & AI Workflow Transparency ✅
 - **v2.0.0** - AI Tools & Final Polish (Phase 4) ✅
 - **v1.0.0** - Training & Labs (Phase 3) ✅
 - **v0.3.0** - API Testing & Backend Browser (Phase 2) ✅
@@ -272,7 +310,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Real-time event simulation (live event feed)
 - User authentication and roles
 - Multi-language support
-- Dark mode theme option
+- **Bug Fixes**:
+  - LocalStorage quota management and optimization
+  - Dark mode table selection visibility improvements
+  - API PATCH method functionality
+  - Natural language query data display
+  - Event API completeness and consistency
+  - API/Backend response alignment
 
 ### Potential v3.0.0
 - Real API integration options (Gallagher, Milestone)
