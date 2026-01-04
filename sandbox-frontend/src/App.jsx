@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -16,13 +16,40 @@ import { initTheme } from './utils/theme';
 import { initAPILogger } from './utils/apiLogger';
 
 function App() {
+  const [showHttpsWarning, setShowHttpsWarning] = useState(false);
+
   useEffect(() => {
     initTheme();
     initAPILogger();
+
+    // Show warning for HTTP on production domains (not localhost)
+    if (
+      window.location.protocol !== 'https:' && 
+      window.location.hostname !== 'localhost' && 
+      window.location.hostname !== '127.0.0.1'
+    ) {
+      setShowHttpsWarning(true);
+    }
   }, []);
 
   return (
     <BrowserRouter>
+      {showHttpsWarning && (
+        <div className="https-warning">
+          <span>
+            ⚠️ You are using an insecure connection. Please use HTTPS: 
+            <a href={`https://${window.location.host}${window.location.pathname}`}>
+              Switch to HTTPS
+            </a>
+          </span>
+          <button 
+            onClick={() => setShowHttpsWarning(false)}
+            className="https-warning-close"
+          >
+            ✕
+          </button>
+        </div>
+      )}
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
