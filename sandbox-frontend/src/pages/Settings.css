@@ -27,6 +27,7 @@
   background: var(--color-surface);
   border-bottom: 2px solid var(--color-border);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .settings-tab {
@@ -62,7 +63,18 @@
   margin: 0 auto;
 }
 
-/* Responsive */
+/* iPad Landscape */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .settings-tabs {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .settings-content {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
   .settings-header {
     padding: var(--spacing-md);
@@ -74,6 +86,10 @@
 
   .settings-tabs {
     padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .settings-tab {
+    flex-shrink: 0;
   }
 
   .settings-content {

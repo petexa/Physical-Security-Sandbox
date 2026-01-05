@@ -20,6 +20,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
+  min-height: 44px;
 }
 
 .data-table-search input:focus {
@@ -35,6 +36,9 @@
 
 .data-table-wrapper {
   overflow-x: auto;
+  /* iPad: Enhanced touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 .data-table {
@@ -112,6 +116,9 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
+  /* iPad: Make checkboxes easier to tap */
+  min-width: 24px;
+  min-height: 24px;
 }
 
 .data-table-empty {
@@ -171,6 +178,7 @@
   font-size: var(--font-size-sm);
   background: var(--color-surface);
   cursor: pointer;
+  min-height: 36px;
 }
 
 .pagination-info {
@@ -190,8 +198,8 @@
   color: var(--color-text-secondary);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* iPad Landscape (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
   .data-table-footer {
     flex-wrap: wrap;
   }
@@ -202,8 +210,14 @@
     text-align: center;
     margin-top: var(--spacing-sm);
   }
+  
+  .data-table th,
+  .data-table td {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
 }
 
+/* iPad Portrait and Mobile */
 @media (max-width: 768px) {
   .data-table th,
   .data-table td {
@@ -226,5 +240,15 @@
     order: 1;
     margin-top: 0;
     margin-bottom: var(--spacing-sm);
+  }
+  
+  .data-table-search input {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
+  }
+  
+  .page-size-selector select {
+    /* iPad: Prevent zoom on focus */
+    font-size: 16px;
   }
 }

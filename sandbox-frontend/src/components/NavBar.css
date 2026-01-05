@@ -113,6 +113,9 @@
     transition: max-height 0.3s ease;
     width: 100%;
     flex-wrap: nowrap;
+    /* iPad: Ensure menu doesn't overlap with safe areas */
+    z-index: 99;
+    -webkit-overflow-scrolling: touch;
   }
 
   .navbar-menu-open {
